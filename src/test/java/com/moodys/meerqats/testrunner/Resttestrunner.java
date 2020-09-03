@@ -12,7 +12,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 
 
 @CucumberOptions(
-		features = {"src/main/java/Feature"},
+		features = {"src/main/java/Feature/RatingReleaseDetails.feature"},
         glue = {"com.moodys.meerqats.stepdefinitions"},
         monochrome = true, 
         
