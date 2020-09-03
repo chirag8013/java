@@ -1,0 +1,58 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Get Rating release details from 20200505 to 20200506",
+        "description": "",
+        "id": "get-rating-release-details;get-rating-release-details-from-20200505-to-20200506",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 73645670900,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "Rest Get Call is made for the mentioned date",
+            "match": {
+              "location": "Steps.Rest_Get_Call_is_made_for_the_mentioned_date()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 813700,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "Validate Status Line and Status Code for rating release",
+            "match": {
+              "location": "Steps.Validate_Status_Line_and_Status_Code_for_rating_release()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 413590900,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "Validate Body for rating release details",
+            "match": {
+              "location": "Steps.Validate_Body_for_rating_release_details()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Get Rating Release Details",
+    "description": "",
+    "id": "get-rating-release-details",
+    "keyword": "Feature",
+    "uri": "src/main/java/Feature/RatingReleaseDetails.feature"
+  }
+]
