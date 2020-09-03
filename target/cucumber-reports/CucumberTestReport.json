@@ -1,0 +1,114 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Get Rating Release Info Accurate",
+        "description": "",
+        "id": "test-accurate-rest-apis;get-rating-release-info-accurate",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 250260305000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "Restcall is made for RatingRelInfoAccurate",
+            "match": {
+              "location": "Steps.Restcall_is_made_for_RatingRelInfoAccurate()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 781000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "Validate StatusLine and StatusCode Accurate",
+            "match": {
+              "location": "Steps.Validate_StatusLine_and_StatusCode_Accurate()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1106660700,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "Validate Body Accurate",
+            "match": {
+              "location": "Steps.Validate_Body_Accurate()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Test ACCURATE Rest APIs",
+    "description": "",
+    "id": "test-accurate-rest-apis",
+    "keyword": "Feature",
+    "uri": "ACCURATE.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Get Rating Release Info Pyramid",
+        "description": "",
+        "id": "test-pyramid-rest-apis;get-rating-release-info-pyramid",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 55943172700,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "Restcall is made for RatingRelInfoPyrmaid",
+            "match": {
+              "location": "Steps.Restcall_is_made_for_RatingRelInfoPyrmaid()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 267000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "Validate StatusLine and StatusCode Pyramid",
+            "match": {
+              "location": "Steps.Validate_StatusLine_and_StatusCode_Pyramid()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 307833700,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "Validate Body Pyramid",
+            "match": {
+              "location": "Steps.Validate_Body_Pyramid()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Test PYRAMID Rest APIs",
+    "description": "",
+    "id": "test-pyramid-rest-apis",
+    "keyword": "Feature",
+    "uri": "PYRAMID.feature"
+  }
+]
