@@ -1,5 +1,10 @@
 package com.moodys.meerqats.stepdefinitions;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import  io.restassured.RestAssured;
@@ -9,28 +14,50 @@ public class Steps {
 
  Response pyramidresp,accurateresp;
  Response ratingreldetailsresp;
+ Properties prop;
  
-	@When("Restcall is made for RatingRelInfoPyrmaid")
-	public void Restcall_is_made_for_RatingRelInfoPyrmaid() {
-
-		pyramidresp = RestAssured.given().auth().preemptive().basic("s_dev_rqms01", "webbe6Hanrybly").when()
-				.get("http://ftc-lbdkrapp206.ad.moodys.net:1521/QATS/getRatingReleaseInfoPyramid/20200514/20200515");
-
-	}
+ 
+ @When("Basic Setup")
+ public void Basic_Setup() throws IOException{
+	 
+	 prop= new Properties();
+		FileInputStream ip = new FileInputStream("D:\\Users/VermaC/Workspace1/MeerQATS_Cucumber_RestAssured/Config.properties");
+		 
+		 prop.load(ip);
 	
-	@When("Restcall is made for RatingRelInfoAccurate")
-	public void Restcall_is_made_for_RatingRelInfoAccurate(){
-		
-		accurateresp = RestAssured.given().auth().preemptive().basic("s_dev_rqms01", "webbe6Hanrybly").when()
-				.get("http://ftc-lbdkrapp206.ad.moodys.net:1521/QATS/getRatingReleaseInfoAccurate/20200514/20200515");
-		
+ }
+ 
+ @When("Restcall is made for RatingRelInfoPyrmaid")
+	public void Restcall_is_made_for_RatingRelInfoPyrmaid() throws IOException {
+	
+
+		pyramidresp = RestAssured.given().auth().preemptive().basic(prop.getProperty("RestUsername"),prop.getProperty("RestPassword")).when()
+				.get(prop.getProperty("ratingrelinfobaseurl")+"Pyramid/20200514/20200515");
+
 	}
+ 
+ @When("^Restcall is made for RatingRelInfoPyramid from \"([^\"]*)\" to \"([^\"]*)\"$")
+ public void restcall_is_made_for_RatingRelInfoPyramid_from_to(String startdate, String enddate) throws Throwable {
+     // Write code here that turns the phrase above into concrete actions
+	 pyramidresp = RestAssured.given().auth().preemptive().basic(prop.getProperty("RestUsername"), prop.getProperty("RestPassword")).when()
+				.get(prop.getProperty("ratingrelinfobaseurl")+"Pyramid/"+startdate+"/"+enddate);
+ }
+	
+ 
+ 
+ @When("^Restcall is made for RatingRelInfoAccurate from \"([^\"]*)\" to \"([^\"]*)\"$")
+ public void restcall_is_made_for_RatingRelInfoAccurate_from_to(String startdate, String enddate) throws Throwable {
+     // Write code here that turns the phrase above into concrete actions
+	 accurateresp = RestAssured.given().auth().preemptive().basic(prop.getProperty("RestUsername"), prop.getProperty("RestPassword")).when()
+				.get(prop.getProperty("ratingrelinfobaseurl")+"Accurate/"+startdate+"/"+enddate);
+ }
+	
 	
 	@When("Rest Get Call is made for the mentioned date")
 	public void Rest_Get_Call_is_made_for_the_mentioned_date(){
 		
-		ratingreldetailsresp = RestAssured.given().auth().preemptive().basic("s_dev_rqms01", "webbe6Hanrybly").when()
-				.get("http://ftc-lbdkrapp206.ad.moodys.net:1521/QATS/getRatingReleaseSummary/20200505/20200506");
+		ratingreldetailsresp = RestAssured.given().auth().preemptive().basic(prop.getProperty("RestUsername"), prop.getProperty("RestPassword")).when()
+				.get(prop.getProperty("ratingrelsummarybaseurl")+"/20200505/20200506");
 		
 		
 	}

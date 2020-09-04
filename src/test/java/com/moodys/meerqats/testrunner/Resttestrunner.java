@@ -12,10 +12,10 @@ import cucumber.api.testng.TestNGCucumberRunner;
 
 
 @CucumberOptions(
-		features = {"src/main/java/Feature/RatingReleaseDetails.feature"},
+		features = {"src/main/java/Feature/PYRAMID.feature"},
         glue = {"com.moodys.meerqats.stepdefinitions"},
         monochrome = true, 
-        
+       
         
        
 		strict = true,

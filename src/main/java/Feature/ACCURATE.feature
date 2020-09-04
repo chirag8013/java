@@ -1,6 +1,14 @@
 Feature: Test ACCURATE Rest APIs
 
-Scenario: Get Rating Release Info for Accurate from 20200514 to 20200515
-When Restcall is made for RatingRelInfoAccurate
+Background: General Setup
+Given Basic Setup
+
+Scenario Outline: Get Rating Release Info for Accurate 
+When Restcall is made for RatingRelInfoAccurate from "<startdate>" to "<enddate>"
 Then Validate StatusLine and StatusCode for Accurate
 And Validate Body for Accurate
+
+Examples:
+|startdate|enddate|
+|20200505|20200506|
+|20200511|20200512|
