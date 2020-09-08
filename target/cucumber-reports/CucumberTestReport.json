@@ -1,6 +1,14 @@
 [
   {
     "line": 1,
+    "name": "Test ACCURATE Rest APIs",
+    "description": "",
+    "id": "test-accurate-rest-apis",
+    "keyword": "Feature",
+    "uri": "ACCURATE.feature"
+  },
+  {
+    "line": 1,
     "elements": [
       {
         "line": 3,
@@ -11,7 +19,7 @@
         "steps": [
           {
             "result": {
-              "duration": 113430500,
+              "duration": 114929000,
               "status": "passed"
             },
             "line": 4,
@@ -33,7 +41,7 @@
         "steps": [
           {
             "result": {
-              "duration": 56890741700,
+              "duration": 56859737300,
               "status": "passed"
             },
             "line": 7,
@@ -49,7 +57,7 @@
           },
           {
             "result": {
-              "duration": 1503400,
+              "duration": 1046800,
               "status": "passed"
             },
             "line": 8,
@@ -61,7 +69,7 @@
           },
           {
             "result": {
-              "duration": 797028500,
+              "duration": 762069400,
               "status": "passed"
             },
             "line": 9,
@@ -82,7 +90,7 @@
         "steps": [
           {
             "result": {
-              "duration": 435000,
+              "duration": 407300,
               "status": "passed"
             },
             "line": 4,
@@ -104,11 +112,11 @@
         "steps": [
           {
             "result": {
-              "duration": 53785249900,
+              "duration": 54362729500,
               "status": "passed"
             },
             "line": 7,
-            "name": "Restcall is made for RatingRelInfoPyrmaid from \"20200511\" to \"20200512\"",
+            "name": "Restcall is made for RatingRelInfoPyrmaid from \"20200626\" to \"20200627\"",
             "match": {
               "location": "Steps.Restcall_is_made_for_RatingRelInfoPyrmaid()"
             },
@@ -120,7 +128,7 @@
           },
           {
             "result": {
-              "duration": 251800,
+              "duration": 248300,
               "status": "passed"
             },
             "line": 8,
@@ -132,7 +140,7 @@
           },
           {
             "result": {
-              "duration": 272067500,
+              "duration": 131508300,
               "status": "passed"
             },
             "line": 9,
@@ -149,6 +157,83 @@
     "description": "",
     "id": "test-pyramid-rest-apis",
     "keyword": "Feature",
-    "uri": "src/main/java/Feature/PYRAMID.feature"
+    "uri": "PYRAMID.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "General Setup",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 520100,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "Basic Setup",
+            "match": {
+              "location": "Steps.Basic_Setup()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 6,
+        "name": "Get Rating release details from 20200505 to 20200506",
+        "description": "",
+        "id": "get-rating-release-details;get-rating-release-details-from-20200505-to-20200506",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 52631910800,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "Rest Get Call is made for the mentioned date",
+            "match": {
+              "location": "Steps.Rest_Get_Call_is_made_for_the_mentioned_date()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 204200,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Validate Status Line and Status Code for rating release",
+            "match": {
+              "location": "Steps.Validate_Status_Line_and_Status_Code_for_rating_release()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 26225200,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "Validate Body for rating release details",
+            "match": {
+              "location": "Steps.Validate_Body_for_rating_release_details()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Get Rating Release Details",
+    "description": "",
+    "id": "get-rating-release-details",
+    "keyword": "Feature",
+    "uri": "RatingReleaseDetails.feature"
   }
 ]

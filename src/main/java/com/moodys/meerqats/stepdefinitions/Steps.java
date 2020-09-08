@@ -1,7 +1,6 @@
 package com.moodys.meerqats.stepdefinitions;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -103,6 +102,7 @@ public class Steps {
 		
 		
 		
+		
 		System.out.println("----------------------------------------------");
 		
 	}
@@ -114,7 +114,7 @@ public class Steps {
 		System.out.println(pyramidresp.jsonPath().getList("ratingActionName"));
 		System.out.println(pyramidresp.jsonPath().getList("").get(0));
 		System.out.println(pyramidresp.jsonPath().getList("").isEmpty());
-		System.out.println(pyramidresp.getBody().jsonPath().prettify().toString());
+		
 		
 		
 	}
@@ -128,7 +128,7 @@ public class Steps {
 		System.out.println(ratingreldetailsresp.jsonPath().getList("ratingActionCount"));
 		System.out.println(ratingreldetailsresp.jsonPath().getList("").get(0));
 		System.out.println(ratingreldetailsresp.jsonPath().getList("").isEmpty());
-		System.out.println(ratingreldetailsresp.getBody().jsonPath().prettify().toString());
+		
 		
 		
 	}

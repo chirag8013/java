@@ -1,4 +1,12 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/main/java/Feature/PYRAMID.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("ACCURATE.feature");
+formatter.feature({
+  "line": 1,
+  "name": "Test ACCURATE Rest APIs",
+  "description": "",
+  "id": "test-accurate-rest-apis",
+  "keyword": "Feature"
+});
+formatter.uri("PYRAMID.feature");
 formatter.feature({
   "line": 1,
   "name": "Test PYRAMID Rest APIs",
@@ -53,8 +61,8 @@ formatter.examples({
     },
     {
       "cells": [
-        "20200511",
-        "20200512"
+        "20200626",
+        "20200627"
       ],
       "line": 14,
       "id": "test-pyramid-rest-apis;get-rating-release-info-for-pyramid;;3"
@@ -78,7 +86,7 @@ formatter.match({
   "location": "Steps.Basic_Setup()"
 });
 formatter.result({
-  "duration": 113430500,
+  "duration": 114929000,
   "status": "passed"
 });
 formatter.scenario({
@@ -112,28 +120,21 @@ formatter.match({
   "location": "Steps.Restcall_is_made_for_RatingRelInfoPyrmaid()"
 });
 formatter.result({
-  "duration": 56890741700,
+  "duration": 56859737300,
   "status": "passed"
 });
 formatter.match({
   "location": "Steps.Validate_StatusLine_and_StatusCode_for_Pyramid()"
 });
-formatter.resultformatter.result({
-  "duration": 343266971200,
+formatter.result({
+  "duration": 1046800,
   "status": "passed"
 });
 formatter.match({
-  "location": "Steps.Validate_StatusLine_and_StatusCode_for_Accurate()"
+  "location": "Steps.Validate_Body_for_Pyramid()"
 });
 formatter.result({
-  "duration": 1603900,
-  "status": "passed"
-});
-formatter.match({
-  "location": "Steps.Validate_Body_for_Accurate()"
-});
-formatter.result({
-  "duration": 1264776100,
+  "duration": 762069400,
   "status": "passed"
 });
 formatter.background({
@@ -152,20 +153,20 @@ formatter.match({
   "location": "Steps.Basic_Setup()"
 });
 formatter.result({
-  "duration": 503600,
+  "duration": 407300,
   "status": "passed"
 });
 formatter.scenario({
   "line": 14,
-  "name": "Get Rating Release Info for Accurate",
+  "name": "Get Rating Release Info for Pyramid",
   "description": "",
-  "id": "test-accurate-rest-apis;get-rating-release-info-for-accurate;;3",
+  "id": "test-pyramid-rest-apis;get-rating-release-info-for-pyramid;;3",
   "type": "scenario",
   "keyword": "Scenario Outline"
 });
 formatter.step({
   "line": 7,
-  "name": "Restcall is made for RatingRelInfoAccurate from \"20200511\" to \"20200512\"",
+  "name": "Restcall is made for RatingRelInfoPyrmaid from \"20200626\" to \"20200627\"",
   "matchedColumns": [
     0,
     1
@@ -174,27 +175,104 @@ formatter.step({
 });
 formatter.step({
   "line": 8,
-  "name": "Validate StatusLine and StatusCode for Accurate",
+  "name": "Validate StatusLine and StatusCode for Pyramid",
   "keyword": "Then "
 });
 formatter.step({
   "line": 9,
-  "name": "Validate Body for Accurate",
+  "name": "Validate Body for Pyramid",
   "keyword": "And "
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "20200511",
-      "offset": 49
-    },
-    {
-      "val": "20200512",
-      "offset": 63
-    }
-  ],
-  "location": "Steps.restcall_is_made_for_RatingRelInfoAccurate_from_to(String,String)"
+  "location": "Steps.Restcall_is_made_for_RatingRelInfoPyrmaid()"
 });
- "status": "passed"
+formatter.result({
+  "duration": 54362729500,
+  "status": "passed"
+});
+formatter.match({
+  "location": "Steps.Validate_StatusLine_and_StatusCode_for_Pyramid()"
+});
+formatter.result({
+  "duration": 248300,
+  "status": "passed"
+});
+formatter.match({
+  "location": "Steps.Validate_Body_for_Pyramid()"
+});
+formatter.result({
+  "duration": 131508300,
+  "status": "passed"
+});
+formatter.uri("RatingReleaseDetails.feature");
+formatter.feature({
+  "line": 1,
+  "name": "Get Rating Release Details",
+  "description": "",
+  "id": "get-rating-release-details",
+  "keyword": "Feature"
+});
+formatter.background({
+  "line": 3,
+  "name": "General Setup",
+  "description": "",
+  "type": "background",
+  "keyword": "Background"
+});
+formatter.step({
+  "line": 4,
+  "name": "Basic Setup",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "Steps.Basic_Setup()"
+});
+formatter.result({
+  "duration": 520100,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 6,
+  "name": "Get Rating release details from 20200505 to 20200506",
+  "description": "",
+  "id": "get-rating-release-details;get-rating-release-details-from-20200505-to-20200506",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 7,
+  "name": "Rest Get Call is made for the mentioned date",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 8,
+  "name": "Validate Status Line and Status Code for rating release",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 9,
+  "name": "Validate Body for rating release details",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "Steps.Rest_Get_Call_is_made_for_the_mentioned_date()"
+});
+formatter.result({
+  "duration": 52631910800,
+  "status": "passed"
+});
+formatter.match({
+  "location": "Steps.Validate_Status_Line_and_Status_Code_for_rating_release()"
+});
+formatter.result({
+  "duration": 204200,
+  "status": "passed"
+});
+formatter.match({
+  "location": "Steps.Validate_Body_for_rating_release_details()"
+});
+formatter.result({
+  "duration": 26225200,
+  "status": "passed"
 });
 });

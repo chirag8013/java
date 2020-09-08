@@ -11,4 +11,4 @@ And Validate Body for Pyramid
 Examples:
 |startdate|enddate|
 |20200514|20200515|
-|20200511|20200512|
+|20200626|20200627|

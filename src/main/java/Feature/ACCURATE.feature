@@ -3,6 +3,7 @@ Feature: Test ACCURATE Rest APIs
 Background: General Setup
 Given Basic Setup
 
+@accurate
 Scenario Outline: Get Rating Release Info for Accurate 
 When Restcall is made for RatingRelInfoAccurate from "<startdate>" to "<enddate>"
 Then Validate StatusLine and StatusCode for Accurate

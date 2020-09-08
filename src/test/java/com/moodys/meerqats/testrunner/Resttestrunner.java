@@ -12,9 +12,10 @@ import cucumber.api.testng.TestNGCucumberRunner;
 
 
 @CucumberOptions(
-		features = {"src/main/java/Feature/PYRAMID.feature"},
+		features = {"src/main/java/Feature"},
         glue = {"com.moodys.meerqats.stepdefinitions"},
         monochrome = true, 
+        tags= "~@accurate",
        
         
        
