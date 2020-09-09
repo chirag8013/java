@@ -4,7 +4,7 @@ Background: General Setup
 Given Basic Setup
 
 Scenario Outline: Get Rating Release Info for Pyramid 
-When Restcall is made for RatingRelInfoPyrmaid from "<startdate>" to "<enddate>"
+When Restcall is made for RatingRelInfoPyramid from "<startdate>" to "<enddate>"
 Then Validate StatusLine and StatusCode for Pyramid
 And Validate Body for Pyramid
 

@@ -17,6 +17,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
         monochrome = true, 
         tags= "~@accurate",
        
+       
         
        
 		strict = true,

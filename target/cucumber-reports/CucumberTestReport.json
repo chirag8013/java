@@ -19,7 +19,98 @@
         "steps": [
           {
             "result": {
-              "duration": 114929000,
+              "duration": 188646500,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "Basic Setup",
+            "match": {
+              "location": "Steps.Basic_Setup()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 13,
+        "name": "Get Rating Release Info for ORP",
+        "description": "",
+        "id": "test-orp-rest-apis;get-rating-release-info-for-orp;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 3839146600,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "Restcall is made for RatingRelInfoORP from \"20200505\" to \"202005106\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "20200505",
+                  "offset": 44
+                },
+                {
+                  "val": "202005106",
+                  "offset": 58
+                }
+              ],
+              "location": "Steps.restcall_is_made_for_RatingRelInfoORP_from_to(String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 766900,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Validate StatusLine and StatusCode for ORP",
+            "match": {
+              "location": "Steps.Validate_StatusLine_and_StatusCode_for_ORP()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1080935200,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "Validate Body for ORP",
+            "match": {
+              "location": "Steps.Validate_Body_for_ORP()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Test ORP Rest APIs",
+    "description": "",
+    "id": "test-orp-rest-apis",
+    "keyword": "Feature",
+    "uri": "ORP.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "General Setup",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 473400,
               "status": "passed"
             },
             "line": 4,
@@ -41,13 +132,23 @@
         "steps": [
           {
             "result": {
-              "duration": 56859737300,
+              "duration": 60348683100,
               "status": "passed"
             },
             "line": 7,
-            "name": "Restcall is made for RatingRelInfoPyrmaid from \"20200514\" to \"20200515\"",
+            "name": "Restcall is made for RatingRelInfoPyramid from \"20200514\" to \"20200515\"",
             "match": {
-              "location": "Steps.Restcall_is_made_for_RatingRelInfoPyrmaid()"
+              "arguments": [
+                {
+                  "val": "20200514",
+                  "offset": 48
+                },
+                {
+                  "val": "20200515",
+                  "offset": 62
+                }
+              ],
+              "location": "Steps.restcall_is_made_for_RatingRelInfoPyramid_from_to(String,String)"
             },
             "matchedColumns": [
               0,
@@ -57,7 +158,7 @@
           },
           {
             "result": {
-              "duration": 1046800,
+              "duration": 211300,
               "status": "passed"
             },
             "line": 8,
@@ -69,7 +170,7 @@
           },
           {
             "result": {
-              "duration": 762069400,
+              "duration": 992350800,
               "status": "passed"
             },
             "line": 9,
@@ -90,7 +191,7 @@
         "steps": [
           {
             "result": {
-              "duration": 407300,
+              "duration": 377100,
               "status": "passed"
             },
             "line": 4,
@@ -112,13 +213,23 @@
         "steps": [
           {
             "result": {
-              "duration": 54362729500,
+              "duration": 58141357400,
               "status": "passed"
             },
             "line": 7,
-            "name": "Restcall is made for RatingRelInfoPyrmaid from \"20200626\" to \"20200627\"",
+            "name": "Restcall is made for RatingRelInfoPyramid from \"20200626\" to \"20200627\"",
             "match": {
-              "location": "Steps.Restcall_is_made_for_RatingRelInfoPyrmaid()"
+              "arguments": [
+                {
+                  "val": "20200626",
+                  "offset": 48
+                },
+                {
+                  "val": "20200627",
+                  "offset": 62
+                }
+              ],
+              "location": "Steps.restcall_is_made_for_RatingRelInfoPyramid_from_to(String,String)"
             },
             "matchedColumns": [
               0,
@@ -128,7 +239,7 @@
           },
           {
             "result": {
-              "duration": 248300,
+              "duration": 276000,
               "status": "passed"
             },
             "line": 8,
@@ -140,7 +251,7 @@
           },
           {
             "result": {
-              "duration": 131508300,
+              "duration": 495175800,
               "status": "passed"
             },
             "line": 9,
@@ -171,7 +282,7 @@
         "steps": [
           {
             "result": {
-              "duration": 520100,
+              "duration": 377000,
               "status": "passed"
             },
             "line": 4,
@@ -193,7 +304,7 @@
         "steps": [
           {
             "result": {
-              "duration": 52631910800,
+              "duration": 53622192600,
               "status": "passed"
             },
             "line": 7,
@@ -205,7 +316,7 @@
           },
           {
             "result": {
-              "duration": 204200,
+              "duration": 203800,
               "status": "passed"
             },
             "line": 8,
@@ -217,7 +328,7 @@
           },
           {
             "result": {
-              "duration": 26225200,
+              "duration": 12178500,
               "status": "passed"
             },
             "line": 9,
