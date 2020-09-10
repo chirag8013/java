@@ -78,7 +78,7 @@ formatter.match({
   "location": "Steps.Basic_Setup()"
 });
 formatter.result({
-  "duration": 188646500,
+  "duration": 133129800,
   "status": "passed"
 });
 formatter.scenario({
@@ -122,21 +122,21 @@ formatter.match({
   "location": "Steps.restcall_is_made_for_RatingRelInfoORP_from_to(String,String)"
 });
 formatter.result({
-  "duration": 3839146600,
+  "duration": 3309842700,
   "status": "passed"
 });
 formatter.match({
   "location": "Steps.Validate_StatusLine_and_StatusCode_for_ORP()"
 });
 formatter.result({
-  "duration": 766900,
+  "duration": 754600,
   "status": "passed"
 });
 formatter.match({
   "location": "Steps.Validate_Body_for_ORP()"
 });
 formatter.result({
-  "duration": 1080935200,
+  "duration": 832282400,
   "status": "passed"
 });
 formatter.uri("PYRAMID.feature");
@@ -219,7 +219,7 @@ formatter.match({
   "location": "Steps.Basic_Setup()"
 });
 formatter.result({
-  "duration": 473400,
+  "duration": 386100,
   "status": "passed"
 });
 formatter.scenario({
@@ -263,21 +263,21 @@ formatter.match({
   "location": "Steps.restcall_is_made_for_RatingRelInfoPyramid_from_to(String,String)"
 });
 formatter.result({
-  "duration": 60348683100,
+  "duration": 74572000100,
   "status": "passed"
 });
 formatter.match({
   "location": "Steps.Validate_StatusLine_and_StatusCode_for_Pyramid()"
 });
 formatter.result({
-  "duration": 211300,
+  "duration": 257300,
   "status": "passed"
 });
 formatter.match({
   "location": "Steps.Validate_Body_for_Pyramid()"
 });
 formatter.result({
-  "duration": 992350800,
+  "duration": 925783300,
   "status": "passed"
 });
 formatter.background({
@@ -296,7 +296,7 @@ formatter.match({
   "location": "Steps.Basic_Setup()"
 });
 formatter.result({
-  "duration": 377100,
+  "duration": 402300,
   "status": "passed"
 });
 formatter.scenario({
@@ -340,21 +340,21 @@ formatter.match({
   "location": "Steps.restcall_is_made_for_RatingRelInfoPyramid_from_to(String,String)"
 });
 formatter.result({
-  "duration": 58141357400,
+  "duration": 61162416900,
   "status": "passed"
 });
 formatter.match({
   "location": "Steps.Validate_StatusLine_and_StatusCode_for_Pyramid()"
 });
 formatter.result({
-  "duration": 276000,
+  "duration": 233800,
   "status": "passed"
 });
 formatter.match({
   "location": "Steps.Validate_Body_for_Pyramid()"
 });
 formatter.result({
-  "duration": 495175800,
+  "duration": 762834400,
   "status": "passed"
 });
 formatter.uri("RatingReleaseDetails.feature");
@@ -381,7 +381,7 @@ formatter.match({
   "location": "Steps.Basic_Setup()"
 });
 formatter.result({
-  "duration": 377000,
+  "duration": 341400,
   "status": "passed"
 });
 formatter.scenario({
@@ -411,21 +411,21 @@ formatter.match({
   "location": "Steps.Rest_Get_Call_is_made_for_the_mentioned_date()"
 });
 formatter.result({
-  "duration": 53622192600,
+  "duration": 62706374600,
   "status": "passed"
 });
 formatter.match({
   "location": "Steps.Validate_Status_Line_and_Status_Code_for_rating_release()"
 });
 formatter.result({
-  "duration": 203800,
+  "duration": 246700,
   "status": "passed"
 });
 formatter.match({
   "location": "Steps.Validate_Body_for_rating_release_details()"
 });
 formatter.result({
-  "duration": 12178500,
+  "duration": 14148200,
   "status": "passed"
 });
 });
