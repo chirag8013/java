@@ -120,7 +120,7 @@ public class Steps {
 		int RespArraySize = pyramidresp.jsonPath().getList("").size();
 		System.out.println(RespArraySize);
 
-		util.getdetails("Blue Ridge (NC) 2020 SALE", RespArraySize, pyramidresp);
+		util.getdetails(prop.getProperty("ratingactionname1"), RespArraySize, pyramidresp);
 
 
 	}
@@ -133,7 +133,7 @@ public class Steps {
 		int RespArraySize = orpresp.jsonPath().getList("").size();
 		System.out.println(RespArraySize);
 
-		util.getdetails("Association to RTG-733", RespArraySize, orpresp);
+		util.getdetails(prop.getProperty("ratingactionname2"), RespArraySize, orpresp);
 
 	}
 
@@ -145,7 +145,7 @@ public class Steps {
 		int RespArraySize = ratingreldetailsresp.jsonPath().getList("").size();
 		System.out.println(RespArraySize);
 
-		util.getdetails("ACCURATE", RespArraySize, ratingreldetailsresp);
+		util.getdetails(prop.getProperty("sourcesystem"), RespArraySize, ratingreldetailsresp);
 
 		
 
