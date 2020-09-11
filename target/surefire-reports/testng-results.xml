@@ -2,19 +2,19 @@
 <testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="BDD Test Suite" duration-ms="203014" started-at="2020-09-10T13:29:35Z" finished-at="2020-09-10T13:32:58Z">
+  <suite name="BDD Test Suite" duration-ms="171977" started-at="2020-09-11T11:48:53Z" finished-at="2020-09-11T11:51:45Z">
     <groups>
       <group name="cucumber">
         <method signature="Resttestrunner.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.moodys.meerqats.testrunner.Resttestrunner@73f792cf]" name="feature" class="com.moodys.meerqats.testrunner.Resttestrunner"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="FREE CRM Test" duration-ms="203014" started-at="2020-09-10T13:29:35Z" finished-at="2020-09-10T13:32:58Z">
+    <test name="FREE CRM Test" duration-ms="171977" started-at="2020-09-11T11:48:53Z" finished-at="2020-09-11T11:51:45Z">
       <class name="com.moodys.meerqats.testrunner.Resttestrunner">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.moodys.meerqats.testrunner.Resttestrunner@73f792cf]" name="setUpClass" is-config="true" duration-ms="350" started-at="2020-09-10T13:29:35Z" finished-at="2020-09-10T13:29:36Z">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.moodys.meerqats.testrunner.Resttestrunner@73f792cf]" name="setUpClass" is-config="true" duration-ms="228" started-at="2020-09-11T11:48:53Z" finished-at="2020-09-11T11:48:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.moodys.meerqats.testrunner.Resttestrunner@73f792cf]" name="feature" duration-ms="32" started-at="2020-09-10T13:29:36Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2020-09-10T13:29:36Z">
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.moodys.meerqats.testrunner.Resttestrunner@73f792cf]" name="feature" duration-ms="26" started-at="2020-09-11T11:48:54Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2020-09-11T11:48:54Z">
           <params>
             <param index="0">
               <value>
@@ -25,7 +25,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.moodys.meerqats.testrunner.Resttestrunner@73f792cf]" name="feature" duration-ms="5664" started-at="2020-09-10T13:29:36Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2020-09-10T13:29:42Z">
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.moodys.meerqats.testrunner.Resttestrunner@73f792cf]" name="feature" duration-ms="3277" started-at="2020-09-11T11:48:54Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2020-09-11T11:48:57Z">
           <params>
             <param index="0">
               <value>
@@ -36,7 +36,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.moodys.meerqats.testrunner.Resttestrunner@73f792cf]" name="feature" duration-ms="139555" started-at="2020-09-10T13:29:42Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2020-09-10T13:32:01Z">
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.moodys.meerqats.testrunner.Resttestrunner@73f792cf]" name="feature" duration-ms="114822" started-at="2020-09-11T11:48:57Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2020-09-11T11:50:52Z">
           <params>
             <param index="0">
               <value>
@@ -47,7 +47,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.moodys.meerqats.testrunner.Resttestrunner@73f792cf]" name="feature" duration-ms="57255" started-at="2020-09-10T13:32:01Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2020-09-10T13:32:58Z">
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.moodys.meerqats.testrunner.Resttestrunner@73f792cf]" name="feature" duration-ms="53489" started-at="2020-09-11T11:50:52Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2020-09-11T11:51:45Z">
           <params>
             <param index="0">
               <value>
@@ -58,7 +58,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.moodys.meerqats.testrunner.Resttestrunner@73f792cf]" name="tearDownClass" is-config="true" duration-ms="34" started-at="2020-09-10T13:32:58Z" finished-at="2020-09-10T13:32:58Z">
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.moodys.meerqats.testrunner.Resttestrunner@73f792cf]" name="tearDownClass" is-config="true" duration-ms="21" started-at="2020-09-11T11:51:45Z" finished-at="2020-09-11T11:51:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

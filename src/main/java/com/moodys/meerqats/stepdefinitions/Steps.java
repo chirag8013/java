@@ -120,7 +120,7 @@ public class Steps {
 		int RespArraySize = pyramidresp.jsonPath().getList("").size();
 		System.out.println(RespArraySize);
 
-		util.getdetails(prop.getProperty("ratingactionname1"), RespArraySize, pyramidresp);
+		util.getdetails(prop.getProperty("ratingactionnamePyramid"), RespArraySize, pyramidresp);
 
 
 	}
@@ -133,7 +133,7 @@ public class Steps {
 		int RespArraySize = orpresp.jsonPath().getList("").size();
 		System.out.println(RespArraySize);
 
-		util.getdetails(prop.getProperty("ratingactionname2"), RespArraySize, orpresp);
+		util.getdetails(prop.getProperty("ratingactionnameORP"), RespArraySize, orpresp);
 
 	}
 
@@ -158,6 +158,14 @@ public class Steps {
 		System.out.println(accurateresp.jsonPath().getList("ratingActionName").get(0));
 		System.out.println(accurateresp.jsonPath().getList("").get(0));
 		System.out.println(accurateresp.jsonPath().getList("").isEmpty());
+		
+		System.out.println(accurateresp.jsonPath().getList("ratingActionName"));
+
+		int RespArraySize = accurateresp.jsonPath().getList("").size();
+		System.out.println(RespArraySize);
+
+		util.getdetails(prop.getProperty("ratingactionnameACCURATE"), RespArraySize, accurateresp);
+
 
 	}
 
