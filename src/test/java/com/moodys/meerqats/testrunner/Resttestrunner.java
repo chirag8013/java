@@ -15,11 +15,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 		features = {"src/main/java/Feature"},
         glue = {"com.moodys.meerqats.stepdefinitions"},
         monochrome = true, 
-        tags= "~@accurate",
-       
-       
-        
-       
+        tags= "@orp,@pyramid",
 		strict = true,
         format = {
                 "pretty",

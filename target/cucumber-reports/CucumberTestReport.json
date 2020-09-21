@@ -1,14 +1,6 @@
 [
   {
     "line": 1,
-    "name": "Test ACCURATE Rest APIs",
-    "description": "",
-    "id": "test-accurate-rest-apis",
-    "keyword": "Feature",
-    "uri": "ACCURATE.feature"
-  },
-  {
-    "line": 1,
     "elements": [
       {
         "line": 3,
@@ -19,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 116258800,
+              "duration": 128757300,
               "status": "passed"
             },
             "line": 4,
@@ -32,7 +24,7 @@
         ]
       },
       {
-        "line": 13,
+        "line": 14,
         "name": "Get Rating Release Info for ORP",
         "description": "",
         "id": "test-orp-rest-apis;get-rating-release-info-for-orp;;2",
@@ -41,10 +33,10 @@
         "steps": [
           {
             "result": {
-              "duration": 2301101700,
+              "duration": 2894047700,
               "status": "passed"
             },
-            "line": 7,
+            "line": 8,
             "name": "Restcall is made for RatingRelInfoORP from \"20200505\" to \"202005106\"",
             "match": {
               "arguments": [
@@ -67,10 +59,10 @@
           },
           {
             "result": {
-              "duration": 810000,
+              "duration": 704600,
               "status": "passed"
             },
-            "line": 8,
+            "line": 9,
             "name": "Validate StatusLine and StatusCode for ORP",
             "match": {
               "location": "Steps.Validate_StatusLine_and_StatusCode_for_ORP()"
@@ -79,15 +71,21 @@
           },
           {
             "result": {
-              "duration": 832059100,
+              "duration": 831115100,
               "status": "passed"
             },
-            "line": 9,
+            "line": 10,
             "name": "Validate Body for ORP",
             "match": {
               "location": "Steps.Validate_Body_for_ORP()"
             },
             "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 6,
+            "name": "@orp"
           }
         ]
       }
@@ -110,7 +108,7 @@
         "steps": [
           {
             "result": {
-              "duration": 360400,
+              "duration": 394300,
               "status": "passed"
             },
             "line": 4,
@@ -123,7 +121,7 @@
         ]
       },
       {
-        "line": 13,
+        "line": 14,
         "name": "Get Rating Release Info for Pyramid",
         "description": "",
         "id": "test-pyramid-rest-apis;get-rating-release-info-for-pyramid;;2",
@@ -132,10 +130,10 @@
         "steps": [
           {
             "result": {
-              "duration": 58653910900,
+              "duration": 74859698400,
               "status": "passed"
             },
-            "line": 7,
+            "line": 8,
             "name": "Restcall is made for RatingRelInfoPyramid from \"20200514\" to \"20200515\"",
             "match": {
               "arguments": [
@@ -158,10 +156,10 @@
           },
           {
             "result": {
-              "duration": 234100,
+              "duration": 252200,
               "status": "passed"
             },
-            "line": 8,
+            "line": 9,
             "name": "Validate StatusLine and StatusCode for Pyramid",
             "match": {
               "location": "Steps.Validate_StatusLine_and_StatusCode_for_Pyramid()"
@@ -170,15 +168,21 @@
           },
           {
             "result": {
-              "duration": 917843700,
+              "duration": 1240640900,
               "status": "passed"
             },
-            "line": 9,
+            "line": 10,
             "name": "Validate Body for Pyramid",
             "match": {
               "location": "Steps.Validate_Body_for_Pyramid()"
             },
             "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 6,
+            "name": "@pyramid"
           }
         ]
       },
@@ -191,7 +195,7 @@
         "steps": [
           {
             "result": {
-              "duration": 366600,
+              "duration": 386900,
               "status": "passed"
             },
             "line": 4,
@@ -204,7 +208,7 @@
         ]
       },
       {
-        "line": 14,
+        "line": 15,
         "name": "Get Rating Release Info for Pyramid",
         "description": "",
         "id": "test-pyramid-rest-apis;get-rating-release-info-for-pyramid;;3",
@@ -213,10 +217,10 @@
         "steps": [
           {
             "result": {
-              "duration": 54699424700,
+              "duration": 77207534600,
               "status": "passed"
             },
-            "line": 7,
+            "line": 8,
             "name": "Restcall is made for RatingRelInfoPyramid from \"20200626\" to \"20200627\"",
             "match": {
               "arguments": [
@@ -239,10 +243,10 @@
           },
           {
             "result": {
-              "duration": 267000,
+              "duration": 263700,
               "status": "passed"
             },
-            "line": 8,
+            "line": 9,
             "name": "Validate StatusLine and StatusCode for Pyramid",
             "match": {
               "location": "Steps.Validate_StatusLine_and_StatusCode_for_Pyramid()"
@@ -251,15 +255,21 @@
           },
           {
             "result": {
-              "duration": 528527500,
+              "duration": 498741900,
               "status": "passed"
             },
-            "line": 9,
+            "line": 10,
             "name": "Validate Body for Pyramid",
             "match": {
               "location": "Steps.Validate_Body_for_Pyramid()"
             },
             "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 6,
+            "name": "@pyramid"
           }
         ]
       }
@@ -269,82 +279,5 @@
     "id": "test-pyramid-rest-apis",
     "keyword": "Feature",
     "uri": "PYRAMID.feature"
-  },
-  {
-    "line": 1,
-    "elements": [
-      {
-        "line": 3,
-        "name": "General Setup",
-        "description": "",
-        "type": "background",
-        "keyword": "Background",
-        "steps": [
-          {
-            "result": {
-              "duration": 325700,
-              "status": "passed"
-            },
-            "line": 4,
-            "name": "Basic Setup",
-            "match": {
-              "location": "Steps.Basic_Setup()"
-            },
-            "keyword": "Given "
-          }
-        ]
-      },
-      {
-        "line": 6,
-        "name": "Get Rating release details from 20200505 to 20200506",
-        "description": "",
-        "id": "get-rating-release-details;get-rating-release-details-from-20200505-to-20200506",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 53467787000,
-              "status": "passed"
-            },
-            "line": 7,
-            "name": "Rest Get Call is made for the mentioned date",
-            "match": {
-              "location": "Steps.Rest_Get_Call_is_made_for_the_mentioned_date()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 192800,
-              "status": "passed"
-            },
-            "line": 8,
-            "name": "Validate Status Line and Status Code for rating release",
-            "match": {
-              "location": "Steps.Validate_Status_Line_and_Status_Code_for_rating_release()"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 11826500,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "Validate Body for rating release details",
-            "match": {
-              "location": "Steps.Validate_Body_for_rating_release_details()"
-            },
-            "keyword": "And "
-          }
-        ]
-      }
-    ],
-    "name": "Get Rating Release Details",
-    "description": "",
-    "id": "get-rating-release-details",
-    "keyword": "Feature",
-    "uri": "RatingReleaseDetails.feature"
   }
 ]

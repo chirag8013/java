@@ -3,6 +3,7 @@ Feature: Test ORP Rest APIs
 Background: General Setup
 Given Basic Setup
 
+@orp
 Scenario Outline: Get Rating Release Info for ORP 
 When Restcall is made for RatingRelInfoORP from "<startdate>" to "<enddate>"
 Then Validate StatusLine and StatusCode for ORP

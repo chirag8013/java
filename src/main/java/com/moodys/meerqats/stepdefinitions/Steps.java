@@ -115,23 +115,22 @@ public class Steps {
 	@Then("Validate Body for Pyramid")
 	public void Validate_Body_for_Pyramid() {
 
+		int RespArraySize = pyramidresp.jsonPath().getList("").size();
+		System.out.println("Size of the response array is " + RespArraySize);
+
 		System.out.println(pyramidresp.jsonPath().getList("ratingActionName"));
 
-		int RespArraySize = pyramidresp.jsonPath().getList("").size();
-		System.out.println(RespArraySize);
-
 		util.getdetails(prop.getProperty("ratingactionnamePyramid"), RespArraySize, pyramidresp);
-
 
 	}
 
 	@Then("Validate Body for ORP")
 	public void Validate_Body_for_ORP() {
 
-		System.out.println(orpresp.jsonPath().getList("ratingActionName"));
-
 		int RespArraySize = orpresp.jsonPath().getList("").size();
-		System.out.println(RespArraySize);
+		System.out.println("Size of the response array is " + RespArraySize);
+
+		System.out.println(orpresp.jsonPath().getList("ratingActionName"));
 
 		util.getdetails(prop.getProperty("ratingactionnameORP"), RespArraySize, orpresp);
 
@@ -140,32 +139,23 @@ public class Steps {
 	@Then("Validate Body for rating release details")
 	public void Validate_Body_for_rating_release_details() {
 
-		
-		System.out.println(ratingreldetailsresp.jsonPath().getList("sourceSystem"));
 		int RespArraySize = ratingreldetailsresp.jsonPath().getList("").size();
-		System.out.println(RespArraySize);
+		System.out.println("Size of the response array is " + RespArraySize);
+		System.out.println(ratingreldetailsresp.jsonPath().getList("sourceSystem"));
 
 		util.getdetails(prop.getProperty("sourcesystem"), RespArraySize, ratingreldetailsresp);
-
-		
 
 	}
 
 	@Then("Validate Body for Accurate")
 	public void Validate_Body_for_Accurate() {
 
-		System.out.println(accurateresp.jsonPath().getList("").size());
-		System.out.println(accurateresp.jsonPath().getList("ratingActionName").get(0));
-		System.out.println(accurateresp.jsonPath().getList("").get(0));
-		System.out.println(accurateresp.jsonPath().getList("").isEmpty());
-		
+		int RespArraySize = accurateresp.jsonPath().getList("").size();
+		System.out.println("Size of the response array is " + RespArraySize);
+
 		System.out.println(accurateresp.jsonPath().getList("ratingActionName"));
 
-		int RespArraySize = accurateresp.jsonPath().getList("").size();
-		System.out.println(RespArraySize);
-
 		util.getdetails(prop.getProperty("ratingactionnameACCURATE"), RespArraySize, accurateresp);
-
 
 	}
 
