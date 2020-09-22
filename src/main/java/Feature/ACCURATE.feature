@@ -7,9 +7,9 @@ Given Basic Setup
 Scenario Outline: Get Rating Release Info for Accurate 
 When Restcall is made for RatingRelInfoAccurate from "<startdate>" to "<enddate>"
 Then Validate StatusLine and StatusCode for Accurate
-And Validate Body for Accurate
+And Validate Response Body from Accurate and fetch record with ratingactionname "<ratingactionname>" 
 
 Examples:
-|startdate|enddate|
-|20200505|20200506|
-|20200511|20200512|
+|startdate|enddate|ratingactionname|
+|20200505|20200506|Strandhill RMBS Designated Activity Company|
+|20200511|20200512|Strandhill RMBS Designated Activity Company|

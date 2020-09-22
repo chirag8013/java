@@ -49,28 +49,28 @@ $(document).ready(function() {
   $(document).ready(function() {
 
     var chartData = {
-        labels:  [ "@pyramid", ] ,
+        labels:  [ "@orp",  "@pyramid",  "@ratingrelease", ] ,
         datasets: [
             {
                 label: "Passed",
                 backgroundColor: "#92DD96",
-                data:  [ 100.00, ]             },
+                data:  [ 100.00,  100.00,  100.00, ]             },
             {
                 label: "Failed",
                 backgroundColor: "#F2928C",
-                data:  [ 0.00, ]             },
+                data:  [ 0.00,  0.00,  0.00, ]             },
             {
                 label: "Skipped",
                 backgroundColor: "#8AF",
-                data:  [ 0.00, ]             },
+                data:  [ 0.00,  0.00,  0.00, ]             },
             {
                 label: "Pending",
                 backgroundColor: "#F5F28F",
-                data:  [ 0.00, ]             },
+                data:  [ 0.00,  0.00,  0.00, ]             },
             {
                 label: "Undefined",
                 backgroundColor: "#F5B975",
-                data:  [ 0.00, ]             }
+                data:  [ 0.00,  0.00,  0.00, ]             }
         ]
     };
 
@@ -131,7 +131,7 @@ $(document).ready(function() {
     <tr class="info">
       <td>MyProjectName</td>
               <td>1</td>
-            <td>22 Sep 2020, 18:16</td>
+            <td>22 Sep 2020, 22:15</td>
     </tr>
   </tbody>
 </table>
@@ -193,6 +193,23 @@ $(document).ready(function() {
 
   <tbody>
           <tr>
+        <td class="tagname"><a href="report-tag_orp.html">@orp</a></td>
+        
+        <td      class="passed"    >3</td>
+        <td >0</td>
+        <td >0</td>
+        <td >0</td>
+        <td >0</td>
+        <td class="total">3</td>
+
+        <td  class="passed"    >1</td>
+        <td >0</td>
+        <td class="total">1</td>
+
+        <td class="duration" data-value="3149787700">3.149</td>
+        <td class="passed">Passed</td>
+      </tr>
+          <tr>
         <td class="tagname"><a href="report-tag_pyramid.html">@pyramid</a></td>
         
         <td      class="passed"    >6</td>
@@ -206,7 +223,24 @@ $(document).ready(function() {
         <td >0</td>
         <td class="total">2</td>
 
-        <td class="duration" data-value="154678664600">2:34.678</td>
+        <td class="duration" data-value="152892828300">2:32.892</td>
+        <td class="passed">Passed</td>
+      </tr>
+          <tr>
+        <td class="tagname"><a href="report-tag_ratingrelease.html">@ratingrelease</a></td>
+        
+        <td      class="passed"    >6</td>
+        <td >0</td>
+        <td >0</td>
+        <td >0</td>
+        <td >0</td>
+        <td class="total">6</td>
+
+        <td  class="passed"    >2</td>
+        <td >0</td>
+        <td class="total">2</td>
+
+        <td class="duration" data-value="144281076800">2:24.281</td>
         <td class="passed">Passed</td>
       </tr>
       </tbody>
@@ -214,19 +248,19 @@ $(document).ready(function() {
   <tfoot class="total">
     <tr>
       <td></td>
-            <td>6</td>
+            <td>15</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>6</td>
+      <td>15</td>
 
-      <td>2</td>
+      <td>5</td>
       <td>0</td>
-      <td>2</td>
+      <td>5</td>
 
-      <td class="duration">2:34.678</td>
-      <td>1</td>
+      <td class="duration">5:0.323</td>
+      <td>3</td>
     </tr>
     <tr>
       <td></td>

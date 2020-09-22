@@ -1,6 +1,14 @@
 [
   {
     "line": 1,
+    "name": "Test ACCURATE Rest APIs",
+    "description": "",
+    "id": "test-accurate-rest-apis",
+    "keyword": "Feature",
+    "uri": "ACCURATE.feature"
+  },
+  {
+    "line": 1,
     "elements": [
       {
         "line": 3,
@@ -11,7 +19,113 @@
         "steps": [
           {
             "result": {
-              "duration": 119951900,
+              "duration": 122759200,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "Basic Setup",
+            "match": {
+              "location": "Steps.Basic_Setup()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 14,
+        "name": "Get Rating Release Info for ORP",
+        "description": "",
+        "id": "test-orp-rest-apis;get-rating-release-info-for-orp;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 2423513500,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Restcall is made for RatingRelInfoORP from \"20200505\" to \"202005106\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "20200505",
+                  "offset": 44
+                },
+                {
+                  "val": "202005106",
+                  "offset": 58
+                }
+              ],
+              "location": "Steps.restcall_is_made_for_RatingRelInfoORP_from_to(String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 710400,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "Validate StatusLine and StatusCode for ORP",
+            "match": {
+              "location": "Steps.Validate_StatusLine_and_StatusCode_for_ORP()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 725563800,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "Validate Response Body from ORP and fetch record with ratingactionname \"Centene Corporation\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Centene Corporation",
+                  "offset": 72
+                }
+              ],
+              "location": "Steps.validate_Response_Body_from_ORP_and_fetch_record_with_ratingactionname(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 6,
+            "name": "@orp"
+          }
+        ]
+      }
+    ],
+    "name": "Test ORP Rest APIs",
+    "description": "",
+    "id": "test-orp-rest-apis",
+    "keyword": "Feature",
+    "uri": "ORP.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "General Setup",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 447600,
               "status": "passed"
             },
             "line": 4,
@@ -33,7 +147,7 @@
         "steps": [
           {
             "result": {
-              "duration": 78954605000,
+              "duration": 76432608000,
               "status": "passed"
             },
             "line": 8,
@@ -59,7 +173,7 @@
           },
           {
             "result": {
-              "duration": 764200,
+              "duration": 237300,
               "status": "passed"
             },
             "line": 9,
@@ -71,7 +185,7 @@
           },
           {
             "result": {
-              "duration": 1745125900,
+              "duration": 943151300,
               "status": "passed"
             },
             "line": 10,
@@ -107,7 +221,7 @@
         "steps": [
           {
             "result": {
-              "duration": 376700,
+              "duration": 361700,
               "status": "passed"
             },
             "line": 4,
@@ -129,7 +243,7 @@
         "steps": [
           {
             "result": {
-              "duration": 73478578900,
+              "duration": 75019772500,
               "status": "passed"
             },
             "line": 8,
@@ -155,7 +269,7 @@
           },
           {
             "result": {
-              "duration": 260200,
+              "duration": 215300,
               "status": "passed"
             },
             "line": 9,
@@ -167,7 +281,7 @@
           },
           {
             "result": {
-              "duration": 499330400,
+              "duration": 496843900,
               "status": "passed"
             },
             "line": 10,
@@ -200,5 +314,207 @@
     "id": "test-pyramid-rest-apis",
     "keyword": "Feature",
     "uri": "PYRAMID.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "General Setup",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 335700,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "Basic Setup",
+            "match": {
+              "location": "Steps.Basic_Setup()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 14,
+        "name": "Get Rating release details Summary",
+        "description": "",
+        "id": "get-rating-release-details;get-rating-release-details-summary;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 74082839600,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Rest Get Call is made from \"20200505\" to \"20200505\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "20200505",
+                  "offset": 28
+                },
+                {
+                  "val": "20200505",
+                  "offset": 42
+                }
+              ],
+              "location": "Steps.rest_Get_Call_is_made_from_to(String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 206600,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "Validate Status Line and Status Code for rating release",
+            "match": {
+              "location": "Steps.Validate_Status_Line_and_Status_Code_for_rating_release()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 10413800,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "Validate Response Body and fetch record with sourcename \"ACCURATE\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ACCURATE",
+                  "offset": 57
+                }
+              ],
+              "location": "Steps.validate_Response_Body_and_fetch_record_with_sourcename(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 6,
+            "name": "@ratingrelease"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "General Setup",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 311300,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "Basic Setup",
+            "match": {
+              "location": "Steps.Basic_Setup()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 15,
+        "name": "Get Rating release details Summary",
+        "description": "",
+        "id": "get-rating-release-details;get-rating-release-details-summary;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 70174104000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Rest Get Call is made from \"20200506\" to \"20200508\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "20200506",
+                  "offset": 28
+                },
+                {
+                  "val": "20200508",
+                  "offset": 42
+                }
+              ],
+              "location": "Steps.rest_Get_Call_is_made_from_to(String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 212300,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "Validate Status Line and Status Code for rating release",
+            "match": {
+              "location": "Steps.Validate_Status_Line_and_Status_Code_for_rating_release()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 13300500,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "Validate Response Body and fetch record with sourcename \"ACCURATE\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ACCURATE",
+                  "offset": 57
+                }
+              ],
+              "location": "Steps.validate_Response_Body_and_fetch_record_with_sourcename(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 6,
+            "name": "@ratingrelease"
+          }
+        ]
+      }
+    ],
+    "name": "Get Rating Release Details",
+    "description": "",
+    "id": "get-rating-release-details",
+    "keyword": "Feature",
+    "uri": "RatingReleaseDetails.feature"
   }
 ]
