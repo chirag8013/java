@@ -12,3 +12,4 @@ And Validate Body for rating release details
 Examples:
 |startdate|enddate|
 |20200505|20200505|
+|20200506|20200508|

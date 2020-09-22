@@ -50,14 +50,13 @@ public class Steps {
 				.basic(prop.getProperty("RestUsername"), prop.getProperty("RestPassword")).when()
 				.get(prop.getProperty("ratingrelinfobaseurl") + "Accurate/" + startdate + "/" + enddate);
 	}
-	
+
 	@When("^Rest Get Call is made from \"([^\"]*)\" to \"([^\"]*)\"$")
 	public void rest_Get_Call_is_made_from_to(String startdate, String enddate) throws Throwable {
 		ratingreldetailsresp = RestAssured.given().auth().preemptive()
 				.basic(prop.getProperty("RestUsername"), prop.getProperty("RestPassword")).when()
-				.get(prop.getProperty("ratingrelsummarybaseurl") + "/"+startdate+"/"+enddate+"");
+				.get(prop.getProperty("ratingrelsummarybaseurl") + "/" + startdate + "/" + enddate + "");
 	}
-
 
 	@Then("Validate Status Line and Status Code for rating release")
 	public void Validate_Status_Line_and_Status_Code_for_rating_release() {
@@ -111,15 +110,17 @@ public class Steps {
 
 	}
 
-	@Then("Validate Body for Pyramid")
-	public void Validate_Body_for_Pyramid() {
-
+	@Then("^Validate Response Body from Pyramid and fetch record with ratingactionname \"([^\"]*)\"$")
+	public void validate_Response_Body_from_Pyramid_and_fetch_record_with_ratingactionname(String ratingactionname)
+			throws Throwable {
 		int RespArraySize = pyramidresp.jsonPath().getList("").size();
 		System.out.println("Size of the response array is " + RespArraySize);
+		System.out.println();
 
 		System.out.println(pyramidresp.jsonPath().getList("ratingActionName"));
+		System.out.println();
 
-		util.getdetails(prop.getProperty("ratingactionnamePyramid"), RespArraySize, pyramidresp);
+		util.getdetails(ratingactionname, RespArraySize, pyramidresp);
 
 	}
 
@@ -129,7 +130,11 @@ public class Steps {
 		int RespArraySize = orpresp.jsonPath().getList("").size();
 		System.out.println("Size of the response array is " + RespArraySize);
 
+		System.out.println();
+
 		System.out.println(orpresp.jsonPath().getList("ratingActionName"));
+
+		System.out.println();
 
 		util.getdetails(prop.getProperty("ratingactionnameORP"), RespArraySize, orpresp);
 
@@ -140,7 +145,9 @@ public class Steps {
 
 		int RespArraySize = ratingreldetailsresp.jsonPath().getList("").size();
 		System.out.println("Size of the response array is " + RespArraySize);
+		System.out.println();
 		System.out.println(ratingreldetailsresp.jsonPath().getList("sourceSystem"));
+		System.out.println();
 
 		util.getdetails(prop.getProperty("sourcesystem"), RespArraySize, ratingreldetailsresp);
 
@@ -151,8 +158,10 @@ public class Steps {
 
 		int RespArraySize = accurateresp.jsonPath().getList("").size();
 		System.out.println("Size of the response array is " + RespArraySize);
+		System.out.println();
 
 		System.out.println(accurateresp.jsonPath().getList("ratingActionName"));
+		System.out.println();
 
 		util.getdetails(prop.getProperty("ratingactionnameACCURATE"), RespArraySize, accurateresp);
 

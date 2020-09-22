@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 119471100,
+              "duration": 119951900,
               "status": "passed"
             },
             "line": 4,
@@ -25,31 +25,31 @@
       },
       {
         "line": 14,
-        "name": "Get Rating release details Summary",
+        "name": "Get Rating Release Info for Pyramid",
         "description": "",
-        "id": "get-rating-release-details;get-rating-release-details-summary;;2",
+        "id": "test-pyramid-rest-apis;get-rating-release-info-for-pyramid;;2",
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 70279746800,
+              "duration": 78954605000,
               "status": "passed"
             },
             "line": 8,
-            "name": "Rest Get Call is made from \"20200505\" to \"20200505\"",
+            "name": "Restcall is made for RatingRelInfoPyramid from \"20200514\" to \"20200515\"",
             "match": {
               "arguments": [
                 {
-                  "val": "20200505",
-                  "offset": 28
+                  "val": "20200514",
+                  "offset": 48
                 },
                 {
-                  "val": "20200505",
-                  "offset": 42
+                  "val": "20200515",
+                  "offset": 62
                 }
               ],
-              "location": "Steps.rest_Get_Call_is_made_from_to(String,String)"
+              "location": "Steps.restcall_is_made_for_RatingRelInfoPyramid_from_to(String,String)"
             },
             "matchedColumns": [
               0,
@@ -59,41 +59,146 @@
           },
           {
             "result": {
-              "duration": 1235800,
+              "duration": 764200,
               "status": "passed"
             },
             "line": 9,
-            "name": "Validate Status Line and Status Code for rating release",
+            "name": "Validate StatusLine and StatusCode for Pyramid",
             "match": {
-              "location": "Steps.Validate_Status_Line_and_Status_Code_for_rating_release()"
+              "location": "Steps.Validate_StatusLine_and_StatusCode_for_Pyramid()"
             },
             "keyword": "Then "
           },
           {
             "result": {
-              "duration": 389820100,
+              "duration": 1745125900,
               "status": "passed"
             },
             "line": 10,
-            "name": "Validate Body for rating release details",
+            "name": "Validate Response Body from Pyramid and fetch record with ratingactionname \"Municipal Energy Agency of Mississippi\"",
             "match": {
-              "location": "Steps.Validate_Body_for_rating_release_details()"
+              "arguments": [
+                {
+                  "val": "Municipal Energy Agency of Mississippi",
+                  "offset": 76
+                }
+              ],
+              "location": "Steps.validate_Response_Body_from_Pyramid_and_fetch_record_with_ratingactionname(String)"
             },
+            "matchedColumns": [
+              2
+            ],
             "keyword": "And "
           }
         ],
         "tags": [
           {
             "line": 6,
-            "name": "@ratingrelease"
+            "name": "@pyramid"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "General Setup",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 376700,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "Basic Setup",
+            "match": {
+              "location": "Steps.Basic_Setup()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 15,
+        "name": "Get Rating Release Info for Pyramid",
+        "description": "",
+        "id": "test-pyramid-rest-apis;get-rating-release-info-for-pyramid;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 73478578900,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Restcall is made for RatingRelInfoPyramid from \"20200626\" to \"20200627\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "20200626",
+                  "offset": 48
+                },
+                {
+                  "val": "20200627",
+                  "offset": 62
+                }
+              ],
+              "location": "Steps.restcall_is_made_for_RatingRelInfoPyramid_from_to(String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 260200,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "Validate StatusLine and StatusCode for Pyramid",
+            "match": {
+              "location": "Steps.Validate_StatusLine_and_StatusCode_for_Pyramid()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 499330400,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "Validate Response Body from Pyramid and fetch record with ratingactionname \"Blue Ridge (NC) 2020 SALE\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Blue Ridge (NC) 2020 SALE",
+                  "offset": 76
+                }
+              ],
+              "location": "Steps.validate_Response_Body_from_Pyramid_and_fetch_record_with_ratingactionname(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 6,
+            "name": "@pyramid"
           }
         ]
       }
     ],
-    "name": "Get Rating Release Details",
+    "name": "Test PYRAMID Rest APIs",
     "description": "",
-    "id": "get-rating-release-details",
+    "id": "test-pyramid-rest-apis",
     "keyword": "Feature",
-    "uri": "RatingReleaseDetails.feature"
+    "uri": "PYRAMID.feature"
   }
 ]
