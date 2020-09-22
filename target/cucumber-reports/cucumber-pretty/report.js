@@ -1,45 +1,45 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("ORP.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("RatingReleaseDetails.feature");
 formatter.feature({
   "line": 1,
-  "name": "Test ORP Rest APIs",
+  "name": "Get Rating Release Details",
   "description": "",
-  "id": "test-orp-rest-apis",
+  "id": "get-rating-release-details",
   "keyword": "Feature"
 });
 formatter.scenarioOutline({
   "line": 7,
-  "name": "Get Rating Release Info for ORP",
+  "name": "Get Rating release details Summary",
   "description": "",
-  "id": "test-orp-rest-apis;get-rating-release-info-for-orp",
+  "id": "get-rating-release-details;get-rating-release-details-summary",
   "type": "scenario_outline",
   "keyword": "Scenario Outline",
   "tags": [
     {
       "line": 6,
-      "name": "@orp"
+      "name": "@ratingrelease"
     }
   ]
 });
 formatter.step({
   "line": 8,
-  "name": "Restcall is made for RatingRelInfoORP from \"\u003cstartdate\u003e\" to \"\u003cenddate\u003e\"",
+  "name": "Rest Get Call is made from \"\u003cstartdate\u003e\" to \"\u003cenddate\u003e\"",
   "keyword": "When "
 });
 formatter.step({
   "line": 9,
-  "name": "Validate StatusLine and StatusCode for ORP",
+  "name": "Validate Status Line and Status Code for rating release",
   "keyword": "Then "
 });
 formatter.step({
   "line": 10,
-  "name": "Validate Body for ORP",
+  "name": "Validate Body for rating release details",
   "keyword": "And "
 });
 formatter.examples({
   "line": 12,
   "name": "",
   "description": "",
-  "id": "test-orp-rest-apis;get-rating-release-info-for-orp;",
+  "id": "get-rating-release-details;get-rating-release-details-summary;",
   "rows": [
     {
       "cells": [
@@ -47,15 +47,15 @@ formatter.examples({
         "enddate"
       ],
       "line": 13,
-      "id": "test-orp-rest-apis;get-rating-release-info-for-orp;;1"
+      "id": "get-rating-release-details;get-rating-release-details-summary;;1"
     },
     {
       "cells": [
         "20200505",
-        "202005106"
+        "20200505"
       ],
       "line": 14,
-      "id": "test-orp-rest-apis;get-rating-release-info-for-orp;;2"
+      "id": "get-rating-release-details;get-rating-release-details-summary;;2"
     }
   ],
   "keyword": "Examples"
@@ -76,26 +76,26 @@ formatter.match({
   "location": "Steps.Basic_Setup()"
 });
 formatter.result({
-  "duration": 128757300,
+  "duration": 119471100,
   "status": "passed"
 });
 formatter.scenario({
   "line": 14,
-  "name": "Get Rating Release Info for ORP",
+  "name": "Get Rating release details Summary",
   "description": "",
-  "id": "test-orp-rest-apis;get-rating-release-info-for-orp;;2",
+  "id": "get-rating-release-details;get-rating-release-details-summary;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
     {
       "line": 6,
-      "name": "@orp"
+      "name": "@ratingrelease"
     }
   ]
 });
 formatter.step({
   "line": 8,
-  "name": "Restcall is made for RatingRelInfoORP from \"20200505\" to \"202005106\"",
+  "name": "Rest Get Call is made from \"20200505\" to \"20200505\"",
   "matchedColumns": [
     0,
     1
@@ -104,279 +104,43 @@ formatter.step({
 });
 formatter.step({
   "line": 9,
-  "name": "Validate StatusLine and StatusCode for ORP",
+  "name": "Validate Status Line and Status Code for rating release",
   "keyword": "Then "
 });
 formatter.step({
   "line": 10,
-  "name": "Validate Body for ORP",
+  "name": "Validate Body for rating release details",
   "keyword": "And "
 });
 formatter.match({
   "arguments": [
     {
       "val": "20200505",
-      "offset": 44
+      "offset": 28
     },
     {
-      "val": "202005106",
-      "offset": 58
+      "val": "20200505",
+      "offset": 42
     }
   ],
-  "location": "Steps.restcall_is_made_for_RatingRelInfoORP_from_to(String,String)"
+  "location": "Steps.rest_Get_Call_is_made_from_to(String,String)"
 });
 formatter.result({
-  "duration": 2894047700,
+  "duration": 70279746800,
   "status": "passed"
 });
 formatter.match({
-  "location": "Steps.Validate_StatusLine_and_StatusCode_for_ORP()"
+  "location": "Steps.Validate_Status_Line_and_Status_Code_for_rating_release()"
 });
 formatter.result({
-  "duration": 704600,
+  "duration": 1235800,
   "status": "passed"
 });
 formatter.match({
-  "location": "Steps.Validate_Body_for_ORP()"
+  "location": "Steps.Validate_Body_for_rating_release_details()"
 });
 formatter.result({
-  "duration": 831115100,
-  "status": "passed"
-});
-formatter.uri("PYRAMID.feature");
-formatter.feature({
-  "line": 1,
-  "name": "Test PYRAMID Rest APIs",
-  "description": "",
-  "id": "test-pyramid-rest-apis",
-  "keyword": "Feature"
-});
-formatter.scenarioOutline({
-  "line": 7,
-  "name": "Get Rating Release Info for Pyramid",
-  "description": "",
-  "id": "test-pyramid-rest-apis;get-rating-release-info-for-pyramid",
-  "type": "scenario_outline",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 6,
-      "name": "@pyramid"
-    }
-  ]
-});
-formatter.step({
-  "line": 8,
-  "name": "Restcall is made for RatingRelInfoPyramid from \"\u003cstartdate\u003e\" to \"\u003cenddate\u003e\"",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 9,
-  "name": "Validate StatusLine and StatusCode for Pyramid",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 10,
-  "name": "Validate Body for Pyramid",
-  "keyword": "And "
-});
-formatter.examples({
-  "line": 12,
-  "name": "",
-  "description": "",
-  "id": "test-pyramid-rest-apis;get-rating-release-info-for-pyramid;",
-  "rows": [
-    {
-      "cells": [
-        "startdate",
-        "enddate"
-      ],
-      "line": 13,
-      "id": "test-pyramid-rest-apis;get-rating-release-info-for-pyramid;;1"
-    },
-    {
-      "cells": [
-        "20200514",
-        "20200515"
-      ],
-      "line": 14,
-      "id": "test-pyramid-rest-apis;get-rating-release-info-for-pyramid;;2"
-    },
-    {
-      "cells": [
-        "20200626",
-        "20200627"
-      ],
-      "line": 15,
-      "id": "test-pyramid-rest-apis;get-rating-release-info-for-pyramid;;3"
-    }
-  ],
-  "keyword": "Examples"
-});
-formatter.background({
-  "line": 3,
-  "name": "General Setup",
-  "description": "",
-  "type": "background",
-  "keyword": "Background"
-});
-formatter.step({
-  "line": 4,
-  "name": "Basic Setup",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "Steps.Basic_Setup()"
-});
-formatter.result({
-  "duration": 394300,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 14,
-  "name": "Get Rating Release Info for Pyramid",
-  "description": "",
-  "id": "test-pyramid-rest-apis;get-rating-release-info-for-pyramid;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 6,
-      "name": "@pyramid"
-    }
-  ]
-});
-formatter.step({
-  "line": 8,
-  "name": "Restcall is made for RatingRelInfoPyramid from \"20200514\" to \"20200515\"",
-  "matchedColumns": [
-    0,
-    1
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 9,
-  "name": "Validate StatusLine and StatusCode for Pyramid",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 10,
-  "name": "Validate Body for Pyramid",
-  "keyword": "And "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "20200514",
-      "offset": 48
-    },
-    {
-      "val": "20200515",
-      "offset": 62
-    }
-  ],
-  "location": "Steps.restcall_is_made_for_RatingRelInfoPyramid_from_to(String,String)"
-});
-formatter.result({
-  "duration": 74859698400,
-  "status": "passed"
-});
-formatter.match({
-  "location": "Steps.Validate_StatusLine_and_StatusCode_for_Pyramid()"
-});
-formatter.result({
-  "duration": 252200,
-  "status": "passed"
-});
-formatter.match({
-  "location": "Steps.Validate_Body_for_Pyramid()"
-});
-formatter.result({
-  "duration": 1240640900,
-  "status": "passed"
-});
-formatter.background({
-  "line": 3,
-  "name": "General Setup",
-  "description": "",
-  "type": "background",
-  "keyword": "Background"
-});
-formatter.step({
-  "line": 4,
-  "name": "Basic Setup",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "Steps.Basic_Setup()"
-});
-formatter.result({
-  "duration": 386900,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 15,
-  "name": "Get Rating Release Info for Pyramid",
-  "description": "",
-  "id": "test-pyramid-rest-apis;get-rating-release-info-for-pyramid;;3",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 6,
-      "name": "@pyramid"
-    }
-  ]
-});
-formatter.step({
-  "line": 8,
-  "name": "Restcall is made for RatingRelInfoPyramid from \"20200626\" to \"20200627\"",
-  "matchedColumns": [
-    0,
-    1
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 9,
-  "name": "Validate StatusLine and StatusCode for Pyramid",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 10,
-  "name": "Validate Body for Pyramid",
-  "keyword": "And "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "20200626",
-      "offset": 48
-    },
-    {
-      "val": "20200627",
-      "offset": 62
-    }
-  ],
-  "location": "Steps.restcall_is_made_for_RatingRelInfoPyramid_from_to(String,String)"
-});
-formatter.result({
-  "duration": 77207534600,
-  "status": "passed"
-});
-formatter.match({
-  "location": "Steps.Validate_StatusLine_and_StatusCode_for_Pyramid()"
-});
-formatter.result({
-  "duration": 263700,
-  "status": "passed"
-});
-formatter.match({
-  "location": "Steps.Validate_Body_for_Pyramid()"
-});
-formatter.result({
-  "duration": 498741900,
+  "duration": 389820100,
   "status": "passed"
 });
 });

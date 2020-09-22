@@ -50,15 +50,14 @@ public class Steps {
 				.basic(prop.getProperty("RestUsername"), prop.getProperty("RestPassword")).when()
 				.get(prop.getProperty("ratingrelinfobaseurl") + "Accurate/" + startdate + "/" + enddate);
 	}
-
-	@When("Rest Get Call is made for the mentioned date")
-	public void Rest_Get_Call_is_made_for_the_mentioned_date() {
-
+	
+	@When("^Rest Get Call is made from \"([^\"]*)\" to \"([^\"]*)\"$")
+	public void rest_Get_Call_is_made_from_to(String startdate, String enddate) throws Throwable {
 		ratingreldetailsresp = RestAssured.given().auth().preemptive()
 				.basic(prop.getProperty("RestUsername"), prop.getProperty("RestPassword")).when()
-				.get(prop.getProperty("ratingrelsummarybaseurl") + "/20200505/20200506");
-
+				.get(prop.getProperty("ratingrelsummarybaseurl") + "/"+startdate+"/"+enddate+"");
 	}
+
 
 	@Then("Validate Status Line and Status Code for rating release")
 	public void Validate_Status_Line_and_Status_Code_for_rating_release() {
