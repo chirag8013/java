@@ -116,16 +116,17 @@ public class Steps {
 		int RespArraySize = pyramidresp.jsonPath().getList("").size();
 		System.out.println("Size of the response array is " + RespArraySize);
 		System.out.println();
-System.out.println("-------Below are the list of RatingActionNames------");
+		System.out.println("-------Below are the list of RatingActionNames------");
 		System.out.println(pyramidresp.jsonPath().getList("ratingActionName"));
 		System.out.println();
 
 		util.getdetails(ratingactionname, RespArraySize, pyramidresp);
 
 	}
-	
+
 	@Then("^Validate Response Body from Accurate and fetch record with ratingactionname \"([^\"]*)\"$")
-	public void validate_Response_Body_from_Accurate_and_fetch_record_with_ratingactionname(String ratingactionname) throws Throwable {
+	public void validate_Response_Body_from_Accurate_and_fetch_record_with_ratingactionname(String ratingactionname)
+			throws Throwable {
 		int RespArraySize = accurateresp.jsonPath().getList("").size();
 		System.out.println("Size of the response array is " + RespArraySize);
 		System.out.println();
@@ -136,9 +137,23 @@ System.out.println("-------Below are the list of RatingActionNames------");
 		util.getdetails(ratingactionname, RespArraySize, accurateresp);
 	}
 
+	@Then("^Validate Response Body from Accurate and fetch record with ratingactionid \"([^\"]*)\"$")
+	public void validate_Response_Body_from_Accurate_and_fetch_record_with_ratingactionid(String ratingactionid)
+			throws Throwable {
+		int RespArraySize = accurateresp.jsonPath().getList("").size();
+		System.out.println("Size of the response array is " + RespArraySize);
+		System.out.println();
+
+		System.out.println(accurateresp.jsonPath().getList("ratingActionName"));
+		System.out.println();
+
+		util.getdetailsbasedonratingactionid(ratingactionid, RespArraySize, accurateresp);
+	}
+
 	@Then("^Validate Response Body from ORP and fetch record with ratingactionname \"([^\"]*)\"$")
-	public void validate_Response_Body_from_ORP_and_fetch_record_with_ratingactionname(String ratingactionname) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
+	public void validate_Response_Body_from_ORP_and_fetch_record_with_ratingactionname(String ratingactionname)
+			throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
 		int RespArraySize = orpresp.jsonPath().getList("").size();
 		System.out.println("Size of the response array is " + RespArraySize);
 
@@ -161,9 +176,5 @@ System.out.println("-------Below are the list of RatingActionNames------");
 
 		util.getdetails(sourcesystem, RespArraySize, ratingreldetailsresp);
 	}
-
-
-
-	
 
 }

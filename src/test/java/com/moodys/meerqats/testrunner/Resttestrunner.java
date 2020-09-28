@@ -15,7 +15,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 		features = {"src/main/java/Feature"},
         glue = {"com.moodys.meerqats.stepdefinitions"},
         monochrome = true, 
-        tags={"~@accurate"},
+        tags={"@accurate1"},
  
       
        

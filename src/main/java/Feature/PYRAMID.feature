@@ -11,5 +11,6 @@ And Validate Response Body from Pyramid and fetch record with ratingactionname "
 
 Examples:
 |startdate|enddate|ratingactionname|
-|20200514|20200515|Municipal Energy Agency of Mississippi|
-|20200626|20200627|Blue Ridge (NC) 2020 SALE|
+|20200920|20200921|906712922|
+
+
