@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.testng.Assert;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.RestAssured;
@@ -21,7 +23,7 @@ public class Steps {
 
 		prop = new Properties();
 		FileInputStream ip = new FileInputStream(
-				"D:\\Users/VermaC/Workspace1/MeerQATS_Cucumber_RestAssured/Config.properties");
+				"D:\\Users/VermaC/Workspace1/MeerQATS_Cucumber_RestAssured/MeerQATS_Cucumber_RestAssured/Config.properties");
 		util = new utilities();
 		prop.load(ip);
 
@@ -96,6 +98,19 @@ public class Steps {
 		System.out.println("----------------------------------------------");
 
 	}
+	
+	@Then("^Validate \"([^\"]*)\" and \"([^\"]*)\" for Accurate$")
+	public void validate_and_for_Accurate(String statusline, String statuscode) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		System.out.println("----------------------------------------------");
+
+		System.out.println(accurateresp.getStatusLine());
+		System.out.println(accurateresp.getStatusCode());
+		//Assert.assertEquals(Integer.parseInt(statuscode), accurateresp.getStatusCode());
+	
+		System.out.println(accurateresp.getContentType());
+		System.out.println("----------------------------------------------");
+	}
 
 	@Then("Validate StatusLine and StatusCode for Accurate")
 	public void Validate_StatusLine_and_StatusCode_for_Accurate() {
@@ -137,9 +152,10 @@ public class Steps {
 		util.getdetails(ratingactionname, RespArraySize, accurateresp);
 	}
 
-	@Then("^Validate Response Body from Accurate and fetch record with ratingactionid \"([^\"]*)\"$")
-	public void validate_Response_Body_from_Accurate_and_fetch_record_with_ratingactionid(String ratingactionid)
-			throws Throwable {
+	
+	@Then("^Validate Response from Accurate which includes Ratingactionid \"([^\"]*)\" and Analystlocation \"([^\"]*)\"$")
+	public void validate_Response_from_Accurate_which_includes_Ratingactionid_or_Analystlocation(String ratingactionid, String analystlocation) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
 		int RespArraySize = accurateresp.jsonPath().getList("").size();
 		System.out.println("Size of the response array is " + RespArraySize);
 		System.out.println();
@@ -147,7 +163,7 @@ public class Steps {
 		System.out.println(accurateresp.jsonPath().getList("ratingActionName"));
 		System.out.println();
 
-		util.getdetailsbasedonratingactionid(ratingactionid, RespArraySize, accurateresp);
+		util.getdetailsbasedonratingactionid(ratingactionid,analystlocation,RespArraySize, accurateresp);
 	}
 
 	@Then("^Validate Response Body from ORP and fetch record with ratingactionname \"([^\"]*)\"$")

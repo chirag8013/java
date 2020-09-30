@@ -12,13 +12,11 @@ import cucumber.api.testng.TestNGCucumberRunner;
 
 
 @CucumberOptions(
-		features = {"src/main/java/Feature"},
+		features = {"src/main/java/Feature/ACCURATE_NEW.feature"},
         glue = {"com.moodys.meerqats.stepdefinitions"},
         monochrome = true, 
-        tags={"@accurate1"},
- 
       
-       
+     
 		strict = true,
         format = {
                 "pretty",

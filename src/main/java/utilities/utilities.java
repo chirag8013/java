@@ -22,9 +22,16 @@ for(int i=0; i<RespArraySize;i++){
 		
 	}
 	
-	public void getdetailsbasedonratingactionid(String ratingactionid, int RespArraySize, Response resp){
+	public void getdetailsbasedonratingactionid(String ratingactionid,String analystLocation,int RespArraySize, Response resp){
 		for(int i=0; i<RespArraySize;i++){
-		if(resp.jsonPath().getList("ratingActionID").get(i).equals(ratingactionid)){
+			//if(resp.jsonPath().getList("ratingActionID").get(i).equals(ratingactionid)){
+				//System.out.println("BELOW RESPONSE CONTAINS "+resp.jsonPath().getList("ratingActionID").get(i).toString());
+			//}
+			//if(resp.jsonPath().getList("analystLocation").get(i).equals(analystLocation)){
+				//System.out.println("BELOW RESPONSE CONTAINS "+resp.jsonPath().getList("analystLocation").get(i).toString());
+			//}
+					
+		if(resp.jsonPath().getList("ratingActionID").get(i).equals(ratingactionid)&&resp.jsonPath().getList("analystLocation").get(i).equals(analystLocation)){
 			System.out.println("ratingActionName is " + resp.jsonPath().getList("ratingActionName").get(i));
 			System.out.println("officeName is " + resp.jsonPath().getList("officeName").get(i));
 			System.out.println("pressReleaseId is " + resp.jsonPath().getList("pressReleaseId").get(i));
@@ -76,6 +83,9 @@ for(int i=0; i<RespArraySize;i++){
 			System.out.println("lobname is " + resp.jsonPath().getList("lobname").get(i));
 			System.out.println("pyrRatingType is " + resp.jsonPath().getList("pyrRatingType").get(i));
 			System.out.println("provisionalRatingInd is " + resp.jsonPath().getList("provisionalRatingInd").get(i));
+			System.out.println();
+			System.out.println("-----------------------------------------------------------------------------------------------");
+			System.out.println();
 			
 			
 			
