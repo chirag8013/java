@@ -50,15 +50,9 @@ public class AccurateStepDefinition {
 		}
 	    
 	}
-
-	@Then("^response includes the following in any order$")
-	public void response_includes_the_following_in_any_order(Map<String,String> expected) throws Throwable {
-		for(Map.Entry<String, String> entry:expected.entrySet()){
-			response.then().body(entry.getKey(),hasItem(entry.getValue()));
-		}
 	    
 	    
-	}
+	
 
 
 }

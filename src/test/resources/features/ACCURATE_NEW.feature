@@ -6,7 +6,6 @@ Feature: Get Rating Actions For Accurate
 	And response includes the following
 	| ratingActionID		| 3371271 					|
 	| analystLocation		| New York - 7 World Trade Center			|
-   And response includes the following in any order
     | ratingActionName      | Caja Rural de Navarra - Mortgage Covered Bonds|
 	| officeName            | Moody's Deutschland GmbH|
 	
