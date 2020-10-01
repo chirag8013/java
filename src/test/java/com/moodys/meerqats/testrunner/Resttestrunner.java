@@ -12,19 +12,26 @@ import cucumber.api.testng.TestNGCucumberRunner;
 
 
 @CucumberOptions(
-		features = {"src/main/java/Feature/ACCURATE_NEW.feature"},
+		features={"classpath:features/"},
         glue = {"com.moodys.meerqats.stepdefinitions"},
         monochrome = true, 
+       // tags={"@accurate1"},
+ 
       
-     
+       
 		strict = true,
         format = {
                 "pretty",
-                "html:target/cucumber-reports/cucumber-pretty",
-                "json:target/cucumber-reports/CucumberTestReport.json",
-                "rerun:target/cucumber-reports/rerun.txt"
-        },plugin = "json:target/cucumber-reports/CucumberTestReport.json")
+               "html:target/cucumber-reports/cucumber-pretty",
+               "json:target/cucumber-reports/CucumberTestReport.json",
+               "rerun:target/cucumber-reports/rerun.txt",
 
+              //  "html:target/cucumber-pretty",
+            //   "json:target/CucumberTestReport.json",
+            //  "rerun:target/rerun.txt",
+                "json:target/cucumber-reports/cucumber.json"
+       },plugin = "json:target/cucumber-reports/CucumberTestReport.json")
+		//})
 public class Resttestrunner {
     private TestNGCucumberRunner testNGCucumberRunner;
  
