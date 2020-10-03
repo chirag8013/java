@@ -22,12 +22,11 @@ public class PyramidStepDefinition {
 	@Given("^web service returns rating actions for RatingRelInfoPyramid between dates (\\d+) and (\\d+)$")
 	public void web_service_returns_rating_actions_for_RatingRelInfoPyramid_between_dates_and(int startdate, int enddate) throws Throwable {
 		prop = new Properties();
-
 		InputStream is = getClass().getResourceAsStream("/Config.properties");
-		String ENDPOINT_URL= prop.getProperty("ratingrelinfobaseurl");
 		util = new utilities();
 		prop.load(is);
-	   response= given().auth().preemptive().basic(prop.getProperty("RestUsername"), prop.getProperty("RestPassword")).when().get(ENDPOINT_URL+startdate+"/"+enddate);
+		String ENDPOINT_URL= prop.getProperty("ratingrelinfobaseurl");
+	   response= given().auth().preemptive().basic(prop.getProperty("RestUsername"), prop.getProperty("RestPassword")).when().get(ENDPOINT_URL+"Pyramid/"+startdate+"/"+enddate);
 		
 	}
 
@@ -45,8 +44,7 @@ public class PyramidStepDefinition {
 	@Then("^response for Pyramid includes the following$")
 	public void response_for_Pyramid_includes_the_following(Map<String,String> expected) throws Throwable {
 		for(Map.Entry<String, String> entry:expected.entrySet()){
-			response.then().body(entry.getKey(), hasItem(entry.getValue()));
-		
+			response.then().body(entry.getKey(), hasItem(entry.getValue()));	
 		}
 	    
 	}

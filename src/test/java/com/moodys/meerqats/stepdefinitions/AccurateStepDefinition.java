@@ -8,7 +8,6 @@ import java.util.Properties;
 import com.moodys.meerqats.utilities.utilities;
 
 import  io.restassured.response.*;
-//import utilities.utilities;
 import cucumber.api.java.en.*;
 
 
@@ -23,10 +22,10 @@ public class AccurateStepDefinition {
 		prop = new Properties();
 
 		InputStream is = getClass().getResourceAsStream("/Config.properties");
-		String ENDPOINT_URL= prop.getProperty("ratingrelinfobaseurl");
 		util = new utilities();
 		prop.load(is);
-	   response= given().auth().preemptive().basic(prop.getProperty("RestUsername"), prop.getProperty("RestPassword")).when().get(ENDPOINT_URL+startdate+"/"+enddate);
+		String ENDPOINT_URL= prop.getProperty("ratingrelinfobaseurl");
+	   response= given().auth().preemptive().basic(prop.getProperty("RestUsername"), prop.getProperty("RestPassword")).when().get(ENDPOINT_URL+"Accurate/"+startdate+"/"+enddate);
 		
 	}
 
