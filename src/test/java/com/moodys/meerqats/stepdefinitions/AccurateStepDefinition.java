@@ -1,9 +1,6 @@
 package com.moodys.meerqats.stepdefinitions;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.containsInAnyOrder;
-
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Map;
 import java.util.Properties;
