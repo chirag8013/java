@@ -37,13 +37,13 @@ public class AccurateStepDefinition {
 	 System.out.println(response.prettyPrint());   
 	}
 
-	@Then("^the status code is (\\d+)$")
-	public void the_status_code_is(int StatusCODE) throws Throwable {
+	@Then("^the status code for Accurate is (\\d+)$")
+	public void the_status_code_for_Accurate_is(int StatusCODE) throws Throwable {
 	  response.then().statusCode(StatusCODE);
 	}
 
-	@Then("^response includes the following$")
-	public void response_includes_the_following(Map<String,String> expected) throws Throwable {
+	@Then("^response for Accurate includes the following$")
+	public void response_for_Accurate_includes_the_following(Map<String,String> expected) throws Throwable {
 		for(Map.Entry<String, String> entry:expected.entrySet()){
 			response.then().body(entry.getKey(), hasItem(entry.getValue()));
 		
