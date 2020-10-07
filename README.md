@@ -1,2 +1,0 @@
-# qats_ui_test_harness
-qats_ui_test_harness
