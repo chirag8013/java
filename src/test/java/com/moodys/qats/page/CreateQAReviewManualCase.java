@@ -17,7 +17,7 @@ public class CreateQAReviewManualCase {
 
 	}
 
-	public void clickoncreatecase() throws InterruptedException {
+	public void clickoncreatecase()  {
 
 		driver.findElement(By.xpath("//button[text()='Create Case']")).click();
 	}
@@ -39,7 +39,6 @@ public class CreateQAReviewManualCase {
 					break;
 				} catch (Exception e) {
 					driver.switchTo().defaultContent();
-					continue;
 				}
 			}
 			Thread.sleep(2000);
