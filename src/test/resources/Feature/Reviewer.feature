@@ -12,9 +12,11 @@ Scenario: Login as Reviewer
 Then Reviewer enter MeerQATS HomePage
 
 @Second
-Scenario: Create Review Cases Manually and validate in My Work
-When User Clicks Create Manual Case
-And After entering Manual Case fields user clicks on create case
+Scenario: A reviewer creates new Review Cases Manually entered data.
+When a reviewer clicks Create Manual Case
+And enters required fields
+And clicks on Create Case
+Then searches for Case Id in My Work to validate successful case creation
 
 @ignore
 Scenario: Complete Questionnaire and send for Review

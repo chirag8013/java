@@ -26,7 +26,7 @@ public class CreateQAReviewManualCase {
 		driver.findElement(By.xpath("//button[text()='Create Manual Case']")).click();
 	}
 
-	public void createmanualcaseandclick(String actid, String CaseDesc, String Source, String Leadanalystname)
+	public void createmanualcase(String actid, String CaseDesc, String Source, String Leadanalystname)
 			throws InterruptedException {
 		if (driver.getTitle().equals("QA Manager")) {
 
@@ -69,14 +69,6 @@ public class CreateQAReviewManualCase {
 				.sendKeys(Leadanalystname);
 
 		Thread.sleep(2000);
-
-		driver.findElement(By.xpath("//button[text()='Create Case']")).click();
-
-		Thread.sleep(3000);
-
-		driver.navigate().refresh();
-
-		Thread.sleep(3000);
 	}
 
 	public List<WebElement> CreateCase_CheckBoxList() {

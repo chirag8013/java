@@ -12,15 +12,15 @@ Scenario: Login as Manager
 Then Manager enter MeerQATS HomePage
 
 @Second
-Scenario: Create ingested review cases and validate in dashboard
-When Manager clicks Create QA Review
+Scenario: A manager creates ingested review cases and validate in dashboard.
+When a manager clicks Create QA Review
 And selects Review Case
 And clicks on Create Case
 Then Manager can search for Case Id in Dashboard to validate successful case creation
 
 @Third
-Scenario: Create new Review Cases from manually entered data then validate that it appears in Dashboard and is searchable by Case Id.
-When Manager clicks Create QA Review
+Scenario: A manager creates new Review Cases from manually entered data.
+When a manager clicks Create QA Review
 And clicks on Create Manual Case
 Then Search for Case Id in Dashboard to validate successful case creation
 

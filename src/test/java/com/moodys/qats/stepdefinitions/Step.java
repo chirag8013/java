@@ -133,7 +133,7 @@ public class Step {
 
 	}
 
-	@When("Manager clicks Create QA Review")
+	@When("a manager clicks Create QA Review")
 	public void User_Clicks_Create_QA_Review() throws InterruptedException {
 
 		homepage.clickonQAReview();
@@ -174,14 +174,22 @@ public class Step {
 
 	}
 
-	@When("After entering Manual Case fields user clicks on create case")
+	@When("enters required fields")
 	public void After_entering_Manual_Case_fields_user_clicks_on_create_case()
-			throws InterruptedException, IOException {
+			throws InterruptedException {
 
-		createcase.createmanualcaseandclick(prop.getProperty("ActionID"), prop.getProperty("CaseDesc"),
+		createcase.createmanualcase(prop.getProperty("ActionID"), prop.getProperty("CaseDesc"),
 				prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"));
-		mywork.displaynewlycreatedreviewcase(prop.getProperty("ActionID"));
+	}
 
+//	@When("clicks on Create Case")
+//	public void click_on_create_case() throws InterruptedException {
+//		createcase.clickCreateCase();
+//	}
+
+	@Then("searches for Case Id in My Work to validate successful case creation")
+	public void search_for_case_id_in_my_work() throws InterruptedException, IOException {
+		mywork.displaynewlycreatedreviewcase(prop.getProperty("ActionID"));
 	}
 
 	@When("selects Review Case")
@@ -211,7 +219,7 @@ public class Step {
 		Thread.sleep(2000);
 	}
 
-	@Then("Manager clicks on Dashboard")
+	@Then("Manager can search for Case Id in Dashboard to validate successful case creation")
 	public void Manager_clicks_on_Dashboard() throws InterruptedException {
 
 		homepage.clickonDashboard();
