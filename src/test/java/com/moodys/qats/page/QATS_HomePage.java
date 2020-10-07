@@ -1,16 +1,13 @@
 package com.moodys.qats.page;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
+@Log4j2
 public class QATS_HomePage {
 
 	WebDriver driver;
@@ -70,7 +67,7 @@ public class QATS_HomePage {
 			}
 		}
 		String text = driver.findElement(By.xpath("//nobr[text()='B1']//following::nobr")).getText();
-		System.out.println(text);
+		log.info(text);
 
 	}
 
@@ -156,19 +153,19 @@ public class QATS_HomePage {
 	public void userclicksonmywork(WebDriver driver) throws InterruptedException {
 //		WebDriverWait wait = new WebDriverWait(driver, 10);
 
-//		System.out.println(driver.findElement(By.xpath("//span[text()='My Work']")));
+//		log.info(driver.findElement(By.xpath("//span[text()='My Work']")));
 
 //		if(driver.findElements(By.xpath("//span[text()='My Work']")).size() == 0) {
-//			System.out.println("my work isn't here ");
+//			log.info("my work isn't here ");
 //			driver.navigate().refresh();
 //		}
 
 //		if(driver.findElement(By.xpath("//span[text()='My Work']")) != null) {
-//			System.out.println("yes------------");
+//			log.info("yes------------");
 //			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			driver.findElement(By.xpath("//span[text()='My Work']")).click();
 //		} else {
-//			System.out.println("---------no");
+//			log.info("---------no");
 //		}
 
 //		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='My Work']"))).click();

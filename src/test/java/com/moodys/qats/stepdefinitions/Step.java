@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,24 +20,25 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+@Log4j2
 public class Step {
-	String actionid;
-	Actions act;
-	WebDriver driver;
+	private String actionid;
+	private Actions act;
+	private WebDriver driver;
 
-	Properties prop;
+	private Properties prop;
 
-	CreateQAReviewManualCase createcase;
+	private CreateQAReviewManualCase createcase;
 
-	AdminUtils_SourceVsQATSMapping sourcevsqats;
+	private AdminUtils_SourceVsQATSMapping sourcevsqats;
 
-	QATS_LoginPage loginpage;
-	QATS_HomePage homepage;
-	MyWork mywork;
-	Util util;
-	Dashboard dashboard;
-	QualityReferenceSheet qrsheet;
-	TestBase base;
+	private QATS_LoginPage loginpage;
+	private QATS_HomePage homepage;
+	private MyWork mywork;
+	private Util util;
+	private Dashboard dashboard;
+	private QualityReferenceSheet qrsheet;
+	private TestBase base;
 
 	@Given("User Launch Chrome Browser")
 	public void User_Launch_Chrome_Browser() throws IOException {
@@ -59,12 +61,12 @@ public class Step {
 	@When("After Verifying login page title")
 	public void After_Verifying_login_page_title() {
 		loginpage = new QATS_LoginPage(driver);
-		System.out.println("----------------------------------");
+		log.info("----------------------------------");
 		String title = loginpage.LoginPageTitle();
-		System.out.println(title);
+		log.info(title);
 		Assert.assertEquals(title, "Welcome to PegaRULES");
-		System.out.println("Login Page Title Verified as expected- " + title);
-		System.out.println("----------------------------------");
+		log.info("Login Page Title Verified as expected- " + title);
+		log.info("----------------------------------");
 
 	}
 
@@ -110,11 +112,11 @@ public class Step {
 	public void Manager_enter_MeerQATS_HomePage() {
 
 		String homepagetitle = homepage.HomePageTitle();
-		System.out.println("----------------------------------");
-		System.out.println(homepage.HomePageTitle());
+		log.info("----------------------------------");
+		log.info(homepage.HomePageTitle());
 		Assert.assertEquals(homepagetitle, "QA Manager");
-		System.out.println("HomePage Title Verified as expected- " + homepagetitle);
-		System.out.println("----------------------------------");
+		log.info("HomePage Title Verified as expected- " + homepagetitle);
+		log.info("----------------------------------");
 
 	}
 
@@ -122,16 +124,16 @@ public class Step {
 	public void Reviewer_enter_MeerQATS_HomePage() {
 
 		String homepagetitle = homepage.HomePageTitle();
-		System.out.println("----------------------------------");
-		System.out.println(homepage.HomePageTitle());
+		log.info("----------------------------------");
+		log.info(homepage.HomePageTitle());
 		Assert.assertEquals(homepagetitle, "QA Reviewer");
-		System.out.println("HomePage Title Verified as expected- " + homepagetitle);
-		System.out.println("----------------------------------");
+		log.info("HomePage Title Verified as expected- " + homepagetitle);
+		log.info("----------------------------------");
 		
 
 	}
 
-	@When("User Clicks Create QA Review")
+	@When("Manager clicks Create QA Review")
 	public void User_Clicks_Create_QA_Review() throws InterruptedException {
 
 		homepage.clickonQAReview();
@@ -182,19 +184,23 @@ public class Step {
 
 	}
 
-	@When("After selecting review case and click on Create Case")
-	public void After_selecting_review_case_and_click_on_Create_Case() throws InterruptedException {
+	@When("selects Review Case")
+	public void selects_review_case() throws InterruptedException {
 
 		List<WebElement> ls = createcase.CreateCase_CheckBoxList();
 		ls.get(0).click();
 
 		actionid = createcase.getactionidoffirstcase();
 		Thread.sleep(3000);
+
+	}
+
+	@When("clicks on Create Case")
+	public void clicks_on_Create_Case() throws InterruptedException {
 		createcase.clickoncreatecase();
 		Thread.sleep(4000);
 		driver.navigate().refresh();
 		Thread.sleep(4000);
-
 	}
 
 	@Then("Manager Goes to Dashboard")
@@ -290,7 +296,7 @@ public class Step {
 	@Then("Review Date is updated successfully for all the sorted cases")
 	public void Review_Date_is_updated_successfully_for_all_the_sorted_cases() {
 
-		System.out.println("Review date updated successfully");
+		log.info("Review date updated successfully");
 	}
 
 	@Then("^Admin selects \"([^\"]*)\" and clicks on Search$")
