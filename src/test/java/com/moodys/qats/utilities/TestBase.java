@@ -35,8 +35,8 @@ public class TestBase {
 				"src/test/resources/chromedriver.exe");
 		/* Launching the browser? */
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("headless");
-		options.addArguments("window-size=1920,1080");
+		options.addArguments("headless", "window-size=1920,1080", "--no-sandbox");
+
 		driver = new ChromeDriver(options);
 
 //		driver.manage().window().maximize();
