@@ -8,7 +8,7 @@ And Admin enters Username and Password and click login
 
 
 @Second
-Scenario Outline: Updation of Source Value and QATS Value Mapping by Admin 
+Scenario Outline: Change of Source-to-QATS domain value mapping by Admin
 When Admin clicks on Admin Utils and then Mapping QATS vs Source
 Then Admin selects "<DomainName>" and clicks on Search
 And After Clicking on the Source Value and QATS value mapped Record Admin update the mapping of "<SourceValue>" with "<QATSValue>" and click submit
@@ -19,12 +19,11 @@ Then Go back to Dashboard and check the QATSValue of created case as expected
 
 Examples:
 |DomainName|SourceValue|QATSValue|
-|Region|Europe|US/Canada|
 |Region|Europe|EMEA|
 
 
 @Third
-Scenario Outline: Deletion of Source Value and QATS Value Mapping by Admin 
+Scenario Outline: Deletion of Source-to-QATS Value and QATS Value Mapping by Admin
 When Admin clicks on Admin Utils and then Mapping QATS vs Source
 Then Admin selects "<DomainName>" and clicks on Search
 And After clicking the first record Admin clicks on delete the mapping of record  with "<sourcevalue>"and submit
@@ -39,7 +38,7 @@ Examples:
 
 
 @Fourth
-Scenario Outline: Addition of Source Value and QATS Value Mapping by Admin 
+Scenario Outline: Addition of Source-to-QATS domain value mapping by Admin
 When Admin clicks on Admin Utils and then Mapping QATS vs Source
 Then Admin selects "<DomainName>" and clicks on Search
 And Admin clicks on Add Item

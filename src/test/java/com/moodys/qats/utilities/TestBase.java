@@ -16,8 +16,6 @@ public class TestBase {
 
 	public WebDriver driver;
 
-	
-
 	public  Properties initialization() throws IOException{
 		FileInputStream ip = new FileInputStream(
 				"src/test/resources/Config.Properties");
@@ -25,18 +23,16 @@ public class TestBase {
 
 		prop.load(ip);
 		return prop;
-
-		
 	}
 	
 	public WebDriver launchthebrowser(){
 		
 		System.setProperty("webdriver.chrome.driver",
-				"src/test/resources/chromedriver.exe");
+				System.getProperty("user.dir")+"/src/test/resources/Drivers/chromedriver.exe");
 		/* Launching the browser? */
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("headless");
-		options.addArguments("window-size=1920,1080");
+		options.addArguments("headless", "window-size=1920,1080");
+
 		driver = new ChromeDriver(options);
 
 //		driver.manage().window().maximize();
