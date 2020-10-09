@@ -28,7 +28,7 @@ public class TestBase {
 	public WebDriver launchthebrowser(){
 		
 		System.setProperty("webdriver.chrome.driver",
-				System.getProperty("user.dir")+"/src/test/resources/chromedriver.exe");
+				System.getProperty("user.dir")+"/src/test/resources/linux-driver/chromedriver");
 		/* Launching the browser? */
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless", "window-size=1920,1080");
