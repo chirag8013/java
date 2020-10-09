@@ -229,7 +229,6 @@ public class Step {
 	@When("a manager goes to My Work and searches for Upload Vital Record Case")
 	public void Manager_goes_to_MyWork_and_Search_for_Upload_Vital_Record_Case() throws InterruptedException {
 		homepage.userclicksonmywork(driver);
-
 	}
 
 	@When("on selecting a Review Case")
