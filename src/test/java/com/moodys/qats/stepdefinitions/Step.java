@@ -211,13 +211,13 @@ public class Step {
 		Thread.sleep(2000);
 	}
 
-	@Then("the manager can search for Case Id in Dashboard to validate successful case creation")
-	public void Manager_clicks_on_Dashboard() throws InterruptedException {
-
-		homepage.clickonDashboard();
-
-		Thread.sleep(2000);
-	}
+//	@Then("the manager can search for Case Id in Dashboard to validate successful case creation")
+//	public void Manager_clicks_on_Dashboard() throws InterruptedException {
+//
+//		homepage.clickonDashboard();
+//
+//		Thread.sleep(2000);
+//	}
 
 	@Then("Validate the created case in Dashboard")
 	public void Validate_the_created_case_in_Dashboard() throws InterruptedException, IOException {
