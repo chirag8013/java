@@ -4,8 +4,6 @@ Feature: Get Rating Actions For Pyramid
 	When a user requests for rating release data for Pyramid by Dates
 	Then the status code for Pyramid is 200
 	And response for Pyramid includes the following
-	| ratingActionID		| 3371271 					|
-	| analystLocation		| New York - 7 World Trade Center			|
-    | ratingActionName      | Caja Rural de Navarra - Mortgage Covered Bonds|
-	| officeName            | Moody's Deutschland GmbH|
-	
+	| ratingActionID		| 906546255 					|
+	| analystLocation		| San Francisco - One Front Street			|
+    | ratingActionName      | Rutgers University, NJ CP self-liquidity 2020|

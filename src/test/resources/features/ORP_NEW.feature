@@ -4,8 +4,7 @@ Feature: Get Rating Actions For ORP
 	When a user requests for rating release data for ORP by Dates
 	Then the status code for ORP is 200
 	And response for ORP includes the following
-	| ratingActionID		| 57557757588686 					|
-	| analystLocation		| New York - 7 World Trade Center			|
-    | ratingActionName      | Caja Rural de Navarra - Mortgage Covered Bonds|
-	| officeName            | Moody's Deutschland GmbH|
-	
+	| ratingActionID		| RTG-991 					|
+	| analystLocation		| New York US New York - 7 World Trade Center			|
+    | ratingActionName      | Everest Reinsurance Company|
+	| officeName            | Moody's Investors Service, Inc.|
