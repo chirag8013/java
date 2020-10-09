@@ -32,7 +32,7 @@ public class TestBase {
 	public WebDriver launchthebrowser(){
 		
 		System.setProperty("webdriver.chrome.driver",
-				"src/test/resources/Drivers/chromedriver.exe");
+				"src/test/resources/chromedriver.exe");
 		/* Launching the browser? */
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless");
