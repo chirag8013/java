@@ -16,12 +16,7 @@ public class Dashboard {
 
 	public void clickonworkbasket(String workbasket) throws InterruptedException {
 Thread.sleep(2000);		
-WebDriverWait wait= new WebDriverWait(driver,10);
-WebElement Workbasket=driver.findElement(By.xpath("//span[@data-name='" + workbasket + "']"));
-wait.until(ExpectedConditions.elementToBeClickable(Workbasket));
-Workbasket.click();
-
-
+driver.findElement(By.xpath("//span[@data-name='" + workbasket + "']")).click();
 	}
 
 	public void clickonfirstcase() throws InterruptedException {

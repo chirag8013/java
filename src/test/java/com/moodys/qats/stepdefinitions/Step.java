@@ -129,7 +129,7 @@ public class Step {
 		Assert.assertEquals(homepagetitle, "QA Reviewer");
 		log.info("HomePage Title Verified as expected- " + homepagetitle);
 		log.info("----------------------------------");
-
+		
 
 	}
 
@@ -178,9 +178,14 @@ public class Step {
 	public void After_entering_Manual_Case_fields_user_clicks_on_create_case()
 			throws InterruptedException {
 
-		createcase.createmanualcase(prop.getProperty("ActionID"), prop.getProperty("CaseDesc"),
+		createcase.createmanualcaseandclick(prop.getProperty("ActionID"), prop.getProperty("CaseDesc"),
 				prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"));
 	}
+
+//	@When("clicks on Create Case")
+//	public void click_on_create_case() throws InterruptedException {
+//		createcase.clickCreateCase();
+//	}
 
 	@Then("searches for Case Id in My Work to validate successful case creation")
 	public void search_for_case_id_in_my_work() throws InterruptedException, IOException {
@@ -200,7 +205,7 @@ public class Step {
 
 	@When("clicks on Create Case")
 	public void clicks_on_Create_Case() throws InterruptedException {
-
+	
 	}
 
 	@Then("Manager Goes to Dashboard")
@@ -211,13 +216,13 @@ public class Step {
 		Thread.sleep(2000);
 	}
 
-//	@Then("the manager can search for Case Id in Dashboard to validate successful case creation")
-//	public void Manager_clicks_on_Dashboard() throws InterruptedException {
-//
-//		homepage.clickonDashboard();
-//
-//		Thread.sleep(2000);
-//	}
+	@Then("Manager can search for Case Id in Dashboard to validate successful case creation")
+	public void Manager_clicks_on_Dashboard() throws InterruptedException {
+
+		homepage.gobacktodashboard();
+
+		Thread.sleep(2000);
+	}
 
 	@Then("Validate the created case in Dashboard")
 	public void Validate_the_created_case_in_Dashboard() throws InterruptedException, IOException {
@@ -226,50 +231,51 @@ public class Step {
 
 	}
 
-	@When("a manager goes to My Work and searches for Upload Vital Record Case")
+	@When("Manager goes to MyWork and Search for Upload Vital Record Case")
 	public void Manager_goes_to_MyWork_and_Search_for_Upload_Vital_Record_Case() throws InterruptedException {
 		homepage.userclicksonmywork(driver);
+
 	}
 
-	@When("on selecting a Review Case")
+	@When("on Selecting a Review Case")
 	public void on_Selecting_a_Review_Case() throws InterruptedException, IOException {
 
 		mywork.selectuploadvitalrecordsreviewcase();
 	}
-
-	@Then("^the reviewer completes the Questionnaire and clicks on Submit Review$")
+	
+	@Then("^Reviewer completes the Questionnaire Click on Submit Review$")
 	public void reviewer_completes_the_Questionnaire_Click_on_Submit_Review() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		util.PerformQuestionnaire();
+	    // Write code here that turns the phrase above into concrete actions
+	   util.PerformQuestionnaire();
 	}
 
 
-	@Then("the manager completes the questionnaire under QRS and submits")
+	@Then("Manager completes the questionnaire under QRS and submit")
 	public void Manager_completes_the_questionnaire_under_QRS_and_submit() throws InterruptedException {
 
 		util.PerformQuestionnaire();
 	}
-
-	@When("a reviewer clicks on My Work")
+	
+	@When("Reviewer Clicks on My Work")
 	public void Reviewer_Clicks_on_My_Work() throws InterruptedException {
 		homepage.userclicksonmywork(driver);
 
 	}
-
+	
 	@When("^clicks on Create Manual Case$")
 	public void clicks_on_Create_Manual_Case() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
+	    // Write code here that turns the phrase above into concrete actions
 		createcase.clickoncreatemanualcase();
-		createcase.createmanualcase(prop.getProperty("ActionID"), prop.getProperty("CaseDesc"),
+		createcase.createmanualcaseandclick(prop.getProperty("ActionID"), prop.getProperty("CaseDesc"),
 				prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"));
 	}
 
-	@Then("^the manager can search for Case Id in Dashboard to validate successful case creation$")
+	@Then("^Search for Case Id in Dashboard to validate successful case creation$")
 	public void search_for_Case_Id_in_Dashboard_to_validate_successful_case_creation() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
+	    // Write code here that turns the phrase above into concrete actions
 		mywork.displaynewlycreatedreviewcase(prop.getProperty("ActionID"));
 	}
-
+	
 	@When("^a reviewer clicks Create Manual Case$")
 	public void a_reviewer_clicks_Create_Manual_Case() throws Throwable {
 		homepage.clickonCreateManualCase();
@@ -282,17 +288,17 @@ public class Step {
 	}
 
 
-	@Then("the manager clicks on Quality Review Work Queue and validate case status for any case")
+	@Then("Manager click on Quality Review Work Queue and validate case status for any case")
 	public void Manager_click_on_Quality_Review_Work_Queue_and_validate_case_status_for_any_case()
 			throws InterruptedException {
 		dashboard.clickonworkbasket("Quality Review Work Queue");
-
-		Thread.sleep(2000);
+Thread.sleep(1000);
+	
 		dashboard.clickonfirstcase();
-		Thread.sleep(3000);
-
+		
+		Thread.sleep(1000);
 		qrsheet.clickonactionbutton();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		qrsheet.clickonupdatecasestatus();
 		Thread.sleep(2000);
@@ -301,6 +307,7 @@ public class Step {
 
 		qrsheet.clickoncontinueconfirm();
 		Thread.sleep(2000);
+
 	}
 
 	@When("Admin clicks on configuration")
@@ -325,7 +332,7 @@ public class Step {
 
 	@When("^User enters \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and click on Submit Update$")
 	public void user_enters_and_and_and_click_on_Submit_Update(String AnalystLocCode, String RatingDate,
-															   String NewReviewDate) throws Throwable {
+			String NewReviewDate) throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
 		homepage.Editreviewdatefields(AnalystLocCode, RatingDate, NewReviewDate);
 	}

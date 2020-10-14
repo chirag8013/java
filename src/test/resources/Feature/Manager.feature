@@ -16,22 +16,27 @@ Scenario: A manager creates ingested review cases and validate in dashboard.
 When a manager clicks Create QA Review
 And selects Review Case
 And clicks on Create Case
-Then the manager can search for Case Id in Dashboard to validate successful case creation
+Then Manager can search for Case Id in Dashboard to validate successful case creation
 
 @Third
 Scenario: A manager creates new Review Cases from manually entered data.
 When a manager clicks Create QA Review
 And clicks on Create Manual Case
-Then the manager can search for Case Id in Dashboard to validate successful case creation
+Then Search for Case Id in Dashboard to validate successful case creation
 
 @ignore
 Scenario: Complete Questionnaire and send for Review
-When a manager goes to My Work and searches for Upload Vital Record Case
-And on selecting a Review Case
-Then the manager completes the questionnaire under QRS and submits
+When Manager goes to MyWork and Search for Upload Vital Record Case
+And on Selecting a Review Case
+Then Manager completes the questionnaire under QRS and submit
 
 
-@ignore
+@Fourth
 Scenario: Verify Workbaskets and case status
-When a manager goes to Dashboard
-Then the manager clicks on Quality Review Work Queue and validate case status for any case
+When Manager Goes to Dashboard
+Then Manager click on Quality Review Work Queue and validate case status for any case
+
+
+
+ 
+

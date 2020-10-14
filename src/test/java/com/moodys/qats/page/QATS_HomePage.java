@@ -134,6 +134,19 @@ public class QATS_HomePage {
 		driver.findElement(By.xpath("//span[text()='Dashboard']/parent::span/parent::a")).click();
 		Thread.sleep(3000);
 
+	driver.switchTo().frame(1);
+	
+
+		Thread.sleep(1000);
+	}
+	
+	public void gobacktodashboard() throws InterruptedException{
+		
+		driver.switchTo().defaultContent();
+
+		driver.findElement(By.xpath("//span[text()='Dashboard']/parent::span/parent::a")).click();
+		Thread.sleep(2000);
+
 		for (int y = 0; y < 20; y++) {
 			try {
 
@@ -147,7 +160,8 @@ public class QATS_HomePage {
 			}
 		}
 
-		Thread.sleep(2000);
+		Thread.sleep(1000);
+		
 	}
 
 	public void userclicksonmywork(WebDriver driver) throws InterruptedException {
@@ -163,7 +177,7 @@ public class QATS_HomePage {
 //		if(driver.findElement(By.xpath("//span[text()='My Work']")) != null) {
 //			log.info("yes------------");
 //			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-			driver.findElement(By.xpath("//span[text()='My Work']")).click();
+			//driver.findElement(By.xpath("//span[text()='My Work']")).click();
 //		} else {
 //			log.info("---------no");
 //		}
@@ -173,7 +187,7 @@ public class QATS_HomePage {
 
 //		Thread.sleep(5000);
 //		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//		driver.findElement(By.xpath("//span[text()='My Work']/parent::span/parent::a")).click();
+		driver.findElement(By.xpath("//span[text()='My Work']/parent::span/parent::a")).click();
 //		Thread.sleep(2000);
 
 		Thread.sleep(2000);

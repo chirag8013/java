@@ -1,11 +1,9 @@
 package com.moodys.qats.page;
 
 import java.io.IOException;
-import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class MyWork {
@@ -57,11 +55,8 @@ public class MyWork {
             homepage.clickonDashboard();
         }
 
-        List<WebElement> elems = driver.findElements(By.xpath("//div[contains(text(),'Action/Shell')]/following::a[@id='pui_filter']"));
-
-        if(!elems.isEmpty()) {
-            elems.get(0).click();
-        }
+        driver.findElements(By.xpath("//div[contains(text(),'Action/Shell')]/following::a[@id='pui_filter']")).get(0)
+                .click();
         Thread.sleep(4000);
 
         if (driver.getTitle().equals("QA Admin")) {

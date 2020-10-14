@@ -25,6 +25,60 @@ public class CreateQAReviewManualCase {
 	public void clickoncreatemanualcase() {
 		driver.findElement(By.xpath("//button[text()='Create Manual Case']")).click();
 	}
+	
+	public void createmanualcaseandclick(String actid, String CaseDesc, String Source, String Leadanalystname)
+			throws InterruptedException {
+		if (driver.getTitle().equals("QA Manager")) {
+
+			driver.switchTo().defaultContent();
+			for (int y = 0; y < 20; y++) {
+				try {
+					driver.switchTo().frame("PegaGadget" + y + "Ifr");
+					driver.findElement(By.xpath("//h2[text()='Create QA Review Case']")).click();
+
+					break;
+				} catch (Exception e) {
+					driver.switchTo().defaultContent();
+					continue;
+				}
+			}
+			Thread.sleep(2000);
+		}
+
+		driver.findElement(By.xpath("//input[@name='$PpyDisplayHarness$pManualRatingAction$l1$pRatingActionID']"))
+				.sendKeys(actid);
+
+		Thread.sleep(1000);
+
+		driver.findElement(By.xpath("//input[@name='$PpyDisplayHarness$pManualRatingAction$l1$pRatingActionDesc']"))
+				.sendKeys(CaseDesc);
+
+		Thread.sleep(1000);
+
+		Select sel = new Select(driver
+				.findElement(By.xpath("//select[@name='$PpyDisplayHarness$pManualRatingAction$l1$pSourceName']")));
+
+		sel.selectByVisibleText(Source);
+
+		driver.findElement(By.xpath("//label[contains(text(),'Rating Release Date')]/following-sibling::div//img"))
+				.click();
+
+		driver.findElement(By.xpath("//a[@class='today-link']")).click();
+
+		driver.findElement(By.xpath("//label[text()='Lead Analyst Name']/following-sibling::div/input[@type='text']"))
+				.sendKeys(Leadanalystname);
+
+		Thread.sleep(3000);
+
+		driver.findElement(By.xpath("//button[text()='Create Case']")).click();
+
+		Thread.sleep(3000);
+
+		driver.navigate().refresh();
+		
+
+		Thread.sleep(3000);
+	}
 
 	public void createmanualcase(String actid, String CaseDesc, String Source, String Leadanalystname)
 			throws InterruptedException {
