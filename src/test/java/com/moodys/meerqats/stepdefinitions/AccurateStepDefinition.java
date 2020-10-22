@@ -31,7 +31,9 @@ public class AccurateStepDefinition {
 
 	@When("^a user requests for rating release data for Accurate by Dates$")
 	public void a_user_requests_for_rating_release_data_for_Accurate_by_Dates() throws Throwable {
-	 System.out.println(response.prettyPrint());   
+	 System.out.println(response.prettyPrint());
+	 System.out.println("----------------------------------------------------------------");
+	 System.out.println("SIZE OF RESPONSE ARRAY IS "+response.jsonPath().getList("").size());
 	}
 
 	@Then("^the status code for Accurate is (\\d+)$")
