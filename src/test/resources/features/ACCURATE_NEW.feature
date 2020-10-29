@@ -21,8 +21,6 @@ Feature: Get Rating Actions For Accurate
 	 
 	Examples:
 	|field|
-	|addendumEmail|
-	|provisionalRatingInd|
 	|sourceSystem|
 	|orgId|
 	|ratingActionDesc|

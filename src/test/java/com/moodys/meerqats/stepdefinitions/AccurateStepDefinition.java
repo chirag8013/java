@@ -82,7 +82,7 @@ public void a_user_requests_for_rating_release_data_for_Accurate_by_Dates_for_Op
 		 openshiftfieldlistsize= openshiftfieldlist.size();
 		for(String Openshiftfield:openshiftfieldlist
 				){
-			System.out.println(Openshiftfield);
+			System.out.println(field+"from Openshift----"+Openshiftfield);
 		}
 		 System.out.println("----------------------------------------------------------------");
 	     openshiftResponsearraysize = openshiftresponse.jsonPath().getList("").size();
@@ -96,7 +96,7 @@ public void a_user_requests_for_rating_release_data_for_Accurate_by_Dates_for_Do
 	 dockerfieldlist = new HashSet<String>(Dockerfield1);
 	dockerfieldlistsize= dockerfieldlist.size();
 	for(String Dockerfield:dockerfieldlist){
-		System.out.println(Dockerfield);
+		System.out.println(field+"from Docker----"+Dockerfield);
 	}
 	 System.out.println("----------------------------------------------------------------");
       dockerResponsearraysize = dockerresponse.jsonPath().getList("").size();
