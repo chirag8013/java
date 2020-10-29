@@ -23,5 +23,74 @@ Feature: Get Rating Actions For Accurate
 	|field|
 	|addendumEmail|
 	|provisionalRatingInd|
+	|sourceSystem|
+	|orgId|
+	|ratingActionDesc|
+	|ratingActionID|
+	|ratingActionName|
+	|ratingCommitteeDate|
+	|ratingOffice|
+	|ratingReleaseDate|
+	|eventDate|
+	|eventType|
+	|lobname|
+	|sublobname|
+	|region|
+	|leadAnalystID|
+	|leadAnalystName|
+	|leadAnalystUniqueId|
+	|analystEmail|
+	|analystLocation| 
+	|approverID|
+	|approverName|
+	|officeName|
+	|documentExceptionListingInd|
+	|announcementInd|
+	|automaticRating|
+	|definitiveRatingPrevProvisional|
+	|indicativeRatingInd|
+	|definitiveRatingInd|
+	|indicativeRatingInd|
+	|definitiveRatingInd|
+	|linkedAnotherActionInd|
+	|privateRatingActionInd|
+	|provisionalRatingInd|
+	|secondaryactionind|
+	|subsequentRatingInd|
+	|contactPersonId|
+	|complianceType|
+	|complianceID|
+	|ratingShellId|
+	|ratingShellDS|
+	|workItemStatus|
+	|workItemType|
+	|workItemSubType|
+	|workItemReleaseDtm|
+	|pressReleaseId|
+	|securityClassNm|
+	|shadowCd|
+	|pressReleaseType|
+	|pyrRatingType|
+	|pacrEmail|
+	|pacr|
+	|chairEmail|
+	|chair|
+	|addendum|
+	|addendumEmail|
+	|pkgModifiedDate|
+	|dealId|
+	|productLine|
+	|backUpAnalyst|
+	|dealBalance|
+	|ratedBalance|
+	|prFirstContact|
+	|prSecondContact|
+	|prHeadline|
+	|prTxt|
+	
+      
+       
+     
+   
      
 	
