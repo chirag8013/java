@@ -13,11 +13,11 @@ Feature: Get Rating Actions For Accurate
 	
 	@Second
     Scenario Outline: Validating the response from Openshift and Docker
-    Given web service returns rating actions for RatingRelInfoAccurate between dates 20200923 and 20200923 for Openshift
-    And web service returns rating actions for RatingRelInfoAccurate between dates 20200923 and 20200923 for Docker
+    Given web service returns rating actions for RatingRelInfoAccurate between dates 20201017 and 20201017 for Openshift
+    And web service returns rating actions for RatingRelInfoAccurate between dates 20201017 and 20201017 for Docker
 	When a user requests for rating release data for Accurate by Dates for Openshift and fetch "<field>"
 	And a user requests for rating release data for Accurate by Dates for Docker and fetch "<field>"
-	Then validate the response from Openshift and docker
+	Then validate the Accurate response from Openshift and docker
 	 
 	Examples:
 	|field|
@@ -29,8 +29,6 @@ Feature: Get Rating Actions For Accurate
 	|ratingCommitteeDate|
 	|ratingOffice|
 	|ratingReleaseDate|
-	|eventDate|
-	|eventType|
 	|lobname|
 	|sublobname|
 	|region|
@@ -75,15 +73,7 @@ Feature: Get Rating Actions For Accurate
 	|chair|
 	|addendum|
 	|addendumEmail|
-	|pkgModifiedDate|
-	|dealId|
-	|productLine|
 	|backUpAnalyst|
-	|dealBalance|
-	|ratedBalance|
-	|prFirstContact|
-	|prSecondContact|
-	|prHeadline|
 	|prTxt|
 	
       

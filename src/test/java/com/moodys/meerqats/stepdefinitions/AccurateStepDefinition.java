@@ -107,8 +107,8 @@ public void a_user_requests_for_rating_release_data_for_Accurate_by_Dates_for_Do
 
 
 
-@Then("^validate the response from Openshift and docker$")
-public void validate_the_response_from_Openshift_and_docker() throws Throwable {
+@Then("^validate the Accurate response from Openshift and docker$")
+public void validate_the_Accurate_response_from_Openshift_and_docker() throws Throwable {
     // Write code here that turns the phrase above into concrete actions
      try {
 		Assert.assertEquals(dockerResponsearraysize, openshiftResponsearraysize);
