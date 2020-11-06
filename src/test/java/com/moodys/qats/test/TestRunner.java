@@ -17,6 +17,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
         glue = {"com.moodys.qats.stepdefinitions"},
         monochrome = true, 
         tags={"~@ignore"},
+        //dryRun=true,
 		strict = true,
         format = {
                 "pretty",

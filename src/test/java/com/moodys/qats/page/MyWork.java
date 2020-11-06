@@ -1,9 +1,12 @@
 package com.moodys.qats.page;
 
 import java.io.IOException;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 public class MyWork {
@@ -21,11 +24,11 @@ public class MyWork {
     public void selectuploadvitalrecordsreviewcase() throws InterruptedException, IOException {
 
 
-        if (driver.getTitle().equals("QA Manager")) {
+     
             for (int y = 0; y < 20; y++) {
                 try {
                     driver.switchTo().frame("PegaGadget" + y + "Ifr");
-                    driver.findElement(By.xpath("//h1[text()='My Work']")).click();
+                    driver.findElement(By.xpath("//div[text()='Assignment Task']/following::a[@id='pui_filter']")).click();
 
                     break;
                 } catch (Exception e) {
@@ -33,9 +36,9 @@ public class MyWork {
                     continue;
                 }
             }
-        }
+        
 
-        driver.findElement(By.xpath("//div[text()='Assignment Task']/following::a[@id='pui_filter']")).click();
+       
         Thread.sleep(2000);
         driver.findElement(By.xpath("//label[contains(text(),' Upload Vital Records')]/parent::td/preceding-sibling::td//input[@type='checkbox']"))
                 .click();
@@ -48,8 +51,11 @@ public class MyWork {
     }
 
     public void displaynewlycreatedreviewcase(String actionid) throws InterruptedException, IOException {
-        if (driver.getTitle().equals("Create Manual QA Review")) {
-            driver.findElement(By.xpath("//span[text()='My Work']/parent::span/parent::a")).click();
+        if (driver.getTitle().equals("QA Reviewer")) {
+        	 driver.findElement(By.xpath("//span[text()='My Work']/parent::span/parent::a")).click();
+        	 Thread.sleep(2000);
+        	driver.switchTo().frame("PegaGadget2Ifr");
+           
         } else {
             homepage = new QATS_HomePage(driver);
             homepage.clickonDashboard();
@@ -71,7 +77,7 @@ public class MyWork {
                     .xpath("//input[@name='$PpyFilterCriteria_pgRepPgSubSectionpyGroupBasketWorkB_pxResults_pyGroupBasketWork_1$ppyColumnFilterCriteria$gwrk_RatingActionID3$ppySearchText']"))
                     .sendKeys(actionid);
         }
-        if (driver.getTitle().equals("Case Worker Worklist")) {
+        if (driver.getTitle().equals("QA Reviewer")) {
             driver.findElement(By
                     .xpath("//input[@name='$PpyFilterCriteria_pgRepPgSubSectionWorklistBB_pxResults_Worklist_2$ppyColumnFilterCriteria$gwrk_RatingActionID4$ppySearchText']"))
                     .clear();
@@ -82,9 +88,16 @@ public class MyWork {
 
         driver.findElement(By.xpath("//button[text()='Apply']")).click();
         Thread.sleep(3000);
-        Actions act = new Actions(driver);
-        act.moveToElement(driver.findElement(By.xpath("//td[@data-attribute-name='Region']/div"))).doubleClick().build().perform();
-        Thread.sleep(3000);
+       // Actions actions = new Actions(driver);
+        //WebElement from= driver.findElements(By.xpath("//img[@src='webwb/px-explorer-drag-icon.png']")).get(0);
+        //WebElement to =driver.findElement(By.xpath("//span[@data-name='Akanksha Sahu (User)']"));
+       //actions.clickAndHold(from).moveToElement(to).pause(Duration.ofMillis(4000)).release().pause(Duration.ofMillis(2000)).build().perform();
+      
+       //actions.clickAndHold(driver.findElements(By.xpath("//img[@src='webwb/px-explorer-drag-icon.png']")).get(0)).moveToElement(driver.findElement(By.xpath("//span[@data-name='Akanksha Sahu (User)']"))).build().perform();
+        Thread.sleep(2000);
+
     }
+
+   
 
 }

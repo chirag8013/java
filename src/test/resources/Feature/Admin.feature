@@ -67,6 +67,11 @@ Examples:
 |Remote WorkerB-USA40|4/22/2020|2/12/2020|
 
 
+@Fourth
+Scenario Outline: Day 4 Review
+When a Admin clicks Create QA Review
+And clicks on Create Manual Case with the Rating Release Date four days before from current date
+Then Admin with Case Id searches the case available for Day4 Review 
 
 
   

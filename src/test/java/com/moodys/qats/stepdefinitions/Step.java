@@ -1,9 +1,15 @@
 package com.moodys.qats.stepdefinitions;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
+import java.util.TimeZone;
 
+import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -39,6 +45,7 @@ public class Step {
 	private Dashboard dashboard;
 	private QualityReferenceSheet qrsheet;
 	private TestBase base;
+	String todaydate;
 
 	@Given("User Launch Chrome Browser")
 	public void User_Launch_Chrome_Browser() throws IOException {
@@ -48,6 +55,11 @@ public class Step {
 		driver = base.launchthebrowser();
 
 		util = new Util(driver);
+
+		Date date = new Date();
+		DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
+		todaydate = dateformat.format(date);
+		log.info("Today is " + todaydate);
 
 	}
 
@@ -129,7 +141,6 @@ public class Step {
 		Assert.assertEquals(homepagetitle, "QA Reviewer");
 		log.info("HomePage Title Verified as expected- " + homepagetitle);
 		log.info("----------------------------------");
-		
 
 	}
 
@@ -174,23 +185,23 @@ public class Step {
 
 	}
 
-	@When("enters required fields")
-	public void After_entering_Manual_Case_fields_user_clicks_on_create_case()
-			throws InterruptedException {
-
-		createcase.createmanualcaseandclick(prop.getProperty("ActionID"), prop.getProperty("CaseDesc"),
-				prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"));
+	
+	@When("^enters required fields \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void enters_required_fields_and_and_and_and(String actionid, String CaseDesc, String sourcename, String leadanalyst, String ratingactiondate) throws Throwable {
+		createcase.createmanualcasewithdate(actionid, CaseDesc, sourcename, leadanalyst, ratingactiondate);
 	}
+	
 
-//	@When("clicks on Create Case")
-//	public void click_on_create_case() throws InterruptedException {
-//		createcase.clickCreateCase();
-//	}
+	 @When("clicks on Create Case")
+	 public void click_on_create_case() throws InterruptedException {
+	createcase.clickoncreatecase();
+	 }
 
-	@Then("searches for Case Id in My Work to validate successful case creation")
-	public void search_for_case_id_in_my_work() throws InterruptedException, IOException {
-		mywork.displaynewlycreatedreviewcase(prop.getProperty("ActionID"));
-	}
+	 @Then("^searches for Case Id in My Work to validate successful case creation with \"([^\"]*)\"$")
+	 public void searches_for_Case_Id_in_My_Work_to_validate_successful_case_creation_with(String actionid) throws Throwable {
+	     // Write code here that turns the phrase above into concrete actions
+	     mywork.displaynewlycreatedreviewcase(actionid);
+	 }
 
 	@When("selects Review Case")
 	public void selects_review_case() throws InterruptedException {
@@ -203,10 +214,7 @@ public class Step {
 
 	}
 
-	@When("clicks on Create Case")
-	public void clicks_on_Create_Case() throws InterruptedException {
 	
-	}
 
 	@Then("Manager Goes to Dashboard")
 	public void Manager_Goes_to_Dashboard() throws InterruptedException {
@@ -217,11 +225,12 @@ public class Step {
 	}
 
 	@Then("Manager can search for Case Id in Dashboard to validate successful case creation")
-	public void Manager_clicks_on_Dashboard() throws InterruptedException {
+	public void Manager_clicks_on_Dashboard() throws InterruptedException, IOException {
 
 		homepage.gobacktodashboard();
 
 		Thread.sleep(2000);
+		mywork.displaynewlycreatedreviewcase(actionid);
 	}
 
 	@Then("Validate the created case in Dashboard")
@@ -242,40 +251,80 @@ public class Step {
 
 		mywork.selectuploadvitalrecordsreviewcase();
 	}
-	
+
 	@Then("^Reviewer completes the Questionnaire Click on Submit Review$")
 	public void reviewer_completes_the_Questionnaire_Click_on_Submit_Review() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	   util.PerformQuestionnaire();
+		// Write code here that turns the phrase above into concrete actions
+		util.PerformQuestionnaire();
 	}
-
 
 	@Then("Manager completes the questionnaire under QRS and submit")
 	public void Manager_completes_the_questionnaire_under_QRS_and_submit() throws InterruptedException {
 
 		util.PerformQuestionnaire();
 	}
-	
+
 	@When("Reviewer Clicks on My Work")
 	public void Reviewer_Clicks_on_My_Work() throws InterruptedException {
 		homepage.userclicksonmywork(driver);
 
 	}
 	
-	@When("^clicks on Create Manual Case$")
-	public void clicks_on_Create_Manual_Case() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
+	@When("^manager clicks on Create Manual Case with the Rating Release Date four days before from current date$")
+	public void manager_clicks_on_Create_Manual_Case_with_the_Rating_Release_Date_four_days_before_from_current_date() throws Throwable {
 		createcase.clickoncreatemanualcase();
-		createcase.createmanualcaseandclick(prop.getProperty("ActionID"), prop.getProperty("CaseDesc"),
-				prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"));
+		String today = todaydate.split("/")[1];
+		System.out.println(today);
+		int datetoday = Integer.parseInt(today);
+		int fourdaysbefore = datetoday - 4;
+		Calendar calender = Calendar.getInstance(TimeZone.getDefault());
+		//getting DayNumber of week like Sunday-1, Monday-2
+		int dayofweek= calender.get(Calendar.DAY_OF_WEEK);
+		System.out.println(dayofweek);
+		int flag=0,rep=0;
+		for(int d= dayofweek-1; d>=-4;d--){	
+			flag++;
+			if(d<=1){
+				rep++; 
+				fourdaysbefore=fourdaysbefore-1;			
+			}
+			if(flag==4&&d==1){
+				fourdaysbefore=fourdaysbefore-1;
+			}
+			if(flag==4||rep==2){
+				break;
+			}
+		}
+		String fourdaysbeforedate = Integer.toString(fourdaysbefore);
+		
+		
+		
+		System.out.println("four days before date is --------------------> " + fourdaysbeforedate);
+		createcase.createmanualcasewithdate(prop.getProperty("ActionID"), prop.getProperty("CaseDesc"),
+				prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"), fourdaysbeforedate);
+		createcase.clickoncreatecase();
 	}
 
-	@Then("^Search for Case Id in Dashboard to validate successful case creation$")
-	public void search_for_Case_Id_in_Dashboard_to_validate_successful_case_creation() throws Throwable {
+	@Then("^manager with Case Id searches the case available for Day(\\d+) Review$")
+	public void manager_with_Case_Id_searches_the_case_available_for_Day_Review(int day) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		mywork.displaynewlycreatedreviewcase(prop.getProperty("ActionID"));
+	   homepage.gobacktoDay4Review(prop.getProperty("ActionID"));
 	}
 	
+	@When("^clicks on Create Manual Case with \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void clicks_on_Create_Manual_Case_with_and_and_and_and(String actionid, String CaseDesc, String sourcename, String leadanalyst, String ratingactiondate) throws Throwable {
+		createcase.clickoncreatemanualcase();
+		createcase.createmanualcasewithdate(actionid, CaseDesc, sourcename, leadanalyst, ratingactiondate);
+		createcase.clickoncreatecase();
+	}
+	
+	
+	@Then("^Search for Case Id in Dashboard to validate successful case creation with \"([^\"]*)\"$")
+	public void search_for_Case_Id_in_Dashboard_to_validate_successful_case_creation_with(String ACTIONID) throws Throwable {
+		homepage.clickonDashboard();
+		mywork.displaynewlycreatedreviewcase(ACTIONID);
+	}
+
 	@When("^a reviewer clicks Create Manual Case$")
 	public void a_reviewer_clicks_Create_Manual_Case() throws Throwable {
 		homepage.clickonCreateManualCase();
@@ -287,15 +336,14 @@ public class Step {
 		Thread.sleep(4000);
 	}
 
-
 	@Then("Manager click on Quality Review Work Queue and validate case status for any case")
 	public void Manager_click_on_Quality_Review_Work_Queue_and_validate_case_status_for_any_case()
 			throws InterruptedException {
 		dashboard.clickonworkbasket("Quality Review Work Queue");
-Thread.sleep(1000);
-	
+		Thread.sleep(1000);
+
 		dashboard.clickonfirstcase();
-		
+
 		Thread.sleep(1000);
 		qrsheet.clickonactionbutton();
 		Thread.sleep(1000);
@@ -305,7 +353,7 @@ Thread.sleep(1000);
 
 		qrsheet.selectcasestatus("Pending-QAAllocation");
 
-		qrsheet.clickoncontinueconfirm();
+		qrsheet.clickonsubmit();
 		Thread.sleep(2000);
 
 	}

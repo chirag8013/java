@@ -19,16 +19,14 @@ And clicks on Create Case
 Then Manager can search for Case Id in Dashboard to validate successful case creation
 
 @Third
-Scenario: A manager creates new Review Cases from manually entered data.
+Scenario Outline: A manager creates new Review Cases from manually entered data.
 When a manager clicks Create QA Review
-And clicks on Create Manual Case
-Then Search for Case Id in Dashboard to validate successful case creation
+And clicks on Create Manual Case with "<actionid>" and "<CaseDesc>" and "<sourcename>" and "<leadanalyst>" and "<ratingactiondate>"
+Then Search for Case Id in Dashboard to validate successful case creation with "<actionid>"
 
-@ignore
-Scenario: Complete Questionnaire and send for Review
-When Manager goes to MyWork and Search for Upload Vital Record Case
-And on Selecting a Review Case
-Then Manager completes the questionnaire under QRS and submit
+Examples:
+|actionid|CaseDesc|sourcename|leadanalyst|ratingactiondate|
+|57575|Sample Case|Pyramid|David Sweeney|1|
 
 
 @Fourth
@@ -37,6 +35,16 @@ When Manager Goes to Dashboard
 Then Manager click on Quality Review Work Queue and validate case status for any case
 
 
+@Fifth
+Scenario: Day 4 Review
+When a manager clicks Create QA Review
+And manager clicks on Create Manual Case with the Rating Release Date four days before from current date
+Then manager with Case Id searches the case available for Day4 Review 
 
- 
+@ignore
+Scenario: Complete Questionnaire and send for Review
+When Manager goes to MyWork and Search for Upload Vital Record Case
+And on Selecting a Review Case
+Then Manager completes the questionnaire under QRS and submit
+
 

@@ -24,12 +24,7 @@ public class Util {
 
 		Thread.sleep(2000);
 
-		if (driver.getTitle().equals("QA Manager")) {
-			driver.switchTo().defaultContent();
-		}
-		if (driver.getTitle().equals("QA Admin")) {
-			driver.switchTo().defaultContent();
-		}
+		driver.switchTo().defaultContent();
 
 		driver.findElement(By.xpath(".//a[@class='Header_nav']")).click();
 
@@ -45,13 +40,21 @@ public class Util {
 	public void PerformQuestionnaire() throws InterruptedException {
 
 		driver.switchTo().defaultContent();
+		for (int y = 0; y < 20; y++) {
+			try {
+				driver.switchTo().frame("PegaGadget" + y + "Ifr");
+				driver.findElements(By.xpath("//span[text()='Upload Vital Records']")).get(0).click();
 
-		if (driver.getTitle().equals("QA Manager")) {
-			driver.switchTo().frame("PegaGadget2Ifr");
+				break;
+			} catch (Exception e) {
+				driver.switchTo().defaultContent();
+				continue;
+			}
 		}
-
 		for (int count = 0; count < 3; count++) {
+			if(count>0){
 			driver.findElements(By.xpath("//span[text()='Upload Vital Records']")).get(0).click();
+			}
 			Thread.sleep(4000);
 			for (int repeat = 0; repeat < 1000; repeat++) {
 				try {

@@ -1,10 +1,12 @@
 package com.moodys.qats.page;
 
 import java.io.IOException;
+import java.util.List;
 
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 @Log4j2
@@ -162,6 +164,41 @@ public class QATS_HomePage {
 
 		Thread.sleep(1000);
 		
+	}
+	
+public void gobacktoDay4Review(String actionid) throws InterruptedException{
+		
+		driver.switchTo().defaultContent();
+
+		driver.findElement(By.xpath("//span[text()='Day 4 Review']/parent::span/parent::a")).click();
+		Thread.sleep(2000);
+
+		for (int y = 0; y < 20; y++) {
+			try {
+
+				driver.switchTo().frame("PegaGadget" + y + "Ifr");
+				driver.findElements(By.xpath("//td[@data-attribute-name='Action ID']")).get(0).getText();
+
+				break;
+			} catch (Exception e) {
+				driver.switchTo().defaultContent();
+				continue;
+			}
+		}
+
+		Thread.sleep(1000);
+		
+		List<WebElement> actionids=driver.findElements(By.xpath("//td[@data-attribute-name='Action ID']"));
+		List<WebElement> caseids=driver.findElements(By.xpath("//td[@data-attribute-name='Case ID']"));
+		for(int i=0;i<actionids.size();i++){
+			
+			if(actionids.get(i).getText().equals(actionid)){
+				
+				System.out.println("---------------Case is present in Day 4 review with QRS ID "+ caseids.get(i).getText()+"-------------------");
+						
+				
+			}
+		}
 	}
 
 	public void userclicksonmywork(WebDriver driver) throws InterruptedException {

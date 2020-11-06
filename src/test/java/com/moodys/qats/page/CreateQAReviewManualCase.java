@@ -17,38 +17,46 @@ public class CreateQAReviewManualCase {
 
 	}
 
-	public void clickoncreatecase()  {
+	public void clickoncreatecase() throws InterruptedException  {
+
+
+		Thread.sleep(3000);
 
 		driver.findElement(By.xpath("//button[text()='Create Case']")).click();
+
+		Thread.sleep(3000);
+
+		driver.navigate().refresh();
+		
+
+		Thread.sleep(3000);
 	}
 
 	public void clickoncreatemanualcase() {
 		driver.findElement(By.xpath("//button[text()='Create Manual Case']")).click();
 	}
 	
-	public void createmanualcaseandclick(String actid, String CaseDesc, String Source, String Leadanalystname)
+	public void createmanualcasewithdate(String actid, String CaseDesc, String Source, String Leadanalystname, String todaydate)
 			throws InterruptedException {
-		if (driver.getTitle().equals("QA Manager")) {
+		
+		
 
 			driver.switchTo().defaultContent();
 			for (int y = 0; y < 20; y++) {
 				try {
 					driver.switchTo().frame("PegaGadget" + y + "Ifr");
-					driver.findElement(By.xpath("//h2[text()='Create QA Review Case']")).click();
+					driver.findElement(By.xpath("//input[@name='$PpyDisplayHarness$pManualRatingAction$l1$pRatingActionID']"))
+					.sendKeys(actid);
 
 					break;
 				} catch (Exception e) {
 					driver.switchTo().defaultContent();
-					continue;
 				}
 			}
 			Thread.sleep(2000);
-		}
 
-		driver.findElement(By.xpath("//input[@name='$PpyDisplayHarness$pManualRatingAction$l1$pRatingActionID']"))
-				.sendKeys(actid);
 
-		Thread.sleep(1000);
+	
 
 		driver.findElement(By.xpath("//input[@name='$PpyDisplayHarness$pManualRatingAction$l1$pRatingActionDesc']"))
 				.sendKeys(CaseDesc);
@@ -62,22 +70,66 @@ public class CreateQAReviewManualCase {
 
 		driver.findElement(By.xpath("//label[contains(text(),'Rating Release Date')]/following-sibling::div//img"))
 				.click();
+		
+		
+		
+		if(Integer.parseInt(todaydate)==-1){
+			
+			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
+			if(driver.findElement(By.xpath("//a[@data-day='31']")).isEnabled()){
+				driver.findElement(By.xpath("//a[@data-day='30']")).click();
+			}else{
+				driver.findElement(By.xpath("//a[@data-day='29']")).click();
+			
+		}
+	}
+		
+		if(Integer.parseInt(todaydate)==-2){
+			
+			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
+			if(driver.findElement(By.xpath("//a[@data-day='31']")).isEnabled()){
+				driver.findElement(By.xpath("//a[@data-day='29']")).click();
+			}else{
+				driver.findElement(By.xpath("//a[@data-day='28']")).click();
+			
+		}
+	}
+		
+		if(Integer.parseInt(todaydate)==-3){
+			
+			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
+			if(driver.findElement(By.xpath("//a[@data-day='31']")).isEnabled()){
+				driver.findElement(By.xpath("//a[@data-day='28']")).click();
+			}else{
+				driver.findElement(By.xpath("//a[@data-day='27']")).click();
+			
+		}
+	}
+		
+		if(Integer.parseInt(todaydate)==-4){
+			
+			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
+			if(driver.findElement(By.xpath("//a[@data-day='31']")).isEnabled()){
+				driver.findElement(By.xpath("//a[@data-day='27']")).click();
+			}else{
+				driver.findElement(By.xpath("//a[@data-day='26']")).click();
+			
+		}
+	}
+		
+		if(Integer.parseInt(todaydate)>0){
+			driver.findElement(By.xpath("//a[@data-day='"+todaydate+"']")).click();
+		}
+		
+		
 
-		driver.findElement(By.xpath("//a[@class='today-link']")).click();
+		//driver.findElement(By.xpath("//a[@class='today-link']")).click();
 
 		driver.findElement(By.xpath("//label[text()='Lead Analyst Name']/following-sibling::div/input[@type='text']"))
 				.sendKeys(Leadanalystname);
-
-		Thread.sleep(3000);
-
-		driver.findElement(By.xpath("//button[text()='Create Case']")).click();
-
-		Thread.sleep(3000);
-
-		driver.navigate().refresh();
+		
 		
 
-		Thread.sleep(3000);
 	}
 
 	public void createmanualcase(String actid, String CaseDesc, String Source, String Leadanalystname)
