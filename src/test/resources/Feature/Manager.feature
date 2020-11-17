@@ -35,11 +35,12 @@ When Manager Goes to Dashboard
 Then Manager click on Quality Review Work Queue and validate case status for any case
 
 
-@Fifth
+@ignore
 Scenario: Day 4 Review
 When a manager clicks Create QA Review
 And manager clicks on Create Manual Case with the Rating Release Date four days before from current date
 Then manager with Case Id searches the case available for Day4 Review 
+
 
 @ignore
 Scenario: Complete Questionnaire and send for Review

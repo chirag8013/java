@@ -22,12 +22,6 @@ Examples:
 |actionid|CaseDesc|sourcename|leadanalyst|ratingactiondate|
 |54356234|US 749 Day 3 email check_1|Accurate|David Sweeney|1|
 
-@Third
-Scenario Outline: Day 4 Review
-When a reviewer clicks Create Manual Case
-And enters required fields with the Rating Release Date four days before from current date
-And clicks on Create Case
-Then Reviewer with Case Id searches the case available for Day4 Review 
 
 
 @ignore

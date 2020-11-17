@@ -7,7 +7,10 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+
+import junit.framework.Assert;
 
 @Log4j2
 public class QATS_HomePage {
@@ -114,6 +117,25 @@ public class QATS_HomePage {
 		}
 
 	}
+	
+	public void clickonmaintainqatsvalue() throws InterruptedException {
+
+		driver.findElement(By.xpath("//span[text()='Maintain QATS Values']")).click();
+		driver.navigate().refresh();
+		Thread.sleep(2000);
+		for (int y = 0; y < 20; y++) {
+			try {
+				driver.switchTo().frame("PegaGadget" + y + "Ifr");
+				driver.findElement(By.xpath("//h2[text()='Maintain QATS Values']")).click();
+
+				break;
+			} catch (Exception e) {
+				driver.switchTo().defaultContent();
+				continue;
+			}
+		}
+
+	}
 
 	public void selectDomainNameandclickonsearch(String domainName) throws InterruptedException {
 		Thread.sleep(2000);
@@ -142,31 +164,53 @@ public class QATS_HomePage {
 		Thread.sleep(1000);
 	}
 	
-	public void gobacktodashboard() throws InterruptedException{
+	public void gobacktodashboardforbulkassignments() throws InterruptedException{
 		
 		driver.switchTo().defaultContent();
 
 		driver.findElement(By.xpath("//span[text()='Dashboard']/parent::span/parent::a")).click();
 		Thread.sleep(2000);
-
+		
 		for (int y = 0; y < 20; y++) {
 			try {
-
 				driver.switchTo().frame("PegaGadget" + y + "Ifr");
-				driver.findElement(By.xpath("//h2[text()='Work baskets']")).getText();
-
+				driver.findElement(By.xpath("//h2[text()='Work baskets']")).click();
 				break;
 			} catch (Exception e) {
 				driver.switchTo().defaultContent();
 				continue;
 			}
 		}
-
+		
 		Thread.sleep(1000);
 		
 	}
 	
-public void gobacktoDay4Review(String actionid) throws InterruptedException{
+public void gobacktodashboard() throws InterruptedException{
+		
+		driver.switchTo().defaultContent();
+
+		driver.findElement(By.xpath("//span[text()='Dashboard']/parent::span/parent::a")).click();
+		Thread.sleep(2000);
+		
+		for (int y = 0; y < 20; y++) {
+			try {
+				driver.switchTo().frame("PegaGadget" + y + "Ifr");
+				driver.findElement(By.xpath("//h2[text()='Work baskets']")).getText();
+				break;
+			} catch (Exception e) {
+				driver.switchTo().defaultContent();
+				continue;
+			}
+		}
+		
+		Thread.sleep(1000);
+		
+	}
+	
+
+@SuppressWarnings("deprecation")
+public void gobacktoDay4Review(String actionid, String user) throws Exception{
 		
 		driver.switchTo().defaultContent();
 
@@ -189,15 +233,18 @@ public void gobacktoDay4Review(String actionid) throws InterruptedException{
 		Thread.sleep(1000);
 		
 		List<WebElement> actionids=driver.findElements(By.xpath("//td[@data-attribute-name='Action ID']"));
-		List<WebElement> caseids=driver.findElements(By.xpath("//td[@data-attribute-name='Case ID']"));
+		List<WebElement> caseids= driver.findElements(By.xpath("//td[@data-attribute-name='Case ID']"));
+		List<WebElement> assignedto = driver.findElements(By.xpath("//td[@data-attribute-name='Assigned To']"));
 		for(int i=0;i<actionids.size();i++){
 			
 			if(actionids.get(i).getText().equals(actionid)){
 				
-				System.out.println("---------------Case is present in Day 4 review with QRS ID "+ caseids.get(i).getText()+"-------------------");
-						
-				
+				System.out.println("---------------Case is present in Day 4 review with QRS ID "+ caseids.get(i).getText()+ " and assigned to "+assignedto.get(i).getText()+" ------------------");		
+			    Assert.assertEquals(assignedto.get(i).getText(), user);
+			    
 			}
+			
+			
 		}
 	}
 

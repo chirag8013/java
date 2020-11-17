@@ -15,12 +15,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import com.moodys.qats.page.*;
 import com.moodys.qats.utilities.TestBase;
 import com.moodys.qats.utilities.Util;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -28,6 +30,8 @@ import cucumber.api.java.en.When;
 
 @Log4j2
 public class Step {
+	
+	private AdminUtils_MaintainQATSValue maintainqats;
 	private String actionid;
 	private Actions act;
 	private WebDriver driver;
@@ -106,6 +110,7 @@ public class Step {
 		dashboard = new Dashboard(driver);
 		qrsheet = new QualityReferenceSheet(driver);
 		sourcevsqats = new AdminUtils_SourceVsQATSMapping(driver);
+		maintainqats= new AdminUtils_MaintainQATSValue(driver);
 
 	}
 
@@ -308,7 +313,7 @@ public class Step {
 	@Then("^manager with Case Id searches the case available for Day(\\d+) Review$")
 	public void manager_with_Case_Id_searches_the_case_available_for_Day_Review(int day) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	   homepage.gobacktoDay4Review(prop.getProperty("ActionID"));
+	   homepage.gobacktoDay4Review(prop.getProperty("ActionID"),"QualityReview");
 	}
 	
 	@When("^clicks on Create Manual Case with \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\"$")
@@ -353,7 +358,7 @@ public class Step {
 
 		qrsheet.selectcasestatus("Pending-QAAllocation");
 
-		qrsheet.clickonsubmit();
+		qrsheet.clickoncontinueconfirm();
 		Thread.sleep(2000);
 
 	}
@@ -465,6 +470,126 @@ public class Step {
 		// Write code here that turns the phrase above into concrete actions
 		sourcevsqats.selectsourceandqatsvalue(sourcevalue, qatsvalue, domainname);
 	}
+	
+	@When("^an Admin clicks Create QA Review$")
+	public void an_Admin_clicks_Create_QA_Review() throws Throwable {
+		homepage.clickonQAReview();
+		driver.navigate().refresh();
+		Thread.sleep(4000);
+
+		for (int y = 0; y < 20; y++) {
+			try {
+				driver.switchTo().frame("PegaGadget" + y + "Ifr");
+				driver.findElement(By.xpath("//button[text()='Create Manual Case']")).getText();
+
+				break;
+			} catch (Exception e) {
+				driver.switchTo().defaultContent();
+				continue;
+			}
+		}
+		Thread.sleep(3000);
+	}
+
+	@When("^Admin clicks on Create Manual Case with the Rating Release Date four days before from current date$")
+	public void admin_clicks_on_Create_Manual_Case_with_the_Rating_Release_Date_four_days_before_from_current_date() throws Throwable {
+		createcase.clickoncreatemanualcase();
+		String today = todaydate.split("/")[1];
+		System.out.println(today);
+		int datetoday = Integer.parseInt(today);
+		int fourdaysbefore = datetoday - 4;
+		Calendar calender = Calendar.getInstance(TimeZone.getDefault());
+		//getting DayNumber of week like Sunday-1, Monday-2
+		int dayofweek= calender.get(Calendar.DAY_OF_WEEK);
+		System.out.println(dayofweek);
+		int flag=0,rep=0;
+		for(int d= dayofweek-1; d>=-4;d--){	
+			flag++;
+			if(d<=1){
+				rep++; 
+				fourdaysbefore=fourdaysbefore-1;			
+			}
+			if(flag==4&&d==1){
+				fourdaysbefore=fourdaysbefore-1;
+			}
+			if(flag==4||rep==2){
+				break;
+			}
+		}
+		String fourdaysbeforedate = Integer.toString(fourdaysbefore);
+		
+		
+		
+		System.out.println("four days before date is --------------------> " + fourdaysbeforedate);
+		createcase.createmanualcasewithdate(prop.getProperty("ActionID"), prop.getProperty("CaseDesc"),
+				prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"), fourdaysbeforedate);
+		createcase.clickoncreatecase();
+		
+		
+	}
+
+	@Then("^Admin with Case Id searches the case available for Day(\\d+) Review$")
+	public void admin_with_Case_Id_searches_the_case_available_for_Day_Review(int arg1) throws Throwable {
+		homepage.gobacktoDay4Review(prop.getProperty("ActionID"),"QualityReview");
+	}
+	
+	@Then("^Admin Searches for the case created in Dashboard and assign it to QATS User$")
+	public void admin_Searches_for_the_case_created_in_Dashboard_and_assign_it_to_QATS_User() throws Throwable {
+		homepage.gobacktodashboardforbulkassignments();
+		dashboard.clickonbulkassignments();
+		Thread.sleep(2000);
+		mywork.diaplaynewlycreatedcasebulkassignments(prop.getProperty("ActionID"));
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//td[@data-attribute-name='Select']/div/input[@data-ctl='Checkbox']")).click();
+		driver.findElement(By.xpath("//label[text()='Assigned To']/following-sibling::div/input")).sendKeys("test@rqms");
+		driver.findElement(By.xpath("//button[text()='Assign']")).click();
+		Thread.sleep(4000);
+		homepage.gobacktoDay4Review(prop.getProperty("ActionID"),"Test@rqms");
+		
+	}
+
+	@Then("^QATS User login into the application and searches for the case in Day(\\d+) Review$")
+	public void qats_User_login_into_the_application_and_searches_for_the_case_in_Day_Review(int arg1) throws Throwable {
+	   
+	}
+
+	@Then("^after selecting the incomplete documents QATS User Sends Day(\\d+) Email$")
+	public void after_selecting_the_incomplete_documents_QATS_User_Sends_Day_Email(int arg1) throws Throwable {
+	    
+	}
+	
+	@When("^Admin clicks on Admin Utils and then Maintain QATS Value$")
+	public void admin_clicks_on_Admin_Utils_and_then_Maintain_QATS_Value() throws Throwable {
+	    homepage.clickonadminutils();
+	    homepage.clickonmaintainqatsvalue();
+	}
+
+	@When("^After selecting \"([^\"]*)\" Admin clicks on Add Button by Admin$")
+	public void after_selecting_Admin_clicks_on_Add_Button_by_Admin(String domainname) throws Throwable {
+	   
+		maintainqats.selectdomainandclickonadd(domainname);
+		
+	}
+
+	@Then("^Admin Adds new \"([^\"]*)\" and submit$")
+	public void admin_Adds_new_and_submit(String qatsvalue) throws Throwable {
+		maintainqats.addnewqatsvalueandsubmit(qatsvalue);
+		
+	}
+	
+	@When("^Admin selects a \"([^\"]*)\"$")
+	public void admin_selects_a(String domain) throws Throwable {
+	   maintainqats.selectdomain(domain);
+	}
+
+	
+	@Then("^Admin change the status of \"([^\"]*)\" Active or Inactive$")
+	public void admin_change_the_status_of_Active_or_Inactive(String qatsvalue) throws Throwable {
+		
+		  maintainqats.selectqatsvalueandmakeactiveorinactiveandsubmit(qatsvalue);
+	}
+
+
 
 	@After
 	public void teardown() throws InterruptedException {

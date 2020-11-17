@@ -28,7 +28,7 @@ public class QualityReferenceSheet {
 	}
 
 	public void clickoncontinueconfirm() {
-		driver.findElement(By.xpath("//button[text()='Continue/Confirm']")).click();
+		driver.findElement(By.xpath("//button[text()='Continue / Confirm']")).click();
 	}
 	
 	public void clickonsubmit() {

@@ -53,6 +53,44 @@ Examples:
 |Region|Delhi|APAC|
 
 
+@Fourth
+Scenario: Day 4 Review
+When an Admin clicks Create QA Review
+And Admin clicks on Create Manual Case with the Rating Release Date four days before from current date
+Then Admin with Case Id searches the case available for Day4 Review 
+
+@Fifth
+Scenario: Day 4 Review
+When an Admin clicks Create QA Review
+And Admin clicks on Create Manual Case with the Rating Release Date four days before from current date
+Then Admin Searches for the case created in Dashboard and assign it to QATS User 
+Then QATS User login into the application and searches for the case in Day4 Review 
+And after selecting the incomplete documents QATS User Sends Day4 Email 
+
+
+@Sixth
+Scenario Outline: Making QATS Value Active or Inactive by Admin in Maintain QATS Value for Region and Analyst Location
+When Admin clicks on Admin Utils and then Maintain QATS Value
+And Admin selects a "<DomainName>"
+Then Admin change the status of "<QATSValue>" Active or Inactive
+
+ Examples:
+|DomainName|QATSValue|
+|Analyst Location|Sample QATS Value 1|
+|Region|Sample QATS Value 1| 
+
+
+@Sixth
+Scenario Outline: Adding new QATS Value by Admin in Maintain QATS Value for Region and Analyst Location
+When Admin clicks on Admin Utils and then Maintain QATS Value
+And After selecting "<DomainName>" Admin clicks on Add Button by Admin
+Then Admin Adds new "<QATSValue>" and submit
+
+ Examples:
+|DomainName|QATSValue|
+|Analyst Location|Sample QATS Value|
+|Region|Sample QATS Value|
+
 @ignore
 Scenario Outline: Review Date Adjustment
 Given User clicks on Admin Utils and then Edit Review Date
@@ -67,11 +105,23 @@ Examples:
 |Remote WorkerB-USA40|4/22/2020|2/12/2020|
 
 
-@Fourth
-Scenario Outline: Day 4 Review
-When a Admin clicks Create QA Review
-And clicks on Create Manual Case with the Rating Release Date four days before from current date
-Then Admin with Case Id searches the case available for Day4 Review 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+|
 
 
   

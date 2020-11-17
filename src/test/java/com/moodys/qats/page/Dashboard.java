@@ -3,6 +3,7 @@ package com.moodys.qats.page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,6 +14,21 @@ public class Dashboard {
 
 		this.driver = driver;
 	}
+	
+	public void clickonbulkassignments() throws InterruptedException{
+		
+	WebElement Bulk= driver.findElement(By.xpath("//a[contains(text(),'Bulk Assignments')]"));
+		for(int p=0;p<5;p++){
+			try {
+			    Bulk.click();
+				break;
+			} catch (Exception e) {
+				
+				continue;
+			}
+		
+	}
+		}
 
 	public void clickonworkbasket(String workbasket) throws InterruptedException {
 Thread.sleep(2000);		
