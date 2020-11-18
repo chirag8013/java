@@ -275,8 +275,9 @@ public class Step {
 
 	}
 	
-	@When("^manager clicks on Create Manual Case with the Rating Release Date four days before from current date$")
-	public void manager_clicks_on_Create_Manual_Case_with_the_Rating_Release_Date_four_days_before_from_current_date() throws Throwable {
+	
+	@When("^manager clicks on Create Manual Case with the Rating Release Date four days before from current date with case id \"([^\"]*)\"$")
+	public void manager_clicks_on_Create_Manual_Case_with_the_Rating_Release_Date_four_days_before_from_current_date_with_case_id(String ACTIONID) throws Throwable {
 		createcase.clickoncreatemanualcase();
 		String today = todaydate.split("/")[1];
 		System.out.println(today);
@@ -305,16 +306,16 @@ public class Step {
 		
 		
 		System.out.println("four days before date is --------------------> " + fourdaysbeforedate);
-		createcase.createmanualcasewithdate(prop.getProperty("ActionID"), prop.getProperty("CaseDesc"),
+		createcase.createmanualcasewithdate(ACTIONID, prop.getProperty("CaseDesc"),
 				prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"), fourdaysbeforedate);
 		createcase.clickoncreatecase();
 	}
-
-	@Then("^manager with Case Id searches the case available for Day(\\d+) Review$")
-	public void manager_with_Case_Id_searches_the_case_available_for_Day_Review(int day) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	   homepage.gobacktoDay4Review(prop.getProperty("ActionID"),"QualityReview");
+	
+	@Then("^manager with \"([^\"]*)\" searches the case available for Day(\\d+) Review$")
+	public void manager_with_searches_the_case_available_for_Day_Review(String ActionID, int arg2) throws Throwable {
+		homepage.gobacktoDay4Review(ActionID,"QualityReview");
 	}
+
 	
 	@When("^clicks on Create Manual Case with \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void clicks_on_Create_Manual_Case_with_and_and_and_and(String actionid, String CaseDesc, String sourcename, String leadanalyst, String ratingactiondate) throws Throwable {
@@ -491,8 +492,9 @@ public class Step {
 		Thread.sleep(3000);
 	}
 
-	@When("^Admin clicks on Create Manual Case with the Rating Release Date four days before from current date$")
-	public void admin_clicks_on_Create_Manual_Case_with_the_Rating_Release_Date_four_days_before_from_current_date() throws Throwable {
+	
+	@When("^Admin clicks on Create Manual Case with the Rating Release Date four days before from current date with case ID \"([^\"]*)\"$")
+	public void admin_clicks_on_Create_Manual_Case_with_the_Rating_Release_Date_four_days_before_from_current_date_with_case_ID(String ActionID) throws Throwable {
 		createcase.clickoncreatemanualcase();
 		String today = todaydate.split("/")[1];
 		System.out.println(today);
@@ -521,32 +523,39 @@ public class Step {
 		
 		
 		System.out.println("four days before date is --------------------> " + fourdaysbeforedate);
-		createcase.createmanualcasewithdate(prop.getProperty("ActionID"), prop.getProperty("CaseDesc"),
+		createcase.createmanualcasewithdate(ActionID, prop.getProperty("CaseDesc"),
 				prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"), fourdaysbeforedate);
 		createcase.clickoncreatecase();
-		
-		
-	}
-
-	@Then("^Admin with Case Id searches the case available for Day(\\d+) Review$")
-	public void admin_with_Case_Id_searches_the_case_available_for_Day_Review(int arg1) throws Throwable {
-		homepage.gobacktoDay4Review(prop.getProperty("ActionID"),"QualityReview");
 	}
 	
-	@Then("^Admin Searches for the case created in Dashboard and assign it to QATS User$")
-	public void admin_Searches_for_the_case_created_in_Dashboard_and_assign_it_to_QATS_User() throws Throwable {
+	@Then("^Admin with \"([^\"]*)\" searches the case available for Day(\\d+) Review$")
+	public void admin_with_searches_the_case_available_for_Day_Review(String Actionid, int arg2) throws Throwable {
+		homepage.gobacktoDay4Review(Actionid,"QualityReview");
+		
+		
+	}
+	
+	@Then("^Admin Searches for the case with case ID \"([^\"]*)\" created in Dashboard and assign it to QATS User$")
+	public void admin_Searches_for_the_case_with_case_ID_created_in_Dashboard_and_assign_it_to_QATS_User(String ACTIONID) throws Throwable {
 		homepage.gobacktodashboardforbulkassignments();
 		dashboard.clickonbulkassignments();
 		Thread.sleep(2000);
-		mywork.diaplaynewlycreatedcasebulkassignments(prop.getProperty("ActionID"));
+		mywork.diaplaynewlycreatedcasebulkassignments(ACTIONID);
 		Thread.sleep(4000);
 		driver.findElement(By.xpath("//td[@data-attribute-name='Select']/div/input[@data-ctl='Checkbox']")).click();
 		driver.findElement(By.xpath("//label[text()='Assigned To']/following-sibling::div/input")).sendKeys("test@rqms");
 		driver.findElement(By.xpath("//button[text()='Assign']")).click();
 		Thread.sleep(4000);
-		homepage.gobacktoDay4Review(prop.getProperty("ActionID"),"Test@rqms");
+		homepage.gobacktoDay4Review(ACTIONID,"Test@rqms");
 		
 	}
+	
+
+	@Then("^Admin send the Day(\\d+) Email from Day(\\d+) review after selecting the incomplete documents$")
+	public void admin_send_the_Day_Email_from_Day_review_after_selecting_the_incomplete_documents(int arg1, int arg2) throws Throwable {
+	   
+	}
+
 
 	@Then("^QATS User login into the application and searches for the case in Day(\\d+) Review$")
 	public void qats_User_login_into_the_application_and_searches_for_the_case_in_Day_Review(int arg1) throws Throwable {

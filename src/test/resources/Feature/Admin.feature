@@ -54,18 +54,25 @@ Examples:
 
 
 @Fourth
-Scenario: Day 4 Review
+Scenario Outline: Day 4 Review
 When an Admin clicks Create QA Review
-And Admin clicks on Create Manual Case with the Rating Release Date four days before from current date
-Then Admin with Case Id searches the case available for Day4 Review 
+And Admin clicks on Create Manual Case with the Rating Release Date four days before from current date with case ID "<CaseId>"
+Then Admin with "<CaseId>" searches the case available for Day4 Review 
+
+Examples:
+|CaseId|
+|6868686|
 
 @Fifth
-Scenario: Day 4 Review
+Scenario Outline: Day 4 Review
 When an Admin clicks Create QA Review
-And Admin clicks on Create Manual Case with the Rating Release Date four days before from current date
-Then Admin Searches for the case created in Dashboard and assign it to QATS User 
-Then QATS User login into the application and searches for the case in Day4 Review 
-And after selecting the incomplete documents QATS User Sends Day4 Email 
+And Admin clicks on Create Manual Case with the Rating Release Date four days before from current date with case ID "<CaseId>"
+Then Admin Searches for the case with case ID "<CaseId>" created in Dashboard and assign it to QATS User 
+Then Admin send the Day4 Email from Day4 review after selecting the incomplete documents
+
+Examples:
+|CaseId|
+|868877|
 
 
 @Sixth
@@ -80,7 +87,7 @@ Then Admin change the status of "<QATSValue>" Active or Inactive
 |Region|Sample QATS Value 1| 
 
 
-@Sixth
+@Seventh
 Scenario Outline: Adding new QATS Value by Admin in Maintain QATS Value for Region and Analyst Location
 When Admin clicks on Admin Utils and then Maintain QATS Value
 And After selecting "<DomainName>" Admin clicks on Add Button by Admin
