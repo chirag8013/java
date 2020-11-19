@@ -8,6 +8,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Util {
 
@@ -75,15 +77,10 @@ public class Util {
 				}
 			}
 			Thread.sleep(2000);
-			for (int repeat = 0; repeat < 1000; repeat++) {
-				try {
-					driver.findElement(By.xpath("//button[text()='Continue / Confirm']")).click();
-					break;
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					continue;
-				}
-			}
+			
+			
+			
+			driver.findElement(By.xpath("//span[text()='Rating Committee Package']")).click();
 			Thread.sleep(2000);
 			for (int repeat = 0; repeat < 1000; repeat++) {
 				try {
@@ -91,6 +88,10 @@ public class Util {
 							"//span[contains(text(),'Rating Recommendation included')]//following::label[text()='Yes']"));
 
 					for (int j = 0; j < ls2.size(); j++) {
+						
+						WebDriverWait wait = new WebDriverWait(driver,30);
+						
+						wait.until(ExpectedConditions.elementToBeClickable(ls2.get(j)));
 
 						ls2.get(j).click();
 
@@ -119,6 +120,10 @@ public class Util {
 							"//span[contains(text(),'All Rating Committee participants are')]//following::label[text()='Yes']"));
 
 					for (int j = 0; j < ls3.size(); j++) {
+						
+WebDriverWait wait = new WebDriverWait(driver,30);
+						
+						wait.until(ExpectedConditions.elementToBeClickable(ls3.get(j)));
 
 						ls3.get(j).click();
 
@@ -148,6 +153,10 @@ public class Util {
 							"//span[contains(text(),'Methodology Rating Group approval email')]//following::label[text()='Yes']"));
 
 					for (int j = 0; j < ls4.size(); j++) {
+						
+WebDriverWait wait = new WebDriverWait(driver,30);
+						
+						wait.until(ExpectedConditions.elementToBeClickable(ls4.get(j)));
 
 						ls4.get(j).click();
 
@@ -171,17 +180,28 @@ public class Util {
 				}
 			}
 			Thread.sleep(2000);
+			
 			for (int repeat = 0; repeat < 1000; repeat++) {
 				try {
-					WebElement ls5=driver.findElement(By.xpath(
+					List<WebElement> ls5 = driver.findElements(By.xpath(
 							"//span[contains(text(),'Rating Committee Chair eligible to chair per RPO RC Chair Approval list')]//following::label[text()='Yes']"));
-					ls5.click();
+
+					for (int j = 0; j < ls5.size(); j++) {
+						
+                        WebDriverWait wait = new WebDriverWait(driver,30);
+						
+						wait.until(ExpectedConditions.elementToBeClickable(ls5.get(j)));
+
+						ls5.get(j).click();
+
+					}
 					break;
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					continue;
 				}
 			}
+			
 
 			Thread.sleep(2000);
 			
