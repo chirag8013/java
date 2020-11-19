@@ -33,6 +33,8 @@ public class AdminUtils_MaintainQATSValue {
 		
 		String status = driver.findElement(By.xpath("//span[text()='Yes' or text()='No']")).getText();
 		
+		Thread.sleep(4000);
+		
 		Select sel = new Select(driver.findElement(By.xpath("//label[text()='Active']/following-sibling::div/select")));
 		
 		if(status.equals("Yes")){
