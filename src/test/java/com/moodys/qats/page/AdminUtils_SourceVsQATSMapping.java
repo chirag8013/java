@@ -18,9 +18,8 @@ public class AdminUtils_SourceVsQATSMapping {
 	public void deletemappingofrecord(String sourcevalue) throws InterruptedException {
 		driver.findElement(By.xpath("//div[text()='Source Value']//parent::div/parent::div/span/a[@id='pui_filter']"))
 				.click();
-
-		driver.findElement(By.xpath("//label[contains(text(),'" + sourcevalue
-				+ "')]/parent::td/preceding-sibling::td//input[@type='checkbox']")).click();
+       Thread.sleep(4000);
+		driver.findElement(By.xpath("//label[contains(text(),'" + sourcevalue+ "')]/parent::td/preceding-sibling::td//input[@type='checkbox']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//button[text()='Apply']")).click();
 		Thread.sleep(2000);
@@ -42,7 +41,7 @@ Thread.sleep(3000);
 				.findElements(By
 						.xpath("//div[text()='Source Value']/following::span[contains(text(),'" + sourcevalue + "')]"))
 				.get(0)).doubleClick().build().perform();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		Select sel = new Select(
 				driver.findElement(By.xpath("//label[contains(text(),'QATS Value')]/following-sibling::div/select")));
 		Thread.sleep(1000);
@@ -52,7 +51,7 @@ Thread.sleep(3000);
 	}
 
 	public void clickonsubmittosave() throws InterruptedException {
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 
 		driver.findElement(By.xpath("//button[text()='Submit']")).click();
 		Thread.sleep(3000);

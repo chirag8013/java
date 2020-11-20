@@ -50,6 +50,51 @@ public class Step {
 	private QualityReferenceSheet qrsheet;
 	private TestBase base;
 	String todaydate;
+	
+	
+
+	@When("^User enter the valid credentials that maps to Admin role in QATS$")
+	public void user_enter_the_valid_credentials_that_maps_to_Admin_role_in_QATS() throws Throwable {
+		base = new TestBase();
+		prop = base.initialization();
+
+		driver = base.launchthebrowser();
+
+		util = new Util(driver);
+
+		Date date = new Date();
+		DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
+		todaydate = dateformat.format(date);
+		log.info("Today is " + todaydate);
+		driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
+	}
+
+	@When("^is able to view the Admin Landing page$")
+	public void is_able_to_view_the_Admin_Landing_page() throws Throwable {
+		
+		loginpage = new QATS_LoginPage(driver);
+		log.info("----------------------------------");
+		String title = loginpage.LoginPageTitle();
+		log.info(title);
+		Assert.assertEquals(title, "Welcome to PegaRULES");
+		log.info("Login Page Title Verified as expected- " + title);
+		log.info("----------------------------------");
+
+	}
+	
+	@When("^I am able to login to QATS as an Admin$")
+	public void i_am_able_to_login_to_QATS_as_an_Admin() throws Throwable {
+		homepage = loginpage.Login(driver, prop.getProperty("AdminUserName"), prop.getProperty("AdminPassword"));
+
+		Thread.sleep(4000);
+		createcase = new CreateQAReviewManualCase(driver);
+		mywork = new MyWork(driver);
+		dashboard = new Dashboard(driver);
+		qrsheet = new QualityReferenceSheet(driver);
+		sourcevsqats = new AdminUtils_SourceVsQATSMapping(driver);
+		maintainqats= new AdminUtils_MaintainQATSValue(driver);
+	}
+
 
 	@Given("User Launch Chrome Browser")
 	public void User_Launch_Chrome_Browser() throws IOException {
@@ -64,6 +109,7 @@ public class Step {
 		DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
 		todaydate = dateformat.format(date);
 		log.info("Today is " + todaydate);
+		
 
 	}
 
@@ -376,6 +422,59 @@ public class Step {
 		homepage.clickoneditreviewdate();
 
 	}
+	
+	@When("^Admin chooses the option Mapping QATS to Source from Admin Utils Menu$")
+	public void admin_chooses_the_option_Mapping_QATS_to_Source_from_Admin_Utils_Menu() throws Throwable {
+		homepage.clickonadminutils();
+		homepage.clickonmappingqatsvssource();
+	}
+
+	@When("^selects \"([^\"]*)\" and clicks on Search$")
+	public void selects_and_clicks_on_Search(String DomainName) throws Throwable {
+		homepage.selectDomainNameandclickonsearch(DomainName);
+	}
+
+	@When("^changes mapping of \"([^\"]*)\" with \"([^\"]*)\" and click submit to save changes$")
+	public void changes_mapping_of_with_and_click_submit_to_save_changes(String sourcevalue, String qatsvalue) throws Throwable {
+		sourcevsqats.mappingupdate(sourcevalue, qatsvalue);
+		sourcevsqats.clickonsubmittosave();
+	}
+
+	@Then("^I Should Go back to the Create QA Review and Select Region as \"([^\"]*)\" and Create the case$")
+	public void i_Should_Go_back_to_the_Create_QA_Review_and_Select_Region_as_and_Create_the_case(String sourcevalue) throws Throwable {
+		homepage.clickonQAReview();
+		Thread.sleep(3000);
+
+		for (int y = 0; y < 20; y++) {
+			try {
+
+				driver.switchTo().frame("PegaGadget" + y + "Ifr");
+				//actionid = createcase.sortforregionandclickoncreatecase(sourcevalue);
+				driver.findElement(By.xpath("//button[text()='Create Manual Case']")).getText();
+
+				break;
+			} catch (Exception e) {
+				driver.switchTo().defaultContent();
+
+				continue;
+			}
+		}
+
+		Thread.sleep(3000);
+
+		actionid = createcase.sortforregionandclickoncreatecase(sourcevalue);
+
+	}
+
+	@Then("^check the QATSValue of created case as expected on Dashboard$")
+	public void check_the_QATSValue_of_created_case_as_expected_on_Dashboard() throws Throwable {
+		homepage.clickonDashboard();
+
+		Thread.sleep(2000);
+
+		mywork.displaynewlycreatedreviewcase(actionid);
+	}
+
 
 	@When("^Admin clicks on Admin Utils and then Mapping QATS vs Source$")
 	public void User_clicks_on_Admin_Utils_and_then_Mapping_QATS_vs_Source() throws InterruptedException {
@@ -404,8 +503,8 @@ public class Step {
 
 	}
 
-	@Then("^After clicking the first record Admin clicks on delete the mapping of record  with \"([^\"]*)\"and submit$")
-	public void after_clicking_the_first_record_Admin_clicks_on_delete_the_mapping_of_record_with_and_submit(
+	@Then("^after clicking the first record the Admin clicks on delete the mapping of record  with \"([^\"]*)\"and submit$")
+	public void after_clicking_the_first_record_the_Admin_clicks_on_delete_the_mapping_of_record_with_and_submit(
 			String sourcevalue) throws Throwable {
 		sourcevsqats.deletemappingofrecord(sourcevalue);
 
@@ -459,8 +558,8 @@ public class Step {
 
 	}
 
-	@Then("^Admin clicks on Add Item$")
-	public void admin_clicks_on_Add_Item() throws Throwable {
+	@Then("^after the Admin clicks on Add Item$")
+	public void after_the_admin_clicks_on_Add_Item() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
 		sourcevsqats.clickonadditem();
 	}
@@ -493,8 +592,8 @@ public class Step {
 	}
 
 	
-	@When("^Admin clicks on Create Manual Case with the Rating Release Date four days before from current date with case ID \"([^\"]*)\"$")
-	public void admin_clicks_on_Create_Manual_Case_with_the_Rating_Release_Date_four_days_before_from_current_date_with_case_ID(String ActionID) throws Throwable {
+	@When("^Admin clicks on Create Manual Case with the Rating Release Date four days before from current date with ActionID \"([^\"]*)\"$")
+	public void admin_clicks_on_Create_Manual_Case_with_the_Rating_Release_Date_four_days_before_from_current_date_with_ActionID(String ActionID) throws Throwable {
 		createcase.clickoncreatemanualcase();
 		String today = todaydate.split("/")[1];
 		System.out.println(today);
@@ -528,15 +627,15 @@ public class Step {
 		createcase.clickoncreatecase();
 	}
 	
-	@Then("^Admin with \"([^\"]*)\" searches the case available for Day(\\d+) Review$")
-	public void admin_with_searches_the_case_available_for_Day_Review(String Actionid, int arg2) throws Throwable {
+	@Then("^Admin with ActionID \"([^\"]*)\" searches the case available for Day(\\d+) Review$")
+	public void admin_with_ActionID_searches_the_case_available_for_Day_Review(String Actionid, int arg2) throws Throwable {
 		homepage.gobacktoDay4Review(Actionid,"QualityReview");
 		
 		
 	}
 	
-	@Then("^Admin Searches for the case with case ID \"([^\"]*)\" created in Dashboard and assign it to QATS User$")
-	public void admin_Searches_for_the_case_with_case_ID_created_in_Dashboard_and_assign_it_to_QATS_User(String ACTIONID) throws Throwable {
+	@Then("^Admin Searches for the case with ActionID \"([^\"]*)\" created in Dashboard and assign it to QATS User$")
+	public void admin_Searches_for_the_case_with_ActionID_created_in_Dashboard_and_assign_it_to_QATS_User(String ACTIONID) throws Throwable {
 		homepage.gobacktodashboardforbulkassignments();
 		dashboard.clickonbulkassignments();
 		Thread.sleep(2000);

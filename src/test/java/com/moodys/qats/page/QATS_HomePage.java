@@ -138,10 +138,10 @@ public class QATS_HomePage {
 	}
 
 	public void selectDomainNameandclickonsearch(String domainName) throws InterruptedException {
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		driver.findElement(By.xpath("//h2[text()='Mapping  QATS vs Source']")).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		Select sel = new Select(driver.findElement(By.name("$PpyDisplayHarness$pMappingAttribute")));
 		sel.selectByVisibleText(domainName);
