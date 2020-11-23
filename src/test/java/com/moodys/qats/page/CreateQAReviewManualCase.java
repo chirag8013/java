@@ -24,7 +24,7 @@ public class CreateQAReviewManualCase {
 
 		driver.findElement(By.xpath("//button[text()='Create Case']")).click();
 
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 
 		driver.navigate().refresh();
 		
