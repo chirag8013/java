@@ -13,7 +13,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 
 
 @CucumberOptions(
-		features = {"src/test/resources/Feature/Reviewer.feature"},
+		features = {"src/test/resources/Feature"},
         glue = {"com.moodys.qats.stepdefinitions"},
         monochrome = true, 
         tags={"~@ignore"},
