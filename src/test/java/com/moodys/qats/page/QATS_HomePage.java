@@ -79,6 +79,7 @@ public class QATS_HomePage {
 	public void clickonadminutils() throws InterruptedException {
 
 		driver.findElement(By.xpath("//span[text()='Admin Utils']/parent::span/parent::a")).click();
+		Thread.sleep(3500);
 	}
 
 	public void clickoneditreviewdate() throws InterruptedException {
@@ -118,6 +119,114 @@ public class QATS_HomePage {
 
 	}
 	
+	public void clickonupdatequestions() throws InterruptedException {
+
+		driver.findElement(By.xpath("//span[text()='Update Questions']")).click();
+		driver.navigate().refresh();
+		Thread.sleep(2000);
+		for (int y = 0; y < 20; y++) {
+			try {
+				driver.switchTo().frame("PegaGadget" + y + "Ifr");
+				driver.findElement(By.xpath("//h2[text()='Search Questions']")).getText();
+
+				break;
+			} catch (Exception e) {
+				driver.switchTo().defaultContent();
+				continue;
+			}
+		}
+		
+		Thread.sleep(4000);
+
+	}
+	
+	public void clickonupdateremediation() throws InterruptedException {
+
+		driver.findElement(By.xpath("//span[text()='Update Remediation']")).click();
+		driver.navigate().refresh();
+		Thread.sleep(2000);
+		for (int y = 0; y < 20; y++) {
+			try {
+				driver.switchTo().frame("PegaGadget" + y + "Ifr");
+				driver.findElement(By.xpath("//h2[text()='Search Remediation']")).getText();
+
+				break;
+			} catch (Exception e) {
+				driver.switchTo().defaultContent();
+				continue;
+			}
+		}
+		
+		Thread.sleep(4000);
+
+	}
+	
+	public void clickonaddremediation() throws InterruptedException {
+
+		driver.findElement(By.xpath("//span[text()='Add Remediation']")).click();
+		driver.navigate().refresh();
+		Thread.sleep(2000);
+		for (int y = 0; y < 20; y++) {
+			try {
+				driver.switchTo().frame("PegaGadget" + y + "Ifr");
+				driver.findElement(By.xpath("//h2[text()='Add Remediation']")).click();
+
+				break;
+			} catch (Exception e) {
+				driver.switchTo().defaultContent();
+				continue;
+			}
+		}
+		
+		Thread.sleep(4000);
+
+	}
+	
+	public void clickondataingestion() throws InterruptedException {
+
+		driver.findElement(By.xpath("//span[text()='Data Ingestion']")).click();
+		driver.navigate().refresh();
+		Thread.sleep(2000);
+		for (int y = 0; y < 20; y++) {
+			try {
+				driver.switchTo().frame("PegaGadget" + y + "Ifr");
+				driver.findElement(By.xpath("//h2[text()='On Demand Data Ingestion']")).getText();
+
+				break;
+			} catch (Exception e) {
+				driver.switchTo().defaultContent();
+				continue;
+			}
+		}
+		
+		Thread.sleep(4000);
+
+	}
+	
+	
+	public void clickonaddquestions() throws InterruptedException {
+
+		driver.findElement(By.xpath("//span[text()='Add Questions']")).click();
+		driver.navigate().refresh();
+		Thread.sleep(2000);
+		for (int y = 0; y < 20; y++) {
+			try {
+				driver.switchTo().frame("PegaGadget" + y + "Ifr");
+				driver.findElement(By.xpath("//h2[text()='Add Questions']")).click();
+
+				break;
+			} catch (Exception e) {
+				driver.switchTo().defaultContent();
+				continue;
+			}
+		}
+		
+		Thread.sleep(4000);
+
+	}
+	
+
+	
 	public void clickonmaintainqatsvalue() throws InterruptedException {
 
 		driver.findElement(By.xpath("//span[text()='Maintain QATS Values']")).click();
@@ -134,6 +243,8 @@ public class QATS_HomePage {
 				continue;
 			}
 		}
+		
+		Thread.sleep(4000);
 
 	}
 

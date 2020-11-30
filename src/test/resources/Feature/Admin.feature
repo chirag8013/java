@@ -6,7 +6,6 @@ And is able to view the Admin Landing page
 And I am able to login to QATS as an Admin
 
 
-
 @First
 Scenario Outline: Validate Source-to-QATS domain value mapping 
 When Admin chooses the option Mapping QATS to Source from Admin Utils Menu

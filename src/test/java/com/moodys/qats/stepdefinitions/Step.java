@@ -39,8 +39,11 @@ public class Step {
 	private Properties prop;
 
 	private CreateQAReviewManualCase createcase;
+	private Data_Ingestion dataingestion;
 
 	private AdminUtils_SourceVsQATSMapping sourcevsqats;
+	private Add_Update_Questions addupdateques;
+	private Add_Update_Remediation addupdateremediation;
 
 	private QATS_LoginPage loginpage;
 	private QATS_HomePage homepage;
@@ -50,7 +53,7 @@ public class Step {
 	private QualityReferenceSheet qrsheet;
 	private TestBase base;
 	String todaydate;
-	
+	int datetoday;
 	
 
 	@When("^User enter the valid credentials that maps to Admin role in QATS$")
@@ -67,6 +70,7 @@ public class Step {
 		todaydate = dateformat.format(date);
 		log.info("Today is " + todaydate);
 		driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
+		//driver.get("https://pega-orp-in-11.ad.moodys.net:8443/prweb/PRServlet");
 	}
 
 	@When("^is able to view the Admin Landing page$")
@@ -93,6 +97,9 @@ public class Step {
 		qrsheet = new QualityReferenceSheet(driver);
 		sourcevsqats = new AdminUtils_SourceVsQATSMapping(driver);
 		maintainqats= new AdminUtils_MaintainQATSValue(driver);
+		addupdateques= new Add_Update_Questions(driver);
+		addupdateremediation= new Add_Update_Remediation(driver);
+		dataingestion= new Data_Ingestion(driver);
 	}
 
 
@@ -117,6 +124,7 @@ public class Step {
 	public void User_enter_the_the_MeerQATS_login_page() {
 
 		driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
+		//driver.get("https://pega-orp-in-11.ad.moodys.net:8443/prweb/PRServlet");
 
 	}
 
@@ -327,7 +335,7 @@ public class Step {
 		createcase.clickoncreatemanualcase();
 		String today = todaydate.split("/")[1];
 		System.out.println(today);
-		int datetoday = Integer.parseInt(today);
+		datetoday = Integer.parseInt(today);
 		int fourdaysbefore = datetoday - 4;
 		Calendar calender = Calendar.getInstance(TimeZone.getDefault());
 		//getting DayNumber of week like Sunday-1, Monday-2
@@ -696,6 +704,80 @@ public class Step {
 		
 		  maintainqats.selectqatsvalueandmakeactiveorinactiveandsubmit(qatsvalue);
 	}
+	
+	@Given("^I have Logged into QATS Application as an Admin$")
+	public void i_have_Logged_into_QATS_Application_as_an_Admin() throws Throwable {
+	    
+	}
+
+	@Then("^Upon Occasion I Need to be able to ingest data from Pyramid for a given date$")
+	public void upon_Occasion_I_Need_to_be_able_to_ingest_data_from_Pyramid_for_a_given_date() throws Throwable {
+		homepage.clickonadminutils();
+		homepage.clickondataingestion();
+		String today=todaydate.split("/")[1];
+		datetoday=Integer.parseInt(today);
+		int yesterday= datetoday-1;
+		String Yesterday= Integer.toString(yesterday);
+		dataingestion.ondemandataingestion("Accurate", Yesterday);
+		
+	   
+	}
+
+	@Then("^view the ingested data on Dashboard to support  creation of new QA reviews$")
+	public void view_the_ingested_data_on_Dashboard_to_support_creation_of_new_QA_reviews() throws Throwable {
+	  
+	}
+
+	@Given("^As QATS Admin I will be needing to perform Periodic Questionnaire Maintainance$")
+	public void as_QATS_Admin_I_will_be_needing_to_perform_Periodic_Questionnaire_Maintainance() throws Throwable {
+		
+		homepage.clickonadminutils();
+		homepage.clickonaddquestions();
+		addupdateques.addaquestion("Chair Approval", "D36", "Sample through automation", "SAMPLE OBSERVATION AUTOMATION");
+		driver.switchTo().defaultContent();
+		homepage.clickonadminutils();
+		homepage.clickonupdatequestions();
+		addupdateques.updateaquestion("Chair Approval","D36", "Sample through automation update", "SAMPLE OBSERVATION AUTOMATION UPDATE");
+		
+	   
+	}
+
+	@Then("^I Need to be able to add or remove questions$")
+	public void i_Need_to_be_able_to_add_or_remove_questions() throws Throwable {
+	   
+	}
+
+	@Then("^or change the Observations$")
+	public void or_change_the_Observations() throws Throwable {
+	    
+	}
+
+	@Then("^or change the wording of the questions$")
+	public void or_change_the_wording_of_the_questions() throws Throwable {
+	  
+	}
+
+	@Given("^As part of the Remediation Maintainance$")
+	public void as_part_of_the_Remediation_Maintainance() throws Throwable {
+		homepage.clickonadminutils();
+		homepage.clickonaddremediation();
+	    addupdateremediation.addremediation("Chair Approval", "Sample through automation update", "Kindly Upload");
+	    driver.switchTo().defaultContent();
+	    homepage.clickonadminutils();
+	    homepage.clickonupdateremediation();
+	    addupdateremediation.updateremediation("Chair Approval", "Sample through automation update","Kindly upload necessary documents");
+	}
+
+	@Then("^I need to be able to add or remove Remediations$")
+	public void i_need_to_be_able_to_add_or_remove_Remediations() throws Throwable {
+	   
+	}
+
+	@Then("^change the wording of the Remediations$")
+	public void change_the_wording_of_the_Remediations() throws Throwable {
+	    
+	}
+
 
 
 
