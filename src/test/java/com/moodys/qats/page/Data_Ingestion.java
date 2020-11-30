@@ -25,11 +25,7 @@ public class Data_Ingestion {
 		Thread.sleep(3500);
 		for (int i = 1; i < 500; i++) {
 
-			if (driver.findElement(By.xpath("//span[text()='Data ingestion has been completed']")).isDisplayed()
-					|| driver
-							.findElement(
-									By.xpath("//span[text()='Data has been already ingested for the selected date']"))
-							.isDisplayed()) {
+			if (driver.findElement(By.xpath("//span[text()='Data ingestion has been completed']")).isDisplayed()||driver.findElement(By.xpath("//span[text()='Data has been already ingested for the selected date']")).isDisplayed()) {
 				break;
 			}
 			Thread.sleep(3500);

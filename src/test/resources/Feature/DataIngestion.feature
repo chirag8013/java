@@ -12,10 +12,10 @@ And view the ingested data on Dashboard to support  creation of new QA reviews
 
 Scenario: Ingest data for Accurate
 Given I have Logged into QATS Application as an Admin 
-Then Upon Occasion I Need to be able to ingest data from Pyramid for a given date
+Then Upon Occasion I Need to be able to ingest data from Accurate for a given date
 And view the ingested data on Dashboard to support  creation of new QA reviews
 
 Scenario: Ingest data for ORP
 Given I have Logged into QATS Application as an Admin 
-Then Upon Occasion I Need to be able to ingest data from Pyramid for a given date
+Then Upon Occasion I Need to be able to ingest data from ORP for a given date
 And view the ingested data on Dashboard to support  creation of new QA reviews
