@@ -17,7 +17,6 @@ public class TestBase {
 	public WebDriver driver;
 
 	
-
 	public  Properties initialization() throws IOException{
 		FileInputStream ip = new FileInputStream(
 				"src/test/resources/Config.Properties");

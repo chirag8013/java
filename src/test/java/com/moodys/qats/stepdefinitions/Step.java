@@ -777,6 +777,16 @@ public class Step {
 	public void change_the_wording_of_the_Remediations() throws Throwable {
 	    
 	}
+	
+	@Then("^Upon Occasion I Need to be able to ingest data from Accurate for a given date$")
+	public void upon_Occasion_I_Need_to_be_able_to_ingest_data_from_Accurate_for_a_given_date() throws Throwable {
+	    
+	}
+
+	@Then("^Upon Occasion I Need to be able to ingest data from ORP for a given date$")
+	public void upon_Occasion_I_Need_to_be_able_to_ingest_data_from_ORP_for_a_given_date() throws Throwable {
+	 
+	}
 
 
 

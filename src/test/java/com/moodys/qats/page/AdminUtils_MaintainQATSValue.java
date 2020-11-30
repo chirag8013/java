@@ -19,22 +19,21 @@ public class AdminUtils_MaintainQATSValue {
 	public void selectqatsvalueandmakeactiveorinactiveandsubmit(String qatsvalue) throws InterruptedException{
 		
 		driver.findElement(By.xpath("//div[text()='QATS Value']/parent::div/following-sibling::span/a[@id='pui_filter']")).click();
+		Thread.sleep(3500);
 		
 		driver.findElement(By.xpath("//label[text()='Search Text']/following-sibling::div/span/input")).sendKeys(qatsvalue);
 		
 		driver.findElement(By.xpath("//button[text()='Apply']")).click();
 		
-		Thread.sleep(4000);
-		
-		driver.findElement(By.xpath("//div[text()='Active']/parent::div/following-sibling::span/a[@id='pui_filter']")).click();
+		Thread.sleep(3500);
 		
 		Actions act = new Actions(driver);
 		act.moveToElement(driver.findElement(By.xpath("//span[text()='Yes' or text()='No']"))).doubleClick().build().perform();
+		Thread.sleep(3500);
 		
 		String status = driver.findElement(By.xpath("//span[text()='Yes' or text()='No']")).getText();
 		
-		Thread.sleep(4000);
-		
+		Thread.sleep(3500);
 		Select sel = new Select(driver.findElement(By.xpath("//label[text()='Active']/following-sibling::div/select")));
 		
 		if(status.equals("Yes")){
@@ -45,13 +44,13 @@ public class AdminUtils_MaintainQATSValue {
 		
 		driver.findElement(By.xpath("//button[@class='buttonTdButton' and contains(text(),'Submit')]")).click();
 		
-		Thread.sleep(2000);
+		Thread.sleep(3500);
 		
 		driver.findElement(By.xpath("//button[text()='Submit']")).click();
 	}
 	
 	public void selectdomain(String domainname) throws InterruptedException{
-		Thread.sleep(3000);
+		Thread.sleep(3500);
 		Select sel = new Select(driver.findElement(By.xpath("//label[contains(text(),'Domain Name')]/following-sibling::div/select")));
 		sel.selectByVisibleText(domainname);
 		driver.findElement(By.xpath("//button[text()='Search']")).click();
