@@ -32,12 +32,12 @@ public class TestBase {
 	public WebDriver launchthebrowser(){
 		
 		System.setProperty("webdriver.chrome.driver",
-				"src/test/resources/Driver/chromedriver.exe");
+				"src/test/resources/Drivers/chromedriver.exe");
 		/* Launching the browser? */
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless");
 		options.addArguments("window-size=1920,1080");
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(options);
         driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
