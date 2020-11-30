@@ -49,19 +49,8 @@ Examples:
 |Sub LOB|Housing|Housing|
 |Region|Delhi|APAC|
 
+
 @Fourth
-Scenario Outline: Making QATS Value Active or Inactive by Admin in Maintain QATS Value for Region and Analyst Location
-When Admin clicks on Admin Utils and then Maintain QATS Value
-And Admin selects a "<DomainName>"
-Then Admin change the status of "<QATSValue>" Active or Inactive
-
-Examples:
-|DomainName|QATSValue|
-|Analyst Location|Sample QATS Value 1|
-|Region|Sample QATS Value 1| 
-
-
-@Fifth
 Scenario Outline: Adding new QATS Value by Admin in Maintain QATS Value for Region and Analyst Location
 When Admin clicks on Admin Utils and then Maintain QATS Value
 And After selecting "<DomainName>" Admin clicks on Add Button by Admin
@@ -71,6 +60,17 @@ Examples:
 |DomainName|QATSValue|
 |Analyst Location|Sample QATS Value|
 |Region|Sample QATS Value|
+
+@Fifth
+Scenario Outline: Making QATS Value Active or Inactive by Admin in Maintain QATS Value for Region and Analyst Location
+When Admin clicks on Admin Utils and then Maintain QATS Value
+And Admin selects a "<DomainName>"
+Then Admin change the status of "<QATSValue>" Active or Inactive
+
+Examples:
+|DomainName|QATSValue|
+|Analyst Location|Sample QATS Value 1|
+|Region|Sample QATS Value 1| 
 
 
 @ignore

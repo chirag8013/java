@@ -13,7 +13,7 @@ public class Add_Update_Questions {
 		this.driver=driver;
 	}
 	
-	public void addaquestion(String sectionname,String questionid,String questiondescription,String observationtext){
+	public void addaquestion(String sectionname,String questionid,String questiondescription,String observationtext) throws InterruptedException{
 		
 		driver.findElement(By.xpath("//a[text()='Add item']")).click();
 		Select sel = new Select(driver.findElement(By.xpath("//td[@data-attribute-name='Section Name']/div/select")));
@@ -22,6 +22,7 @@ public class Add_Update_Questions {
 		driver.findElement(By.xpath("//td[@data-attribute-name='Question Description']/div/span/span/textarea")).sendKeys(questiondescription);
 		driver.findElement(By.xpath("//td[@data-attribute-name='Observation Text']/div/span/span/textarea")).sendKeys(observationtext);
 		driver.findElement(By.xpath("//button[text()='Save']")).click();
+		Thread.sleep(3500);
 		
 	}
 	

@@ -14,16 +14,18 @@ public class Add_Update_Remediation {
 		this.driver=driver;
 	}
 	
-	public void addremediation(String sectionname,String question,String remediation){
+	public void addremediation(String sectionname,String question,String remediation) throws InterruptedException{
 		
 		driver.findElement(By.xpath("//a[text()='Add item']")).click();
 		Select sel1 = new Select(driver.findElement(By.xpath("//td[@data-attribute-name='Section Name']/div/select")));
 		sel1.selectByVisibleText(sectionname);
+		Thread.sleep(3500);
         Select sel2= new Select(driver.findElement(By.xpath("//td[@data-attribute-name='Question']/div/div/select")));
         sel2.selectByVisibleText(question);
         driver.findElement(By.xpath("//td[@data-attribute-name='Remediation']/div/span/span/textarea")).clear();
         driver.findElement(By.xpath("//td[@data-attribute-name='Remediation']/div/span/span/textarea")).sendKeys(remediation);
 		driver.findElement(By.xpath("//button[text()='Save']")).click();
+		Thread.sleep(3500);
 		
 	}
 	
