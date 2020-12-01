@@ -37,6 +37,7 @@ public class QATS_HomePage {
 
 		// new WebElement
 		driver.findElement(By.xpath("//span[text()='Create QA Review']/parent::span/parent::a")).click();
+		
 
 	}
 

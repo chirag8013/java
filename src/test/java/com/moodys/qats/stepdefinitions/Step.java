@@ -712,20 +712,50 @@ public class Step {
 
 	@Then("^Upon Occasion I Need to be able to ingest data from Pyramid for a given date$")
 	public void upon_Occasion_I_Need_to_be_able_to_ingest_data_from_Pyramid_for_a_given_date() throws Throwable {
+		int size=0;
 		homepage.clickonadminutils();
 		homepage.clickondataingestion();
 		String today=todaydate.split("/")[1];
 		datetoday=Integer.parseInt(today);
 		int yesterday= datetoday-1;
 		String Yesterday= Integer.toString(yesterday);
-		dataingestion.ondemandataingestion("Accurate", Yesterday);
+		String yesterdaydate= todaydate.split("/")[0]+"/"+Yesterday+"/"+todaydate.split("/")[2]; 
+		dataingestion.ondemandataingestion("Pyramid", Yesterday);
+		driver.switchTo().defaultContent();
+		homepage.clickonQAReview();
+		Thread.sleep(3500);
+		for (int y = 0; y < 20; y++) {
+			try {
+				driver.switchTo().frame("PegaGadget" + y + "Ifr");
+				driver.findElement(By.xpath("//button[text()='Create Manual Case']")).getText();
+
+				break;
+			} catch (Exception e) {
+				driver.switchTo().defaultContent();
+				continue;
+			}
+		}
+		List<WebElement> dateelement= driver.findElements(By.xpath("//td[@data-attribute-name='Rating Release Date']/span"));
 		
+		for(WebElement ele:dateelement){
+			if(ele.getText().equals("11/30/2020")){
+				 size=size+1;
+			}
+			if(size==20){
+		    driver.findElement(By.xpath("//a[@aria-label='Next Page']")).click();
+		    Thread.sleep(3500);
+			dateelement= driver.findElements(By.xpath("//td[@data-attribute-name='Rating Release Date']"));
+			}
+			
+		}
+		System.out.println("Size of the ingested data is: "+size);
+		  
 	   
 	}
 
 	@Then("^view the ingested data on Dashboard to support  creation of new QA reviews$")
 	public void view_the_ingested_data_on_Dashboard_to_support_creation_of_new_QA_reviews() throws Throwable {
-	  
+	
 	}
 
 	@Given("^As QATS Admin I will be needing to perform Periodic Questionnaire Maintainance$")
@@ -780,12 +810,24 @@ public class Step {
 	
 	@Then("^Upon Occasion I Need to be able to ingest data from Accurate for a given date$")
 	public void upon_Occasion_I_Need_to_be_able_to_ingest_data_from_Accurate_for_a_given_date() throws Throwable {
-	    
+		homepage.clickonadminutils();
+		homepage.clickondataingestion();
+		String today=todaydate.split("/")[1];
+		datetoday=Integer.parseInt(today);
+		int yesterday= datetoday-1;
+		String Yesterday= Integer.toString(yesterday);
+		dataingestion.ondemandataingestion("Accurate", Yesterday);
 	}
 
 	@Then("^Upon Occasion I Need to be able to ingest data from ORP for a given date$")
 	public void upon_Occasion_I_Need_to_be_able_to_ingest_data_from_ORP_for_a_given_date() throws Throwable {
-	 
+		homepage.clickonadminutils();
+		homepage.clickondataingestion();
+		String today=todaydate.split("/")[1];
+		datetoday=Integer.parseInt(today);
+		int yesterday= datetoday-1;
+		String Yesterday= Integer.toString(yesterday);
+		dataingestion.ondemandataingestion("ORP", Yesterday);
 	}
 
 

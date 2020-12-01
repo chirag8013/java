@@ -68,10 +68,11 @@ public class CreateQAReviewManualCase {
 
 		sel.selectByVisibleText(Source);
 
+
 		driver.findElement(By.xpath("//label[contains(text(),'Rating Release Date')]/following-sibling::div//img"))
 				.click();
 		
-		
+		Thread.sleep(3500);
 		
 		if(Integer.parseInt(todaydate)==-1){
 			
@@ -115,6 +116,18 @@ public class CreateQAReviewManualCase {
 				driver.findElement(By.xpath("//a[@data-day='26']")).click();
 			
 		}
+			
+			if(Integer.parseInt(todaydate)==-5){
+				
+				driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
+				Thread.sleep(3500);
+				try {
+					if(driver.findElement(By.xpath("//a[@data-day='31']")).isEnabled()){
+						driver.findElement(By.xpath("//a[@data-day='26']")).click();
+					}
+				} catch (Exception e) {
+					driver.findElement(By.xpath("//a[@data-day='25']")).click();
+				}
 	}
 		
 		if(Integer.parseInt(todaydate)>0){
@@ -122,13 +135,12 @@ public class CreateQAReviewManualCase {
 		}
 		
 		
-
+		driver.findElement(By.xpath("//label[text()='Lead Analyst Name']/following-sibling::div/input[@type='text']"))
+		.sendKeys(Leadanalystname);
 		//driver.findElement(By.xpath("//a[@class='today-link']")).click();
 
-		driver.findElement(By.xpath("//label[text()='Lead Analyst Name']/following-sibling::div/input[@type='text']"))
-				.sendKeys(Leadanalystname);
 		
-		
+		}
 
 	}
 
