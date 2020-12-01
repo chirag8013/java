@@ -20,11 +20,11 @@ public class CreateQAReviewManualCase {
 	public void clickoncreatecase() throws InterruptedException  {
 
 
-		Thread.sleep(3000);
+		Thread.sleep(3500);
 
 		driver.findElement(By.xpath("//button[text()='Create Case']")).click();
 
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 
 		driver.navigate().refresh();
 		
@@ -68,7 +68,7 @@ public class CreateQAReviewManualCase {
 
 		sel.selectByVisibleText(Source);
 
-
+		System.out.println(Integer.parseInt(todaydate));
 		driver.findElement(By.xpath("//label[contains(text(),'Rating Release Date')]/following-sibling::div//img"))
 				.click();
 		
@@ -115,20 +115,23 @@ public class CreateQAReviewManualCase {
 			}else{
 				driver.findElement(By.xpath("//a[@data-day='26']")).click();
 			
-		}
+		}}
 			
-			if(Integer.parseInt(todaydate)==-5){
+		
+				
+		if(Integer.parseInt(todaydate)==-5){
 				
 				driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
 				Thread.sleep(3500);
 				try {
-					if(driver.findElement(By.xpath("//a[@data-day='31']")).isEnabled()){
+					driver.findElement(By.xpath("//a[@data-day='31']")).getText();
 						driver.findElement(By.xpath("//a[@data-day='26']")).click();
-					}
-				} catch (Exception e) {
+					
+					} catch (Exception e) {
 					driver.findElement(By.xpath("//a[@data-day='25']")).click();
 				}
-	}
+				}
+	
 		
 		if(Integer.parseInt(todaydate)>0){
 			driver.findElement(By.xpath("//a[@data-day='"+todaydate+"']")).click();
@@ -142,7 +145,7 @@ public class CreateQAReviewManualCase {
 		
 		}
 
-	}
+	
 
 	public void createmanualcase(String actid, String CaseDesc, String Source, String Leadanalystname)
 			throws InterruptedException {
