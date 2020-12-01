@@ -738,7 +738,7 @@ public class Step {
 		List<WebElement> dateelement= driver.findElements(By.xpath("//td[@data-attribute-name='Rating Release Date']/span"));
 		
 		for(WebElement ele:dateelement){
-			if(ele.getText().equals("11/30/2020")){
+			if(ele.getText().equals(yesterdaydate)){
 				 size=size+1;
 			}
 			if(size==20){
