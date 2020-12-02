@@ -21,6 +21,7 @@ public class Add_Update_Questions {
 		driver.findElement(By.xpath("//td[@data-attribute-name='Question ID']/div/span/input")).sendKeys(questionid);
 		driver.findElement(By.xpath("//td[@data-attribute-name='Question Description']/div/span/span/textarea")).sendKeys(questiondescription);
 		driver.findElement(By.xpath("//td[@data-attribute-name='Observation Text']/div/span/span/textarea")).sendKeys(observationtext);
+		Thread.sleep(3500);
 		driver.findElement(By.xpath("//button[text()='Save']")).click();
 		Thread.sleep(3500);
 		
