@@ -26,10 +26,10 @@ public class CreateQAReviewManualCase {
 
 		Thread.sleep(5000);
 
-		driver.navigate().refresh();
+		driver.switchTo().defaultContent();
 		
-
-		Thread.sleep(3000);
+		
+		
 	}
 
 	public void clickoncreatemanualcase() {
@@ -75,47 +75,50 @@ public class CreateQAReviewManualCase {
 		Thread.sleep(3500);
 		
 		if(Integer.parseInt(todaydate)==-1){
-			
 			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
-			if(driver.findElement(By.xpath("//a[@data-day='31']")).isEnabled()){
-				driver.findElement(By.xpath("//a[@data-day='30']")).click();
-			}else{
+			try {
+				driver.findElement(By.xpath("//a[@data-day='31']")).getText();
+					driver.findElement(By.xpath("//a[@data-day='30']")).click();
+				
+				} catch (Exception e) {
 				driver.findElement(By.xpath("//a[@data-day='29']")).click();
-			
-		}
+			}
 	}
 		
 		if(Integer.parseInt(todaydate)==-2){
 			
 			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
-			if(driver.findElement(By.xpath("//a[@data-day='31']")).isEnabled()){
-				driver.findElement(By.xpath("//a[@data-day='29']")).click();
-			}else{
+			try {
+				driver.findElement(By.xpath("//a[@data-day='31']")).getText();
+					driver.findElement(By.xpath("//a[@data-day='29']")).click();
+				
+				} catch (Exception e) {
 				driver.findElement(By.xpath("//a[@data-day='28']")).click();
-			
-		}
+			}
 	}
 		
 		if(Integer.parseInt(todaydate)==-3){
 			
 			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
-			if(driver.findElement(By.xpath("//a[@data-day='31']")).isEnabled()){
-				driver.findElement(By.xpath("//a[@data-day='28']")).click();
-			}else{
+			try {
+				driver.findElement(By.xpath("//a[@data-day='31']")).getText();
+					driver.findElement(By.xpath("//a[@data-day='28']")).click();
+				
+				} catch (Exception e) {
 				driver.findElement(By.xpath("//a[@data-day='27']")).click();
-			
-		}
+			}
 	}
 		
 		if(Integer.parseInt(todaydate)==-4){
 			
 			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
-			if(driver.findElement(By.xpath("//a[@data-day='31']")).isEnabled()){
-				driver.findElement(By.xpath("//a[@data-day='27']")).click();
-			}else{
+			try {
+				driver.findElement(By.xpath("//a[@data-day='31']")).getText();
+					driver.findElement(By.xpath("//a[@data-day='27']")).click();
+				
+				} catch (Exception e) {
 				driver.findElement(By.xpath("//a[@data-day='26']")).click();
-			
-		}}
+			}}
 			
 		
 				
