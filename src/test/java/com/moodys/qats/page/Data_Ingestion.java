@@ -13,7 +13,7 @@ public class Data_Ingestion {
 		this.driver = driver;
 	}
 
-	public void ondemandataingestion(String sourcesystem, String daybeforetodaydate) throws InterruptedException {
+	public void ondemandataingestion(String sourcesystem, String daybeforetodaydate) throws Exception {
 		
 		
 
@@ -34,6 +34,15 @@ public class Data_Ingestion {
 		}
 		driver.findElement(By.xpath("//button[text()='Submit']")).click();
 		Thread.sleep(3500);
+		
+		
+		try {
+			driver.findElement(By.xpath("//span[text()='There is an issue in data ingestion. Please contact your administrator']")).isDisplayed();
+			throw new Exception();
+		} catch (Exception e2) {
+		   
+		}
+		
 		for (int i = 1; i < 500; i++) {
 
 			try {
