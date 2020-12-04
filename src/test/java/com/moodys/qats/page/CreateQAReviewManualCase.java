@@ -74,6 +74,17 @@ public class CreateQAReviewManualCase {
 		
 		Thread.sleep(3500);
 		
+		if(Integer.parseInt(todaydate)==0){
+			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
+			try {
+				driver.findElement(By.xpath("//a[@data-day='31']")).getText();
+					driver.findElement(By.xpath("//a[@data-day='31']")).click();
+				
+				} catch (Exception e) {
+				driver.findElement(By.xpath("//a[@data-day='30']")).click();
+			}
+	}
+		
 		if(Integer.parseInt(todaydate)==-1){
 			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
 			try {

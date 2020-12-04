@@ -22,20 +22,6 @@ Examples:
 
 
 @Second
-Scenario Outline: Delete Source-to-QATS Value Mapping 
-When Admin chooses the option Mapping QATS to Source from Admin Utils Menu
-And Admin selects "<DomainName>" and clicks on Search
-And after clicking the first record the Admin clicks on delete the mapping of record  with "<sourcevalue>"and submit
-Then Admin clicks on submit on QATS vs Source Mapping Page to save the changes
-
-Examples:
-|DomainName|sourcevalue|
-|LOB|SFG|
-|Sub LOB|Housing|
-|Region|Delhi|
-
-
-@Third
 Scenario Outline: Add Source-to-QATS domain value mapping by Admin
 When Admin chooses the option Mapping QATS to Source from Admin Utils Menu
 Then Admin selects "<DomainName>" and clicks on Search
@@ -48,6 +34,21 @@ Examples:
 |LOB|SFG|SFG|
 |Sub LOB|Housing|Housing|
 |Region|Delhi|APAC|
+
+
+@Third
+Scenario Outline: Delete Source-to-QATS Value Mapping 
+When Admin chooses the option Mapping QATS to Source from Admin Utils Menu
+And Admin selects "<DomainName>" and clicks on Search
+And after clicking the first record the Admin clicks on delete the mapping of record  with "<sourcevalue>"and submit
+Then Admin clicks on submit on QATS vs Source Mapping Page to save the changes
+
+Examples:
+|DomainName|sourcevalue|
+|LOB|SFG|
+|Sub LOB|Housing|
+|Region|Delhi|
+
 
 
 @Fourth
