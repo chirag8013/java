@@ -67,7 +67,7 @@ public class AdminUtils_MaintainQATSValue {
 	
 	public void addnewqatsvalueandsubmit(String qatsvalue) throws InterruptedException{
 		
-		for(int j=9;j<500;j++){
+		for(int j=1;j<500;j++){
 			try {
 				String s=Integer.toString(j);
 				driver.findElement(By.xpath("//label[text()='QATS Value']/following-sibling::div/span/input")).sendKeys(qatsvalue+" "+s);

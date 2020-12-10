@@ -33,7 +33,7 @@ Examples:
 |DomainName|sourcevalue|qatsvalue|
 |LOB|SFG|SFG|
 |Sub LOB|Housing|Housing|
-|Region|Delhi|APAC|
+|Region|APAC|APAC|
 
 
 @Third
@@ -47,7 +47,7 @@ Examples:
 |DomainName|sourcevalue|
 |LOB|SFG|
 |Sub LOB|Housing|
-|Region|Delhi|
+|Region|APAC|
 
 
 
