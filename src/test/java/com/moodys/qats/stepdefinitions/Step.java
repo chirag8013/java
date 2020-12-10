@@ -69,8 +69,8 @@ public class Step {
 		DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
 		todaydate = dateformat.format(date);
 		log.info("Today is " + todaydate);
-		driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
-		//driver.get("https://pega-orp-in-11.ad.moodys.net:8443/prweb/PRServlet");
+		//driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
+		driver.get("https://pega-orp-in-11.ad.moodys.net:8443/prweb/PRServlet");
 	}
 
 	@When("^is able to view the Admin Landing page$")
@@ -88,7 +88,7 @@ public class Step {
 	
 	@When("^I am able to login to QATS as an Admin$")
 	public void i_am_able_to_login_to_QATS_as_an_Admin() throws Throwable {
-		homepage = loginpage.Login(driver, prop.getProperty("AdminUserName"), prop.getProperty("AdminPassword"));
+		homepage = loginpage.Login(driver, prop.getProperty("AdminUserNameUAT"), prop.getProperty("AdminPasswordUAT"));
 
 		Thread.sleep(4000);
 		createcase = new CreateQAReviewManualCase(driver);
@@ -123,8 +123,8 @@ public class Step {
 	@When("User enter the the MeerQATS login page")
 	public void User_enter_the_the_MeerQATS_login_page() {
 
-		driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
-		//driver.get("https://pega-orp-in-11.ad.moodys.net:8443/prweb/PRServlet");
+		//driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
+		driver.get("https://pega-orp-in-11.ad.moodys.net:8443/prweb/PRServlet");
 
 	}
 
@@ -143,7 +143,7 @@ public class Step {
 	@When("Manager enters Username and Password and click login")
 	public void Manager_enters_Username_and_Password_and_click_login() throws InterruptedException, IOException {
 
-		homepage = loginpage.Login(driver, prop.getProperty("ManagerUserName"), prop.getProperty("ManagerPassword"));
+		homepage = loginpage.Login(driver, prop.getProperty("ManagerUserNameUAT"), prop.getProperty("ManagerPasswordUAT"));
 
 		Thread.sleep(4000);
 		createcase = new CreateQAReviewManualCase(driver);
@@ -156,7 +156,7 @@ public class Step {
 	@When("Admin enters Username and Password and click login")
 	public void Admin_enters_Username_and_Password_and_click_login() throws InterruptedException, IOException {
 
-		homepage = loginpage.Login(driver, prop.getProperty("AdminUserName"), prop.getProperty("AdminPassword"));
+		homepage = loginpage.Login(driver, prop.getProperty("AdminUserNameUAT"), prop.getProperty("AdminPasswordUAT"));
 
 		Thread.sleep(4000);
 		createcase = new CreateQAReviewManualCase(driver);
@@ -171,7 +171,7 @@ public class Step {
 	@When("Reviewer enters Username and Password and click login")
 	public void Reviewer_enters_Username_and_Password_and_click_login() throws InterruptedException, IOException {
 
-		homepage = loginpage.Login(driver, prop.getProperty("ReviewerUserName"), prop.getProperty("ReviewerPassword"));
+		homepage = loginpage.Login(driver, prop.getProperty("ReviewerUserNameUAT"), prop.getProperty("ReviewerPasswordUAT"));
 
 		Thread.sleep(4000);
 		createcase = new CreateQAReviewManualCase(driver);
