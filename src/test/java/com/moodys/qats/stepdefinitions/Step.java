@@ -767,7 +767,7 @@ public class Step {
 		driver.switchTo().defaultContent();
 		homepage.clickonadminutils();
 		homepage.clickonupdatequestions();
-		addupdateques.updateaquestion("Chair Approval","D36", "Sample through automation update", "SAMPLE OBSERVATION AUTOMATION UPDATE");
+		addupdateques.updateaquestion("Chair Approval","D36", "Sample through automation update", "SAMPLE OBSERVATION AUTOMATION UPDATE","Yes");
 		
 	   
 	}
@@ -796,6 +796,10 @@ public class Step {
 	    homepage.clickonadminutils();
 	    homepage.clickonupdateremediation();
 	    addupdateremediation.updateremediation("Chair Approval", "Sample through automation update","Kindly upload necessary documents");
+	    driver.switchTo().defaultContent();
+	    homepage.clickonadminutils();
+		homepage.clickonupdatequestions();
+		addupdateques.updateaquestion("Chair Approval","D36", "Sample through automation update", "SAMPLE OBSERVATION AUTOMATION UPDATE","No");
 	}
 
 	@Then("^I need to be able to add or remove Remediations$")

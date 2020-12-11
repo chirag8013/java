@@ -27,7 +27,7 @@ public class Add_Update_Questions {
 		
 	}
 	
-	public void updateaquestion(String sectionname, String questionid,String updatedquesdesc,String updatedobservationtext) throws InterruptedException{
+	public void updateaquestion(String sectionname, String questionid,String updatedquesdesc,String updatedobservationtext,String activestatus) throws InterruptedException{
 		
 		Select sel1 = new Select(driver.findElement(By.xpath("//label[text()='Section Name']/following-sibling::div/select")));
 		sel1.selectByVisibleText(sectionname);
@@ -43,6 +43,9 @@ public class Add_Update_Questions {
 	    driver.findElement(By.xpath("//label[text()='QuestionDesc']/following-sibling::div/span/span/textarea")).sendKeys(updatedquesdesc);
 	    driver.findElement(By.xpath("//label[text()='Observation Text']/following-sibling::div/span/span/textarea")).clear();
 	    driver.findElement(By.xpath("//label[text()='Observation Text']/following-sibling::div/span/span/textarea")).sendKeys(updatedobservationtext);
+	    Select sel3= new Select(driver.findElement(By.xpath("//label[text()='Active Flag']/following-sibling::div/select")));
+	    sel3.selectByVisibleText(activestatus);
+	    Thread.sleep(3500);
 	    driver.findElement(By.xpath("//button[text()='  Submit ']")).click();
 	}
 
