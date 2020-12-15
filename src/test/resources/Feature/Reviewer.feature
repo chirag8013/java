@@ -1,22 +1,20 @@
 Feature: Reviewer functionalities
 
-Background: Launch the browser
-Given User Launch Chrome Browser
-When User enter the the MeerQATS login page
-And After Verifying login page title
-And Reviewer enters Username and Password and click login
+Background: Validate Admin Utils
+When Log into QATS Application as a Reviewer
 
 
 @First
 Scenario: Login as Reviewer
-Then Reviewer enter MeerQATS HomePage
+And access MeerQATS HomePage
+
 
 @Second
-Scenario Outline: A reviewer creates new Review Cases Manually entered data.
-When a reviewer clicks Create Manual Case
-And enters required fields "<actionid>" and "<CaseDesc>" and "<sourcename>" and "<leadanalyst>" and "<ratingactiondate>"
-And clicks on Create Case
-Then searches for Case Id in My Work to validate successful case creation with "<actionid>"
+Scenario Outline: A reviewer creates Manual Case
+When As a Reviewer I choose Create Manual Case option from menu
+And enter required fields actionid "<actionid>" and CaseDesc "<CaseDesc>" and sourcename "<sourcename>" and leadanalyst "<leadanalyst>" and ratingactiondate "<ratingactiondate>"
+And save by clicking on Create Case
+Then I should be able to find the newly created case on <My Work> and validate successful case creation with actionid "<actionid>"
 
 Examples:
 |actionid|CaseDesc|sourcename|leadanalyst|ratingactiondate|
@@ -25,9 +23,9 @@ Examples:
 
 
 @ignore
-Scenario: Complete Questionnaire and send for Review
-When Reviewer Clicks on My Work
-And on Selecting a Review Case
-Then Reviewer completes the Questionnaire Click on Submit Review
-
+Scenario: As a Reviewer I Should be able to Complete the Questionnaire and submit it for Review
+When As a Reviewer I choose <My Work> And chooseReview a case by clicking on to <Review Case> otopn
+Then I complete the questionnaire by tabbing through nine sections
+And completes the questionnaire by answering all the questions
+And Submit it for Review by clicking on <Submit> button
 

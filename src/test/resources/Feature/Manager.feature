@@ -1,10 +1,7 @@
 Feature: Manager functionalities
 
 Background: Launch the browser
-Given User Launch Chrome Browser
-When User enter the the MeerQATS login page
-And After Verifying login page title
-And Manager enters Username and Password and click login
+When Log into QATS Application as a Manager
 
 
 @First
@@ -21,8 +18,8 @@ Then Manager can search for Case Id in Dashboard to validate successful case cre
 @Third
 Scenario Outline: A manager creates new Review Cases from manually entered data.
 When a manager clicks Create QA Review
-And clicks on Create Manual Case with "<actionid>" and "<CaseDesc>" and "<sourcename>" and "<leadanalyst>" and "<ratingactiondate>"
-Then Search for Case Id in Dashboard to validate successful case creation with "<actionid>"
+And clicks on Create Manual Case with actionid "<actionid>" and CaseDesc "<CaseDesc>" and sourcename "<sourcename>" and leadanalyst "<leadanalyst>" and ratingactiondate "<ratingactiondate>"
+Then Search for Case Id in Dashboard to validate successful case creation with actionid "<actionid>"
 
 Examples:
 |actionid|CaseDesc|sourcename|leadanalyst|ratingactiondate|
@@ -39,7 +36,7 @@ Then Manager click on Quality Review Work Queue and validate case status for any
 Scenario Outline: Day 4 Review
 When a manager clicks Create QA Review
 And manager clicks on Create Manual Case with the Rating Release Date four days before from current date with case id "<CaseId>"
-Then manager with "<CaseId>" searches the case available for Day4 Review 
+Then manager with CaseId "<CaseId>" searches the case available for Day4 Review 
 
 Examples:
 |CaseId|
@@ -51,5 +48,6 @@ Scenario: Complete Questionnaire and send for Review
 When Manager goes to MyWork and Search for Upload Vital Record Case
 And on Selecting a Review Case
 Then Manager completes the questionnaire under QRS and submit
+
 
 

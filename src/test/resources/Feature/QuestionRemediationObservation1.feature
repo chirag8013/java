@@ -1,9 +1,7 @@
 Feature: Question, Observation  & Remediation Maintenance
 
 Background: Validate Admin Utils
-When User enter the valid credentials that maps to Admin role in QATS
-And is able to view the Admin Landing page
-And I am able to login to QATS as an Admin
+When Log into QATS Application as an Admin
 
 @FIRST
 Scenario: Questions Maintainance
@@ -17,7 +15,4 @@ Scenario: Remediation Maintainance
 Given As part of the Remediation Maintainance
 Then I need to be able to add or remove Remediations
 And change the wording of the Remediations 
-
-
-
 
