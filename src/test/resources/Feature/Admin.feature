@@ -9,7 +9,7 @@ Scenario Outline: As An Admin I need an utility to change key data elements for 
 When I choose the Mapping QATS to Source from Admin Utils Menu
 And select DomainName "<DomainName>" and click on Search button
 And change mapping of SourceValue "<SourceValue>" with QATSValue "<QATSValue>" and save changes
-Then I Should be able to start using the newly mapped QATSValue "<QATSValue>" on new case creation
+Then I Should be able to start using the newly mapped QATSValue with SourceValue "<SourceValue>" on new case creation
 
 
 Examples:

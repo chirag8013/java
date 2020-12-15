@@ -115,7 +115,37 @@ public void change_mapping_of_SourceValue_with_QATSValue_and_save_changes(String
 	sourcevsqats.clickonsubmittosave();
 }
 
-@Then("^I Should be able to start using the newly mapped QATSValue \"([^\"]*)\" on new case creation$")
+
+
+
+@When("^add a new source to qats mapping value by clicking on Add Item and selecting sourcevalue \"([^\"]*)\" and qatsvalue \"([^\"]*)\" for DomainName \"([^\"]*)\" from dropdown values$")
+public void add_a_new_source_to_qats_mapping_value_by_clicking_on_Add_Item_and_selecting_sourcevalue_and_qatsvalue_for_DomainName_from_dropdown_values(String sourcevalue, String qatsvalue, String domainname) throws Throwable {
+	sourcevsqats.clickonadditem();
+	sourcevsqats.selectsourceandqatsvalue(sourcevalue, qatsvalue, domainname);
+}
+
+@When("^save the changes$")
+public void save_the_changes() throws Throwable {
+	sourcevsqats.clickonsubmittosave();
+}
+
+@Then("^I should be able to start using the newly created <QATSValue> on new cases$")
+public void i_should_be_able_to_start_using_the_newly_created_QATSValue_on_new_cases() throws Throwable {
+    
+}
+
+
+@When("^delete the first record with sourcevalue \"([^\"]*)\"$")
+public void delete_the_first_record_with_sourcevalue(String sourcevalue) throws Throwable {
+	sourcevsqats.deletemappingofrecord(sourcevalue);
+}
+
+@Then("^I should not be able to view QATSValue on new cases$")
+public void i_should_not_be_able_to_view_QATSValue_on_new_cases() throws Throwable {
+   
+}
+
+@Then("^I Should be able to start using the newly mapped QATSValue with SourceValue \"([^\"]*)\" on new case creation$")
 public void i_Should_be_able_to_start_using_the_newly_mapped_QATSValue_on_new_case_creation(String sourcevalue) throws Throwable {
 	homepage.clickonQAReview();
 	Thread.sleep(3000);
@@ -147,32 +177,6 @@ public void i_Should_be_able_to_start_using_the_newly_mapped_QATSValue_on_new_ca
 
 }
 
-@When("^add a new source to qats mapping value by clicking on Add Item and selecting sourcevalue \"([^\"]*)\" and qatsvalue \"([^\"]*)\" for DomainName \"([^\"]*)\" from dropdown values$")
-public void add_a_new_source_to_qats_mapping_value_by_clicking_on_Add_Item_and_selecting_sourcevalue_and_qatsvalue_for_DomainName_from_dropdown_values(String sourcevalue, String qatsvalue, String domainname) throws Throwable {
-	sourcevsqats.clickonadditem();
-	sourcevsqats.selectsourceandqatsvalue(sourcevalue, qatsvalue, domainname);
-}
-
-@When("^save the changes$")
-public void save_the_changes() throws Throwable {
-	sourcevsqats.clickonsubmittosave();
-}
-
-@Then("^I should be able to start using the newly created <QATSValue> on new cases$")
-public void i_should_be_able_to_start_using_the_newly_created_QATSValue_on_new_cases() throws Throwable {
-    
-}
-
-
-@When("^delete the first record with sourcevalue \"([^\"]*)\"$")
-public void delete_the_first_record_with_sourcevalue(String sourcevalue) throws Throwable {
-	sourcevsqats.deletemappingofrecord(sourcevalue);
-}
-
-@Then("^I should not be able to view QATSValue on new cases$")
-public void i_should_not_be_able_to_view_QATSValue_on_new_cases() throws Throwable {
-   
-}
 
 @When("^I choose menu option Maintain QATS Value from Admin Utilities$")
 public void i_choose_menu_option_Maintain_QATS_Value_from_Admin_Utilities() throws Throwable {
