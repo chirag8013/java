@@ -46,7 +46,7 @@ Examples:
 
 
 @Fourth
-Scenario Outline: As An Admin I need an utility to Delete Source-to-QATS Value Mapping for Doamin LOB
+Scenario Outline: As An Admin I need an utility to Delete Source-to-QATS Value Mapping for Domain LOB
 When I choose the Mapping QATS to Source from Admin Utils Menu
 And select DomainName "<DomainName>" and click on Search button
 And delete the first record with sourcevalue "<sourcevalue>"
@@ -130,7 +130,7 @@ Examples:
 |Analyst Location|Sample QATS Value 1|
 
 @Eleventh
-Scenario Outline: As An Admin I need an utility to change key data elements for consistency like Region with Europe mapped as US/Canada in QATS
+Scenario Outline: As An Admin I need an utility to change key data elements for consistency like Region with Source Value Europe mapped as US/Canada in QATS
 When I choose the Mapping QATS to Source from Admin Utils Menu
 And select DomainName "<DomainName>" and click on Search button
 And change mapping of SourceValue "<SourceValue>" with QATSValue "<QATSValue>" and save changes
@@ -143,7 +143,7 @@ Examples:
 
 
 @Twelfth
-Scenario Outline: As An Admin I need an utility to change key data elements for consistency like Region with Europe mapped as EMEA in QATS
+Scenario Outline: As An Admin I need an utility to change key data elements for consistency like Region with Source Value Europe mapped as EMEA in QATS
 When I choose the Mapping QATS to Source from Admin Utils Menu
 And select DomainName "<DomainName>" and click on Search button
 And change mapping of SourceValue "<SourceValue>" with QATSValue "<QATSValue>" and save changes
