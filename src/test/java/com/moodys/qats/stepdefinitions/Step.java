@@ -85,6 +85,7 @@ loginpage = new QATS_LoginPage(driver);
 
 
 homepage = loginpage.Login(driver, prop.getProperty("AdminUserName"), prop.getProperty("AdminPassword"));
+homepage.switchtoAdministrator();
 
 	Thread.sleep(4000);
 	createcase = new CreateQAReviewManualCase(driver);

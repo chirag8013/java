@@ -24,6 +24,15 @@ public class QATS_HomePage {
 
 		// TODO Auto-generated constructor stub
 	}
+	
+	public void switchtoAdministrator() throws InterruptedException{
+		
+		driver.findElement(By.xpath("//a[text()='QATS Admin']")).click();
+		Actions act = new Actions(driver);
+		act.moveToElement(driver.findElement(By.xpath("//span[text()='Switch to Role']"))).build().perform();
+		driver.findElement(By.xpath("//span[text()='Administrator']")).click();
+		Thread.sleep(3500);
+	}
 
 	public String HomePageTitle() {
 

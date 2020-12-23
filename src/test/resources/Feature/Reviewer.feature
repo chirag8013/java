@@ -29,3 +29,35 @@ Then I complete the questionnaire by tabbing through nine sections
 And completes the questionnaire by answering all the questions
 And Submit it for Review by clicking on <Submit> button
 
+Scenario: As a Reviewer I will be able to see the the Ingested Cases Assigned to me by Manager in My Work
+When a manager clicks Create QA Review
+And selects Review Case
+And clicks on Create Case
+Then Manager can search for Case Id in Dashboard to validate successful case creation
+Then Manager assigns the case created to Reviewer
+And Reviewer confirms the case in My Work
+
+Scenario Outline: As a Reviewer I will be able to see the the Manually created Cases Assigned to me by Manager in My Work
+When a manager clicks Create QA Review
+And clicks on Create Manual Case with actionid "<actionid>" and CaseDesc "<CaseDesc>" and sourcename "<sourcename>" and leadanalyst "<leadanalyst>" and ratingactiondate "<ratingactiondate>"
+Then Search for Case Id in Dashboard to validate successful case creation with actionid "<actionid>"
+Then Manager assigns the case created to Reviewer
+And Reviewer confirms the case in My Work
+
+Examples:
+|actionid|CaseDesc|sourcename|leadanalyst|ratingactiondate|
+|57575|Sample Case|Pyramid|David Sweeney|1|
+
+
+Scenario Outline: As a QATS admin I should be able to assign Day 4 cases to QATS Users 
+When I Create Manual Case with the Rating Release Date four days prior to current date with ActionID "<ActionID>"
+Then I should be able to search for the case with ActionID "<ActionID>" and assign it to QATS User 
+
+Examples:
+|ActionID|
+|868877|
+
+
+
+
+
