@@ -757,6 +757,26 @@ public void submit_it_for_Review_by_clicking_on_Submit_button() throws Throwable
     
 }
 
+@When("^Log off as Reviewer$")
+public void log_off_as_Reviewer() throws Throwable {
+
+}
+
+@Then("^Manager assigns the case created to Reviewer$")
+public void manager_assigns_the_case_created_to_Reviewer() throws Throwable {
+    
+}
+
+@Then("^Reviewer confirms the case in My Work$")
+public void reviewer_confirms_the_case_in_My_Work() throws Throwable {
+
+}
+
+@Then("^Admin assigns the case created to Reviewer$")
+public void admin_assigns_the_case_created_to_Reviewer() throws Throwable {
+
+}
+
 @After
 public void teardown() throws InterruptedException {
 
