@@ -75,11 +75,11 @@ public class MyWork {
          }
          if (driver.getTitle().equals("QA Manager")) {
              driver.findElement(By
-                     .xpath("//input[@name='$PpyFilterCriteria_pgRepPgSubSectionpyGroupBasketWorkB_pxResults_pyGroupBasketWork_1$ppyColumnFilterCriteria$gwrk_RatingActionID3$ppySearchText']"))
+                     .xpath("//input[@name='$PpyFilterCriteria_AssignPage_pxResults_BulkReviewAssignments_1$ppyColumnFilterCriteria$gRatingActionID5$ppySearchText']"))
                      .clear();
              driver.findElement(By
-                     .xpath("//input[@name='$PpyFilterCriteria_pgRepPgSubSectionpyGroupBasketWorkB_pxResults_pyGroupBasketWork_1$ppyColumnFilterCriteria$gwrk_RatingActionID3$ppySearchText']"))
-                     .sendKeys(actionid);
+                     .xpath("//input[@name='$PpyFilterCriteria_AssignPage_pxResults_BulkReviewAssignments_1$ppyColumnFilterCriteria$gRatingActionID5$ppySearchText']")).sendKeys(actionid);
+                    
          }
          if (driver.getTitle().equals("QA Reviewer")) {
              driver.findElement(By

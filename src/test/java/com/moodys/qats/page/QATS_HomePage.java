@@ -371,6 +371,46 @@ public void gobacktoDay4Review(String actionid, String user) throws Exception{
 		}
 	}
 
+@SuppressWarnings("deprecation")
+public void gobacktoMyWork(String actionid, String user) throws Exception{
+		
+		driver.switchTo().defaultContent();
+
+		driver.findElement(By.xpath("//span[text()='My Work']/parent::span/parent::a")).click();
+		Thread.sleep(2000);
+
+		for (int y = 0; y < 20; y++) {
+			try {
+
+				driver.switchTo().frame("PegaGadget" + y + "Ifr");
+				driver.findElements(By.xpath("//td[@data-attribute-name='Action ID']")).get(0).getText();
+
+				break;
+			} catch (Exception e) {
+				driver.switchTo().defaultContent();
+				continue;
+			}
+		}
+
+		Thread.sleep(1000);
+		
+		List<WebElement> actionids=driver.findElements(By.xpath("//td[@data-attribute-name='Action ID']"));
+		List<WebElement> caseids= driver.findElements(By.xpath("//td[@data-attribute-name='Case ID']"));
+		List<WebElement> assignedto = driver.findElements(By.xpath("//td[@data-attribute-name='Assigned To']"));
+		
+		for(int i=0;i<actionids.size();i++){
+				
+			if(actionids.get(i).getText().equals(actionid)){
+				
+				System.out.println("---------------Case is present in My Work review with QRS ID "+ caseids.get(i).getText()+ " and assigned to "+assignedto.get(i).getText()+" ------------------");		
+			    Assert.assertEquals(assignedto.get(i).getText(), user);
+			    
+			}
+			
+			
+		}
+	}
+
 	public void userclicksonmywork(WebDriver driver) throws InterruptedException {
 //		WebDriverWait wait = new WebDriverWait(driver, 10);
 

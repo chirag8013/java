@@ -39,7 +39,6 @@ public class TestBase {
 		driver = new ChromeDriver(options);
         driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-
 		return driver;
 	}
 }

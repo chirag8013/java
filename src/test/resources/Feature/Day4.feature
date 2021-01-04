@@ -16,7 +16,7 @@ Examples:
 @Second
 Scenario Outline: As a QATS admin I should be able to assign Day 4 cases to QATS Users 
 When I Create Manual Case with the Rating Release Date four days prior to current date with ActionID "<ActionID>"
-Then I should be able to search for the case with ActionID "<ActionID>" and assign it to QATS User 
+Then I should be able to search for the case with ActionID "<ActionID>" and assign it to QATS User and confirms the same in Day four Review
 
 Examples:
 |ActionID|

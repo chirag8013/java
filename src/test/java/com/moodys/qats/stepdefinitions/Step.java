@@ -420,10 +420,10 @@ public void i_should_be_able_to_search_for_the_case_with_ActionID_and_assign_it_
 	mywork.diaplaynewlycreatedcasebulkassignments(ACTIONID);
 	Thread.sleep(4000);
 	driver.findElement(By.xpath("//td[@data-attribute-name='Select']/div/input[@data-ctl='Checkbox']")).click();
-	driver.findElement(By.xpath("//label[text()='Assigned To']/following-sibling::div/input")).sendKeys("test@rqms");
+	driver.findElement(By.xpath("//label[text()='Assigned To']/following-sibling::div/input")).sendKeys("Test@rqms");
 	driver.findElement(By.xpath("//button[text()='Assign']")).click();
 	Thread.sleep(4000);
-	homepage.gobacktoDay4Review(ACTIONID,"Test@rqms");
+	
 }
 
 @When("^Log into QATS Application as a Manager$")
@@ -757,9 +757,10 @@ public void submit_it_for_Review_by_clicking_on_Submit_button() throws Throwable
     
 }
 
-@When("^Log off as Reviewer$")
-public void log_off_as_Reviewer() throws Throwable {
+@When("^Log off$")
+public void log_off() throws Throwable {
 
+	util.teardown();
 }
 
 @Then("^Manager assigns the case created to Reviewer$")
@@ -767,15 +768,52 @@ public void manager_assigns_the_case_created_to_Reviewer() throws Throwable {
     
 }
 
-@Then("^Reviewer confirms the case in My Work$")
-public void reviewer_confirms_the_case_in_My_Work() throws Throwable {
 
+
+@When("^Reviewer confirms the case in Day four Review with ActionID \"([^\"]*)\"$")
+public void reviewer_confirms_the_case_in_Day_four_Review_with_ActionID(String ACTIONID) throws Throwable {
+	homepage.gobacktoDay4Review(ACTIONID,"Test@rqms");
 }
 
-@Then("^Admin assigns the case created to Reviewer$")
-public void admin_assigns_the_case_created_to_Reviewer() throws Throwable {
-
+@When("^Reviewer confirms the case in My Work with ActionID \"([^\"]*)\"$")
+public void reviewer_confirms_the_case_in_My_Work_with_ActionID(String ACTIONID) throws Throwable {
+    homepage.gobacktoMyWork(ACTIONID, "Test@rqms");
 }
+
+@Then("^I should be able to search for the case with ActionID \"([^\"]*)\" and assign it to QATS User and confirms the same in Day four Review$")
+public void i_should_be_able_to_search_for_the_case_with_ActionID_and_assign_it_to_QATS_User_and_confirms_the_same_in_Day_four_Review(String ACTIONID) throws Throwable {
+	homepage.gobacktodashboardforbulkassignments();
+	dashboard.clickonbulkassignments();
+	Thread.sleep(2000);
+	mywork.diaplaynewlycreatedcasebulkassignments(ACTIONID);
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//td[@data-attribute-name='Select']/div/input[@data-ctl='Checkbox']")).click();
+	driver.findElement(By.xpath("//label[text()='Assigned To']/following-sibling::div/input")).sendKeys("Test@rqms");
+	driver.findElement(By.xpath("//button[text()='Assign']")).click();
+	Thread.sleep(4000);
+	homepage.gobacktoDay4Review(ACTIONID,"Test@rqms");
+}
+
+@Then("^I should be able to search for the case with ActionID <actionid> and assign it to QATS User$")
+public void i_should_be_able_to_search_for_the_case_with_ActionID_actionid_and_assign_it_to_QATS_User() throws Throwable {
+	homepage.gobacktodashboardforbulkassignments();
+	dashboard.clickonbulkassignments();
+	Thread.sleep(2000);
+	mywork.diaplaynewlycreatedcasebulkassignments(actionid);
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//td[@data-attribute-name='Select']/div/input[@data-ctl='Checkbox']")).click();
+	driver.findElement(By.xpath("//label[text()='Assigned To']/following-sibling::div/input")).sendKeys("Test@rqms");
+	driver.findElement(By.xpath("//button[text()='Assign']")).click();
+	Thread.sleep(4000);
+	
+}
+
+@When("^Reviewer confirms the case in My Work with ActionID <actionid>$")
+public void reviewer_confirms_the_case_in_My_Work_with_ActionID_actionid() throws Throwable {
+	homepage.gobacktoMyWork(actionid, "Test@rqms");
+}
+
+
 
 @After
 public void teardown() throws InterruptedException {
