@@ -377,13 +377,13 @@ public void gobacktoMyWork(String actionid, String user) throws Exception{
 		driver.switchTo().defaultContent();
 
 		driver.findElement(By.xpath("//span[text()='My Work']/parent::span/parent::a")).click();
-		Thread.sleep(2000);
+		Thread.sleep(3500);
 
 		for (int y = 0; y < 20; y++) {
 			try {
 
 				driver.switchTo().frame("PegaGadget" + y + "Ifr");
-				driver.findElements(By.xpath("//td[@data-attribute-name='Action ID']")).get(0).getText();
+				driver.findElement(By.xpath("//div[text()='Action/Shell/RTG ID']")).click();
 
 				break;
 			} catch (Exception e) {
@@ -391,10 +391,17 @@ public void gobacktoMyWork(String actionid, String user) throws Exception{
 				continue;
 			}
 		}
-
-		Thread.sleep(1000);
 		
-		List<WebElement> actionids=driver.findElements(By.xpath("//td[@data-attribute-name='Action ID']"));
+		Thread.sleep(3500);
+		
+		driver.findElement(By.xpath("//div[text()='Action/Shell/RTG ID']/parent::div/following-sibling::span/a")).click();
+		Thread.sleep(3500);
+		driver.findElement(By.xpath("//label[text()='Search Text']/following-sibling::div//input")).sendKeys(actionid);
+		Thread.sleep(3500);
+		driver.findElement(By.xpath("//button[text()='Apply']")).click();
+
+		Thread.sleep(3500);
+		List<WebElement> actionids= driver.findElements(By.xpath("//div[text()='Action/Shell/RTG ID']"));
 		List<WebElement> caseids= driver.findElements(By.xpath("//td[@data-attribute-name='Case ID']"));
 		List<WebElement> assignedto = driver.findElements(By.xpath("//td[@data-attribute-name='Assigned To']"));
 		
