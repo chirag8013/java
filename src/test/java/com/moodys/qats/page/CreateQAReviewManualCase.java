@@ -1,5 +1,7 @@
 package com.moodys.qats.page;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -74,8 +76,19 @@ public class CreateQAReviewManualCase {
 		
 		Thread.sleep(3500);
 		
+		LocalDate currentdate= LocalDate.now();
+		Month month= currentdate.getMonth();
+		String Month= month.toString();
+		System.out.println("Current month is"+Month);
+		
 		if(Integer.parseInt(todaydate)==0){
+			if(Month=="JANUARY"){
+				driver.findElement(By.xpath("//span[@id='yearSpinner']/span/button[@class='spin-button spin-down']")).click();
+				for(int p=0;p<=10;p++){
+				driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-up']")).click();
+			}}else{
 			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
+			}
 			try {
 				driver.findElement(By.xpath("//a[@data-day='31']")).getText();
 					driver.findElement(By.xpath("//a[@data-day='31']")).click();
@@ -86,7 +99,13 @@ public class CreateQAReviewManualCase {
 	}
 		
 		if(Integer.parseInt(todaydate)==-1){
+			if(Month=="JANUARY"){
+				driver.findElement(By.xpath("//span[@id='yearSpinner']/span/button[@class='spin-button spin-down']")).click();
+				for(int p=0;p<=10;p++){
+				driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-up']")).click();
+			}}else{
 			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
+			}
 			try {
 				driver.findElement(By.xpath("//a[@data-day='31']")).getText();
 					driver.findElement(By.xpath("//a[@data-day='30']")).click();
@@ -98,7 +117,13 @@ public class CreateQAReviewManualCase {
 		
 		if(Integer.parseInt(todaydate)==-2){
 			
+			if(Month=="JANUARY"){
+				driver.findElement(By.xpath("//span[@id='yearSpinner']/span/button[@class='spin-button spin-down']")).click();
+				for(int p=0;p<=10;p++){
+				driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-up']")).click();
+			}}else{
 			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
+			}
 			try {
 				driver.findElement(By.xpath("//a[@data-day='31']")).getText();
 					driver.findElement(By.xpath("//a[@data-day='29']")).click();
@@ -110,7 +135,13 @@ public class CreateQAReviewManualCase {
 		
 		if(Integer.parseInt(todaydate)==-3){
 			
+			if(Month=="JANUARY"){
+				driver.findElement(By.xpath("//span[@id='yearSpinner']/span/button[@class='spin-button spin-down']")).click();
+				for(int p=0;p<=10;p++){
+				driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-up']")).click();
+			}}else{
 			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
+			}
 			try {
 				driver.findElement(By.xpath("//a[@data-day='31']")).getText();
 					driver.findElement(By.xpath("//a[@data-day='28']")).click();
@@ -122,7 +153,13 @@ public class CreateQAReviewManualCase {
 		
 		if(Integer.parseInt(todaydate)==-4){
 			
+			if(Month=="JANUARY"){
+				driver.findElement(By.xpath("//span[@id='yearSpinner']/span/button[@class='spin-button spin-down']")).click();
+				for(int p=0;p<=10;p++){
+				driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-up']")).click();
+			}}else{
 			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
+			}
 			try {
 				driver.findElement(By.xpath("//a[@data-day='31']")).getText();
 					driver.findElement(By.xpath("//a[@data-day='27']")).click();
@@ -135,7 +172,13 @@ public class CreateQAReviewManualCase {
 				
 		if(Integer.parseInt(todaydate)==-5){
 				
-				driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
+			if(Month=="JANUARY"){
+				driver.findElement(By.xpath("//span[@id='yearSpinner']/span/button[@class='spin-button spin-down']")).click();
+				for(int p=0;p<=10;p++){
+				driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-up']")).click();
+			}}else{
+			driver.findElement(By.xpath("//span[@id='monthSpinner']/span/button[@class='spin-button spin-down']")).click();
+			}
 				Thread.sleep(3500);
 				try {
 					driver.findElement(By.xpath("//a[@data-day='31']")).getText();

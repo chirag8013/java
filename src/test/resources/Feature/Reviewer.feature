@@ -30,7 +30,7 @@ And completes the questionnaire by answering all the questions
 And Submit it for Review by clicking on <Submit> button
 
 
-@ignore
+@DAY4
 Scenario Outline: As a QATS admin I should be able to assign Day 4 cases to QATS Users 
 When Log off
 And Log into QATS Application as an Admin
