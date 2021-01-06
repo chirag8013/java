@@ -364,6 +364,7 @@ public void gobacktoDay4Review(String actionid, String user) throws Exception{
 				
 				System.out.println("---------------Case is present in Day 4 review with QRS ID "+ caseids.get(i).getText()+ " and assigned to "+assignedto.get(i).getText()+" ------------------");		
 			    Assert.assertEquals(user, assignedto.get(i).getText());
+			    break;
 			    
 			    
 			}
