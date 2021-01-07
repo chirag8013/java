@@ -1,14 +1,13 @@
 package com.moodys.qats.utilities;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.io.FileInputStream;
+import java.util.Optional;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class TestBase {
 
@@ -17,9 +16,15 @@ public class TestBase {
 	public WebDriver driver;
 
 	
-	public  Properties initialization() throws IOException{
+	public  Properties initialization() throws Exception {
+		String ENV_VAR1 = Optional.ofNullable(System.getProperty("ENV_VAR1")).orElseThrow(
+				() -> new Exception("ENV_VAR1 is not set in the environment"));
+
+		String path = "src/test/resources/"+ENV_VAR1+"/Config.Properties";
+//		String path = "src/test/resources/Config.Properties";
+		System.out.println(path);
 		FileInputStream ip = new FileInputStream(
-				"src/test/resources/Config.Properties");
+				path);
 		prop = new Properties();
 
 		prop.load(ip);
