@@ -357,21 +357,29 @@ public void gobacktoDay4Review(String actionid, String user) throws Exception{
 		List<WebElement> actionids=driver.findElements(By.xpath("//td[@data-attribute-name='Action ID']"));
 		List<WebElement> caseids= driver.findElements(By.xpath("//td[@data-attribute-name='Case ID']"));
 		List<WebElement> assignedto = driver.findElements(By.xpath("//td[@data-attribute-name='Assigned To']"));
+		int flag=0;
 		
 		for(int i=0;i<actionids.size();i++){
 				
-			if(actionids.get(i).getText().equals(actionid)){
+			if(actionids.get(i).getText().equals(actionid) && assignedto.get(i).getText().equals(user)){
 				
-				System.out.println("---------------Case is present in Day 4 review with QRS ID "+ caseids.get(i).getText()+ " and assigned to "+assignedto.get(i).getText()+" ------------------");		
-			    Assert.assertEquals(user, assignedto.get(i).getText());
+				System.out.println("---------------Case is present in Day 4 review with QRS ID "+ caseids.get(i).getText()+ " and assigned to "+assignedto.get(i).getText()+" ------------------");	
+				
+	
+			    flag=1;
 			    break;
 			    
-			    
+			}else{
+			continue;
+			
 			}
 			
-			
 		}
-	}
+		if(flag==0){
+		throw new Exception();
+		}
+		}
+	
 
 @SuppressWarnings("deprecation")
 public void gobacktoMyWork(String actionid, String user) throws Exception{

@@ -772,11 +772,69 @@ public void manager_assigns_the_case_created_to_Reviewer() throws Throwable {
 
 @When("^Reviewer confirms the case in Day four Review with ActionID \"([^\"]*)\"$")
 public void reviewer_confirms_the_case_in_Day_four_Review_with_ActionID(String ACTIONID) throws Throwable {
+	util.teardown();
+	base = new TestBase();
+	prop = base.initialization();
+
+	driver = base.launchthebrowser();
+
+	util = new Util(driver);
+
+	Date date = new Date();
+	DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
+	todaydate = dateformat.format(date);
+	log.info("Today is " + todaydate);
+	
+	driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
+	//		driver.get("https://pega-orp-in-11.ad.moodys.net:8443/prweb/PRServlet");
+			
+			loginpage = new QATS_LoginPage(driver);
+			log.info("----------------------------------");
+			String title = loginpage.LoginPageTitle();
+			log.info(title);
+			Assert.assertEquals(title, "Welcome to PegaRULES");
+			log.info("Login Page Title Verified as expected- " + title);
+			log.info("----------------------------------");
+			
+			homepage = loginpage.Login(driver, prop.getProperty("ReviewerUserName"), prop.getProperty("ReviewerPassword"));
+
+			Thread.sleep(4000);
+			createcase = new CreateQAReviewManualCase(driver);
+			mywork = new MyWork(driver);
 	homepage.gobacktoDay4Review(ACTIONID,"Test@rqms");
 }
 
 @When("^Reviewer confirms the case in My Work with ActionID \"([^\"]*)\"$")
 public void reviewer_confirms_the_case_in_My_Work_with_ActionID(String ACTIONID) throws Throwable {
+	util.teardown();
+	base = new TestBase();
+	prop = base.initialization();
+
+	driver = base.launchthebrowser();
+
+	util = new Util(driver);
+
+	Date date = new Date();
+	DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
+	todaydate = dateformat.format(date);
+	log.info("Today is " + todaydate);
+	
+	driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
+	//		driver.get("https://pega-orp-in-11.ad.moodys.net:8443/prweb/PRServlet");
+			
+			loginpage = new QATS_LoginPage(driver);
+			log.info("----------------------------------");
+			String title = loginpage.LoginPageTitle();
+			log.info(title);
+			Assert.assertEquals(title, "Welcome to PegaRULES");
+			log.info("Login Page Title Verified as expected- " + title);
+			log.info("----------------------------------");
+			
+			homepage = loginpage.Login(driver, prop.getProperty("ReviewerUserName"), prop.getProperty("ReviewerPassword"));
+
+			Thread.sleep(4000);
+			createcase = new CreateQAReviewManualCase(driver);
+			mywork = new MyWork(driver);
     homepage.gobacktoMyWork(ACTIONID, "Test@rqms");
 }
 
@@ -810,6 +868,35 @@ public void i_should_be_able_to_search_for_the_case_with_ActionID_actionid_and_a
 
 @When("^Reviewer confirms the case in My Work with ActionID <actionid>$")
 public void reviewer_confirms_the_case_in_My_Work_with_ActionID_actionid() throws Throwable {
+	util.teardown();
+	base = new TestBase();
+	prop = base.initialization();
+
+	driver = base.launchthebrowser();
+
+	util = new Util(driver);
+
+	Date date = new Date();
+	DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
+	todaydate = dateformat.format(date);
+	log.info("Today is " + todaydate);
+	
+	driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
+	//		driver.get("https://pega-orp-in-11.ad.moodys.net:8443/prweb/PRServlet");
+			
+			loginpage = new QATS_LoginPage(driver);
+			log.info("----------------------------------");
+			String title = loginpage.LoginPageTitle();
+			log.info(title);
+			Assert.assertEquals(title, "Welcome to PegaRULES");
+			log.info("Login Page Title Verified as expected- " + title);
+			log.info("----------------------------------");
+			
+			homepage = loginpage.Login(driver, prop.getProperty("ReviewerUserName"), prop.getProperty("ReviewerPassword"));
+
+			Thread.sleep(4000);
+			createcase = new CreateQAReviewManualCase(driver);
+			mywork = new MyWork(driver);
 	homepage.gobacktoMyWork(actionid, "Test@rqms");
 }
 
