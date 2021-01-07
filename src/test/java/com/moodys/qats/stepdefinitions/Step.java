@@ -104,7 +104,7 @@ public class Step {
 
 
 	@Given("User Launch Chrome Browser")
-	public void User_Launch_Chrome_Browser() throws IOException {
+	public void User_Launch_Chrome_Browser() throws Exception {
 		base = new TestBase();
 		prop = base.initialization();
 
