@@ -71,8 +71,8 @@ public void log_into_QATS_Application_as_an_Admin() throws Throwable {
 	DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
 	todaydate = dateformat.format(date);
 	log.info("Today is " + todaydate);
-	driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
-	//driver.get("https://pega-orp-in-11.ad.moodys.net:8443/prweb/PRServlet");
+	driver.get(prop.getProperty("url"));
+	log.info(prop.getProperty("welcome"));
 
 
 loginpage = new QATS_LoginPage(driver);
@@ -299,6 +299,7 @@ public void i_should_to_be_able_to_ingest_data_from_Accurate_for_a_given_date() 
 		}
 	}
 	List<WebElement> dateelement= driver.findElements(By.xpath("//td[@data-attribute-name='Rating Release Date']/span"));
+	System.out.println("Yesterday date was "+yesterdaydate);
 	
 	for(WebElement ele:dateelement){
 		if(ele.getText().equals(yesterdaydate)){
@@ -440,8 +441,10 @@ public void log_into_QATS_Application_as_a_Manager() throws Throwable {
 	todaydate = dateformat.format(date);
 	log.info("Today is " + todaydate);
 	
-	driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
-			//driver.get("https://pega-orp-in-11.ad.moodys.net:8443/prweb/PRServlet");
+	
+	
+	driver.get(prop.getProperty("url"));
+	log.info(prop.getProperty("welcome"));
 			
 			loginpage = new QATS_LoginPage(driver);
 			log.info("----------------------------------");
@@ -677,8 +680,8 @@ public void log_into_QATS_Application_as_a_Reviewer() throws Throwable {
 	todaydate = dateformat.format(date);
 	log.info("Today is " + todaydate);
 	
-	driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
-	//		driver.get("https://pega-orp-in-11.ad.moodys.net:8443/prweb/PRServlet");
+	driver.get(prop.getProperty("url"));
+	log.info(prop.getProperty("welcome"));
 			
 			loginpage = new QATS_LoginPage(driver);
 			log.info("----------------------------------");
@@ -785,8 +788,8 @@ public void reviewer_confirms_the_case_in_Day_four_Review_with_ActionID(String A
 	todaydate = dateformat.format(date);
 	log.info("Today is " + todaydate);
 	
-	driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
-	//		driver.get("https://pega-orp-in-11.ad.moodys.net:8443/prweb/PRServlet");
+	driver.get(prop.getProperty("url"));
+	log.info(prop.getProperty("welcome"));
 			
 			loginpage = new QATS_LoginPage(driver);
 			log.info("----------------------------------");
@@ -819,8 +822,8 @@ public void reviewer_confirms_the_case_in_My_Work_with_ActionID(String ACTIONID)
 	todaydate = dateformat.format(date);
 	log.info("Today is " + todaydate);
 	
-	driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
-	//		driver.get("https://pega-orp-in-11.ad.moodys.net:8443/prweb/PRServlet");
+	driver.get(prop.getProperty("url"));
+	log.info(prop.getProperty("welcome"));
 			
 			loginpage = new QATS_LoginPage(driver);
 			log.info("----------------------------------");
@@ -881,8 +884,8 @@ public void reviewer_confirms_the_case_in_My_Work_with_ActionID_actionid() throw
 	todaydate = dateformat.format(date);
 	log.info("Today is " + todaydate);
 	
-	driver.get("https://pega-orp-qa-11.ad.moodys.net:8443/prweb/PRServlet/");
-	//		driver.get("https://pega-orp-in-11.ad.moodys.net:8443/prweb/PRServlet");
+	driver.get(prop.getProperty("url"));
+	log.info(prop.getProperty("welcome"));
 			
 			loginpage = new QATS_LoginPage(driver);
 			log.info("----------------------------------");

@@ -79,7 +79,7 @@ public class CreateQAReviewManualCase {
 		LocalDate currentdate= LocalDate.now();
 		Month month= currentdate.getMonth();
 		String Month= month.toString();
-		System.out.println("Current month is"+Month);
+		System.out.println("Current month is "+Month);
 		
 		if(Integer.parseInt(todaydate)==0){
 			if(Month=="JANUARY"){
