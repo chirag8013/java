@@ -20,6 +20,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import com.moodys.qats.page.*;
+import com.moodys.qats.utilities.Reader;
 import com.moodys.qats.utilities.TestBase;
 import com.moodys.qats.utilities.Util;
 
@@ -53,7 +54,7 @@ public class Step {
 	private Dashboard dashboard;
 	private QualityReferenceSheet qrsheet;
 	private TestBase base;
-	String todaydate;
+	String todaydate,completedate;
 	int datetoday;
 
 
@@ -69,8 +70,11 @@ public void log_into_QATS_Application_as_an_Admin() throws Throwable {
 
 	Date date = new Date();
 	DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
+	DateFormat dateformat1 = new SimpleDateFormat("MMMM/dd/yyyy");
 	todaydate = dateformat.format(date);
+	 completedate= dateformat1.format(date);
 	log.info("Today is " + todaydate);
+	log.info("Today is " + completedate);
 	driver.get(prop.getProperty("url"));
 	log.info(prop.getProperty("welcome"));
 
@@ -398,6 +402,18 @@ public void i_Create_Manual_Case_with_the_Rating_Release_Date_four_days_prior_to
 			break;
 		}
 	}
+	
+	Reader read = new Reader();
+	int holidaycount= read.getrowcount();
+	List<String> dates = read.getholidaydates();
+	List<String> months= read.getholidaymonths();
+	List<String> years= read.getholidayyears();
+	
+	for(int i=1; i<holidaycount;i++){
+		if(completedate.split("/")[0].contains(months.get(i))&&dates.get(i).contains(completedate.split("/")[1])&&years.get(i).contains(completedate.split("/")[2])){
+			fourdaysbefore=fourdaysbefore-1;
+		}
+	}
 	String fourdaysbeforedate = Integer.toString(fourdaysbefore);
 	
 	
@@ -582,6 +598,18 @@ public void manager_clicks_on_Create_Manual_Case_with_the_Rating_Release_Date_fo
 			break;
 		}
 	}
+	
+	Reader read = new Reader();
+	int holidaycount= read.getrowcount();
+	List<String> dates = read.getholidaydates();
+	List<String> months= read.getholidaymonths();
+	List<String> years= read.getholidayyears();
+	
+	for(int i=1; i<=holidaycount;i++){
+		if(completedate.split("/")[0].equals(months.get(i))&&completedate.split("/")[1].equals(dates.get(i))&&completedate.split("/")[2].equals(years.get(i))){
+			fourdaysbefore=fourdaysbefore-1;
+		}
+	}
 	String fourdaysbeforedate = Integer.toString(fourdaysbefore);
 	
 	
@@ -677,8 +705,11 @@ public void log_into_QATS_Application_as_a_Reviewer() throws Throwable {
 
 	Date date = new Date();
 	DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
+	
 	todaydate = dateformat.format(date);
+	
 	log.info("Today is " + todaydate);
+	
 	
 	driver.get(prop.getProperty("url"));
 	log.info(prop.getProperty("welcome"));
