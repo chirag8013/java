@@ -7,15 +7,16 @@ import com.moodys.qats.utilities.XLSX_READER;
 
 public class Reader {
 	
-	static List<String> dates,years,months;
+	static List<String> years,months,dayofweek;
+	static List<Integer> dates;
 	int rowcount;
 	
 	XLSX_READER reader = new XLSX_READER("D:\\Users/VermaC/Documents/ui/Holiday__Calender.xlsx");
 	String SHEETNAME= "ELKP_HOLIDAY";
 
 	
-	public List<String> getholidaydates() {
-		dates= new ArrayList<String>();
+	public List<Integer> getholidaydates() {
+		dates= new ArrayList<Integer>();
 		
 		
 		
@@ -23,8 +24,10 @@ public class Reader {
 		 rowcount= reader.getRowCount(SHEETNAME);
 		System.out.println("Total number of rows in the holiday calender is "+rowcount);
 		
-	     for(int i= 1;i<=rowcount;i++){
-	    	 String DAT = reader.getCellData(SHEETNAME, 12,i);
+	     for(int i= 2;i<rowcount;i++){
+	    	 String DATT = reader.getCellData(SHEETNAME, 12,i);
+	    	 int DAT = (int) Double.parseDouble(DATT);
+	    	 
 	    	  
 	    	 dates.add(DAT);
 	 		
@@ -102,6 +105,38 @@ public class Reader {
 		// TODO Auto-generated method stub
 
 	}
+	
+public List<String> getholidaydayofweek() {
+		
+		dayofweek= new ArrayList<String>();
+		
+		
+		
+		 rowcount= reader.getRowCount(SHEETNAME);
+		System.out.println("Total number of rows in the holiday calender is "+rowcount);
+		
+	     for(int i= 1;i<=rowcount;i++){
+	    	 
+	 		String day= reader.getCellData(SHEETNAME, 11, i);
+	 		
+	 		dayofweek.add(day);
+	 	
+	 	
+	    	 
+	    	
+	    	 
+	     }
+		//System.out.println(dayofweek);
+		
+		
+		return dayofweek;
+		
+		
+		
+		// TODO Auto-generated method stub
+
+	}
+	
 	
 	public int getrowcount(){
 		 rowcount= reader.getRowCount(SHEETNAME);

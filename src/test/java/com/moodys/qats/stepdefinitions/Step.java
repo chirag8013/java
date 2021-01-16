@@ -3,6 +3,9 @@ package com.moodys.qats.stepdefinitions;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Year;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -381,13 +384,13 @@ public void i_Create_Manual_Case_with_the_Rating_Release_Date_four_days_prior_to
 	
 	createcase.clickoncreatemanualcase();
 	String today = todaydate.split("/")[1];
-	System.out.println(today);
+	System.out.println("Today is "+today);
 	int datetoday = Integer.parseInt(today);
 	int fourdaysbefore = datetoday - 4;
 	Calendar calender = Calendar.getInstance(TimeZone.getDefault());
 	//getting DayNumber of week like Sunday-1, Monday-2
 	int dayofweek= calender.get(Calendar.DAY_OF_WEEK);
-	System.out.println(dayofweek);
+	System.out.println("Day of the week is "+dayofweek);
 	int flag=0,rep=0;
 	for(int d= dayofweek-1; d>=-4;d--){	
 		flag++;
@@ -405,15 +408,211 @@ public void i_Create_Manual_Case_with_the_Rating_Release_Date_four_days_prior_to
 	
 	Reader read = new Reader();
 	int holidaycount= read.getrowcount();
-	List<String> dates = read.getholidaydates();
+	List<Integer> dates = read.getholidaydates();
 	List<String> months= read.getholidaymonths();
 	List<String> years= read.getholidayyears();
+	List<String> daysofweek= read.getholidaydayofweek();
 	
-	for(int i=1; i<holidaycount;i++){
-		if(completedate.split("/")[0].contains(months.get(i))&&dates.get(i).contains(completedate.split("/")[1])&&years.get(i).contains(completedate.split("/")[2])){
+	
+	LocalDate currentdate= LocalDate.now();
+	Month month= currentdate.getMonth();
+	int year= currentdate.getYear();
+	int previousyear = year-1;
+	String prevyear= Integer.toString(previousyear);
+	Month previousmonth= month.minus(1);
+	String prevmonth= previousmonth.toString();
+	System.out.println("Prev month and year"+prevmonth+prevyear);
+	
+	
+	
+System.out.println("Four days before date with no holiday "+fourdaysbefore);
+
+for(int i=2; i<holidaycount-2;i++){
+
+	if(dates.get(i)==31&&months.get(i).contains(prevmonth)&&fourdaysbefore==0&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&!completedate.split("/")[0].equalsIgnoreCase("January")&&(years.get(i).contains(completedate.split("/")[2]))){
+		
+		
+		fourdaysbefore=fourdaysbefore-1;
+	
+		
+
+}
+
+if(dates.get(i)==30&&months.get(i).contains(prevmonth)&&fourdaysbefore==0&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&!completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(completedate.split("/")[2])){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+
+
+if(dates.get(i)==30&&months.get(i).contains(prevmonth)&&fourdaysbefore==-1&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&!completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(completedate.split("/")[2])){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+if(dates.get(i)==29&&months.get(i).contains(prevmonth)&&fourdaysbefore==-1&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&!completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(completedate.split("/")[2])){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+
+if(dates.get(i)==29&&months.get(i).contains(prevmonth)&&fourdaysbefore==-2&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&!completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(completedate.split("/")[2])){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+
+if(dates.get(i)==28&&months.get(i).contains(prevmonth)&&fourdaysbefore==-2&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&!completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(completedate.split("/")[2])){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+
+if(dates.get(i)==28&&months.get(i).contains(prevmonth)&&fourdaysbefore==-3&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&!completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(completedate.split("/")[2])){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+}
+if(dates.get(i)==27&&months.get(i).contains(prevmonth)&&fourdaysbefore==-3&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&!completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(completedate.split("/")[2])){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+}
+
+if(dates.get(i)==27&&months.get(i).contains(prevmonth)&&fourdaysbefore==-4&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&!completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(completedate.split("/")[2])){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+
+if(dates.get(i)==26&&months.get(i).contains(prevmonth)&&fourdaysbefore==-4&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&!completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(completedate.split("/")[2])){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+
+if(dates.get(i)==26&&months.get(i).contains(prevmonth)&&fourdaysbefore==-5&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&!completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(completedate.split("/")[2])){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+if(dates.get(i)==25&&months.get(i).contains(prevmonth)&&fourdaysbefore==-5&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&!completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(completedate.split("/")[2])){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+
+
+
+	if(dates.get(i)==31&&months.get(i).contains(prevmonth)&&fourdaysbefore==0&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&completedate.split("/")[0].equalsIgnoreCase("January")&&(years.get(i).contains(prevyear))){
+		
+		
+		fourdaysbefore=fourdaysbefore-1;
+	
+		
+
+}
+
+if(dates.get(i)==30&&months.get(i).contains(prevmonth)&&fourdaysbefore==0&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(prevyear)){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+
+
+if(dates.get(i)==30&&months.get(i).contains(prevmonth)&&fourdaysbefore==-1&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(prevyear)){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+if(dates.get(i)==29&&months.get(i).contains(prevmonth)&&fourdaysbefore==-1&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(prevyear)){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+
+if(dates.get(i)==29&&months.get(i).contains(prevmonth)&&fourdaysbefore==-2&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(prevyear)){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+
+if(dates.get(i)==28&&months.get(i).contains(prevmonth)&&fourdaysbefore==-2&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(prevyear)){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+
+if(dates.get(i)==28&&months.get(i).contains(prevmonth)&&fourdaysbefore==-3&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(prevyear)){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+}
+if(dates.get(i)==27&&months.get(i).contains(prevmonth)&&fourdaysbefore==-3&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(prevyear)){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+}
+
+if(dates.get(i)==27&&months.get(i).contains(prevmonth)&&fourdaysbefore==-4&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(prevyear)){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+
+if(dates.get(i)==26&&months.get(i).contains(prevmonth)&&fourdaysbefore==-4&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(prevyear)){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+
+if(dates.get(i)==26&&months.get(i).contains(prevmonth)&&fourdaysbefore==-5&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(prevyear)){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+if(dates.get(i)==25&&months.get(i).contains(prevmonth)&&fourdaysbefore==-5&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&completedate.split("/")[0].equalsIgnoreCase("January")&&years.get(i).contains(prevyear)){
+	
+	
+	fourdaysbefore=fourdaysbefore-1;
+
+}
+		
+		//if((dates.get(i)==30||dates.get(i)==29)&&months.get(i).contains(prevmonth)&&fourdaysbefore==-1&&daysofweek.get(i)!="Sunday"&&daysofweek.get(i)!="Saturday"){
+			//if(dates.get(i)>=fourdaysbefore&&((months.get(i).contains(completedate.split("/")[0])&&years.get(i).contains(completedate.split("/")[2]))||(months.get(i).contains(prevmonth)&&years.get(i).contains(prevyear))||(months.get(i).contains(prevmonth)&&years.get(i).contains(completedate.split("/")[2])))){
+				//fourdaysbefore=fourdaysbefore-1;
+			//}
+			//fly=1;
+			//break;
+		//}
+		
+		
+		
+		
+		if(dates.get(i)>=fourdaysbefore&&dates.get(i)<Integer.parseInt(completedate.split("/")[1])&&months.get(i).contains(completedate.split("/")[0])&&years.get(i).contains(completedate.split("/")[2])&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&fourdaysbefore>0){
 			fourdaysbefore=fourdaysbefore-1;
 		}
 	}
+	
+	
+
 	String fourdaysbeforedate = Integer.toString(fourdaysbefore);
 	
 	
@@ -577,13 +776,13 @@ public void manager_click_on_Quality_Review_Work_Queue_and_validate_case_status_
 public void manager_clicks_on_Create_Manual_Case_with_the_Rating_Release_Date_four_days_before_from_current_date_with_case_id(String ACTIONID) throws Throwable {
 	createcase.clickoncreatemanualcase();
 	String today = todaydate.split("/")[1];
-	System.out.println(today);
+	System.out.println("Today is "+today);
 	datetoday = Integer.parseInt(today);
 	int fourdaysbefore = datetoday - 4;
 	Calendar calender = Calendar.getInstance(TimeZone.getDefault());
 	//getting DayNumber of week like Sunday-1, Monday-2
 	int dayofweek= calender.get(Calendar.DAY_OF_WEEK);
-	System.out.println(dayofweek);
+	System.out.println("Day of the week is "+dayofweek);
 	int flag=0,rep=0;
 	for(int d= dayofweek-1; d>=-4;d--){	
 		flag++;
@@ -601,15 +800,18 @@ public void manager_clicks_on_Create_Manual_Case_with_the_Rating_Release_Date_fo
 	
 	Reader read = new Reader();
 	int holidaycount= read.getrowcount();
-	List<String> dates = read.getholidaydates();
+	List<Integer> dates = read.getholidaydates();
 	List<String> months= read.getholidaymonths();
 	List<String> years= read.getholidayyears();
 	
-	for(int i=1; i<=holidaycount;i++){
-		if(completedate.split("/")[0].equals(months.get(i))&&completedate.split("/")[1].equals(dates.get(i))&&completedate.split("/")[2].equals(years.get(i))){
-			fourdaysbefore=fourdaysbefore-1;
-		}
-	}
+	System.out.println("Four days before date with no holiday "+fourdaysbefore);
+	
+	//for(int i=1; i<=holidaycount;i++){
+		//if(Integer.parseInt(dates.get(i))>=fourdaysbefore&&Integer.parseInt(completedate.split("/")[1])>Integer.parseInt(dates.get(i))&&months.get(i).equals(completedate.split("/")[0])&&years.get(i).equals(completedate.split("/")[2])&&dayofweek!=1&&dayofweek!=7){
+			//fourdaysbefore=fourdaysbefore-1;
+		//}
+	//}
+	
 	String fourdaysbeforedate = Integer.toString(fourdaysbefore);
 	
 	
