@@ -19,7 +19,7 @@ public class Reader2{
 		countryid = new ArrayList<String>();
 
 		rowcount = reader.getRowCount(SHEETNAME);
-		System.out.println("Total number of rows in the holiday calender is " + rowcount);
+		//System.out.println("Total number of rows in the holiday calender is " + rowcount);
 
 		for (int i = 2; i <= rowcount; i++) {
 
@@ -41,7 +41,7 @@ public class Reader2{
 		regionid = new ArrayList<String>();
 
 		rowcount = reader.getRowCount(SHEETNAME);
-		System.out.println("Total number of rows in the holiday calender is " + rowcount);
+		//System.out.println("Total number of rows in the holiday calender is " + rowcount);
 
 		for (int i = 2; i <= rowcount; i++) {
 
@@ -63,7 +63,7 @@ public class Reader2{
 		analystloc = new ArrayList<String>();
 
 		rowcount = reader.getRowCount(SHEETNAME);
-		System.out.println("Total number of rows in the holiday calender is " + rowcount);
+		//System.out.println("Total number of rows in the holiday calender is " + rowcount);
 
 		for (int i = 2; i <= rowcount; i++) {
 
