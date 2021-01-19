@@ -2,7 +2,7 @@ package com.moodys.qats.utilities;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.moodys.qats.utilities.XLSX_READER;
+import com.moodys.qats.utilities.XLSX_READER1;
 
 public class Reader{
 
@@ -10,7 +10,7 @@ public class Reader{
 	static List<Integer> dates;
 	  int rowcount;
 
-	XLSX_READER reader = new XLSX_READER("D:\\Users/VermaC/Documents/ui/Holiday__Calender.xlsx");
+	XLSX_READER1 reader = new XLSX_READER1("D:\\Users/VermaC/Documents/ui/Holiday__Calender.xlsx");
 	String SHEETNAME = "ELKP_HOLIDAY";
 
 	public List<Integer> getholidaydates() {

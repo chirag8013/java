@@ -24,6 +24,7 @@ import org.testng.Assert;
 
 import com.moodys.qats.page.*;
 import com.moodys.qats.utilities.Reader;
+import com.moodys.qats.utilities.Reader2;
 import com.moodys.qats.utilities.TestBase;
 import com.moodys.qats.utilities.Util;
 
@@ -424,7 +425,22 @@ public void i_Create_Manual_Case_with_the_Rating_Release_Date_four_days_prior_to
 	Month previousmonth= month.minus(1);
 	String prevmonth= previousmonth.toString();
 	System.out.println("Prev month and year"+prevmonth+prevyear);
+	String countryid = null,regionid = null;
 	
+	Reader2 read2= new Reader2();
+	List<String> analystloc= read2.getanalystlocation();
+	for(int i=2;i<read2.getrowcount();i++){
+		if(analystloc.get(i).equals(prop.getProperty("analystloc"))){
+			countryid=read2.getcountryid().get(i);
+			regionid=read2.getregionid().get(i);
+			break;
+		}
+	}
+	
+	System.out.println(countryid+" "+regionid);
+	
+	
+	//read.readexcel();
 	
 	
 System.out.println("Four days before date with NO holiday in between-----------> "+fourdaysbefore);
