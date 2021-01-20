@@ -6,7 +6,7 @@ import com.moodys.qats.utilities.XLSX_READER1;
 
 public class Reader{
 
-	static List<String> years, months, dayofweek,region;
+	static List<String> years, months, dayofweek,region,countryid;
 	static List<Integer> dates;
 	  int rowcount;
 
@@ -101,7 +101,7 @@ public class Reader{
 
 	}
 	
-	public List<String> getregion() {
+	public List<String> getregionid() {
 
 		region = new ArrayList<String>();
 
@@ -109,15 +109,43 @@ public class Reader{
 		//System.out.println("Total number of rows in the holiday calender is " + rowcount);
 
 		for (int i = 2; i <= rowcount; i++) {
+			
+			if(!(reader.getCellData(SHEETNAME, 5,i).isEmpty())){
+				String reg = reader.getCellData(SHEETNAME, 5,i);
+				region.add(reg);	
+			}else{
+				String reg = reader.getCellData(SHEETNAME, 6,i);
+				region.add(reg);
+			}
 
-			String reg = reader.getCellData(SHEETNAME, 7, i);
-
-			region.add(reg);
+			
 
 		}
 		// System.out.println(dayofweek);
 
 		return region;
+
+		// TODO Auto-generated method stub
+
+	}
+	
+	public List<String> getcountryid() {
+
+		countryid = new ArrayList<String>();
+
+		rowcount = reader.getRowCount(SHEETNAME);
+		//System.out.println("Total number of rows in the holiday calender is " + rowcount);
+
+		for (int i = 2; i <= rowcount; i++) {
+
+			String country = reader.getCellData(SHEETNAME, 3, i);
+
+			countryid.add(country);
+
+		}
+		// System.out.println(dayofweek);
+
+		return countryid;
 
 		// TODO Auto-generated method stub
 
@@ -137,14 +165,20 @@ public class Reader{
 		List<Integer> datee = getholidaydates();
 		List<String> monthh= getholidaymonths();
 		List<String> yearr= getholidayyears();
-		List<String> region= getregion();
+		List<String> region= getregionid();
+		List<String> country= getcountryid();
 		rowcount = reader.getRowCount(SHEETNAME);
 		
 		for(int i = 0;i<rowcount-2;i++){
-			System.out.print(region.get(i)+" "+dayy.get(i)+" "+datee.get(i)+" "+monthh.get(i)+" "+yearr.get(i));
+			System.out.print(country.get(i)+" "+region.get(i)+" "+dayy.get(i)+" "+datee.get(i)+" "+monthh.get(i)+" "+yearr.get(i));
 			System.out.println();
 	
 		}
+	}
+	
+	public static void main(String args[]){
+		Reader rea = new Reader();
+		rea.readexcel();
 	}
 	
 	
