@@ -27,6 +27,7 @@ import com.moodys.qats.utilities.Reader;
 import com.moodys.qats.utilities.Reader2;
 import com.moodys.qats.utilities.TestBase;
 import com.moodys.qats.utilities.Util;
+import com.moodys.qats.utilities.date_time;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.After;
@@ -389,6 +390,8 @@ public void i_Create_Manual_Case_with_the_Rating_Release_Date_four_days_prior_to
 	int datetoday = Integer.parseInt(today);
 	int fourdaysbefore = datetoday - 4;
 	Calendar calender = Calendar.getInstance(TimeZone.getDefault());
+	
+	
 	//getting DayNumber of week like Sunday-1, Monday-2
 	int dayofweek= calender.get(Calendar.DAY_OF_WEEK);
 	System.out.println("Day of the week is "+dayofweek);
@@ -430,7 +433,7 @@ public void i_Create_Manual_Case_with_the_Rating_Release_Date_four_days_prior_to
 	
 	Reader2 read2= new Reader2();
 	List<String> analystloc= read2.getanalystlocation();
-	for(int i=2;i<read2.getrowcount();i++){
+	for(int i=2;i<read2.getrowcount()-1;i++){
 		if(analystloc.get(i).equals(prop.getProperty("analystloc"))){
 			countryid=read2.getcountryid().get(i);
 			regionid=read2.getregionid().get(i);
@@ -717,11 +720,15 @@ fourdaysbefore=fourdaysbefore-1;
 	String fourdaysbeforedate = Integer.toString(fourdaysbefore);
 	
 	
+	
+	
+	
  System.out.println("Four days before date with holiday in between-----------> "+fourdaysbefore);
 	createcase.createmanualcasewithdate(ActionID, prop.getProperty("CaseDesc"),
-			prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"), fourdaysbeforedate);
+			prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"), fourdaysbeforedate,prop.getProperty("analystloc"));
 	createcase.clickoncreatecase();
 }
+
 
 @Then("^I should be able to search for the case with ActionID \"([^\"]*)\" on Day(\\d+) Review screen$")
 public void i_should_be_able_to_search_for_the_case_with_ActionID_on_Day_Review_screen(String Actionid, int arg2) throws Throwable {
@@ -788,8 +795,8 @@ public void manager_enter_MeerQATS_HomePage() throws Throwable {
 	log.info("----------------------------------");
 }
 
-@When("^a manager clicks Create QA Review$")
-public void a_manager_clicks_Create_QA_Review() throws Throwable {
+@When("^a manager goes to Create QA Review$")
+public void a_manager_goes_to_Create_QA_Review() throws Throwable {
 	homepage.clickonQAReview();
 	driver.navigate().refresh();
 	Thread.sleep(4000);
@@ -818,8 +825,8 @@ public void selects_Review_Case() throws Throwable {
 
 }
 
-@When("^clicks on Create Case$")
-public void clicks_on_Create_Case() throws Throwable {
+@When("^Create Case$")
+public void Create_Case() throws Throwable {
 	createcase.clickoncreatecase();
 }
 
@@ -831,10 +838,10 @@ public void manager_can_search_for_Case_Id_in_Dashboard_to_validate_successful_c
 	mywork.displaynewlycreatedreviewcase(actionid);
 }
 
-@When("^clicks on Create Manual Case with actionid \"([^\"]*)\" and CaseDesc \"([^\"]*)\" and sourcename \"([^\"]*)\" and leadanalyst \"([^\"]*)\" and ratingactiondate \"([^\"]*)\"$")
-public void clicks_on_Create_Manual_Case_with_actionid_and_CaseDesc_and_sourcename_and_leadanalyst_and_ratingactiondate(String actionid, String CaseDesc, String sourcename, String leadanalyst, String ratingactiondate) throws Throwable {
+@When("^Create Manual Case with actionid \"([^\"]*)\" and CaseDesc \"([^\"]*)\" and sourcename \"([^\"]*)\" and leadanalyst \"([^\"]*)\" and ratingactiondate \"([^\"]*)\"$")
+public void Create_Manual_Case_with_actionid_and_CaseDesc_and_sourcename_and_leadanalyst_and_ratingactiondate(String actionid, String CaseDesc, String sourcename, String leadanalyst, String ratingactiondate) throws Throwable {
 	createcase.clickoncreatemanualcase();
-	createcase.createmanualcasewithdate(actionid, CaseDesc, sourcename, leadanalyst, ratingactiondate);
+	createcase.createmanualcasewithdate(actionid, CaseDesc, sourcename, leadanalyst, ratingactiondate,prop.getProperty("analystloc"));
 	createcase.clickoncreatecase();
 }
 
@@ -851,8 +858,8 @@ public void manager_Goes_to_Dashboard() throws Throwable {
 	Thread.sleep(2000);
 }
 
-@Then("^Manager click on Quality Review Work Queue and validate case status for any case$")
-public void manager_click_on_Quality_Review_Work_Queue_and_validate_case_status_for_any_case() throws Throwable {
+@Then("^Manager goes to Quality Review Work Queue and validate case status for any case$")
+public void manager_goes_to_Quality_Review_Work_Queue_and_validate_case_status_for_any_case() throws Throwable {
 	dashboard.clickonworkbasket("Quality Review Work Queue");
 	Thread.sleep(1000);
 
@@ -872,14 +879,15 @@ public void manager_click_on_Quality_Review_Work_Queue_and_validate_case_status_
 
 }
 
-@When("^manager clicks on Create Manual Case with the Rating Release Date four days before from current date with case id \"([^\"]*)\"$")
-public void manager_clicks_on_Create_Manual_Case_with_the_Rating_Release_Date_four_days_before_from_current_date_with_case_id(String ACTIONID) throws Throwable {
+@When("^manager Create Manual Case with the Rating Release Date four days before from current date with case id \"([^\"]*)\"$")
+public void manager_Create_Manual_Case_with_the_Rating_Release_Date_four_days_before_from_current_date_with_case_id(String ACTIONID) throws Throwable {
 	createcase.clickoncreatemanualcase();
 	String today = todaydate.split("/")[1];
 	System.out.println("Today is "+today);
 	datetoday = Integer.parseInt(today);
 	int fourdaysbefore = datetoday - 4;
 	Calendar calender = Calendar.getInstance(TimeZone.getDefault());
+	
 	//getting DayNumber of week like Sunday-1, Monday-2
 	int dayofweek= calender.get(Calendar.DAY_OF_WEEK);
 	System.out.println("Day of the week is "+dayofweek);
@@ -918,7 +926,7 @@ public void manager_clicks_on_Create_Manual_Case_with_the_Rating_Release_Date_fo
 	
 	System.out.println("four days before date is --------------------> " + fourdaysbeforedate);
 	createcase.createmanualcasewithdate(ACTIONID, prop.getProperty("CaseDesc"),
-			prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"), fourdaysbeforedate);
+			prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"), fourdaysbeforedate,prop.getProperty("analystloc"));
 	createcase.clickoncreatecase();
 }
 
@@ -1055,7 +1063,7 @@ public void as_a_Reviewer_I_choose_Create_Manual_Case_option_from_menu() throws 
 
 @Given("^enter required fields actionid \"([^\"]*)\" and CaseDesc \"([^\"]*)\" and sourcename \"([^\"]*)\" and leadanalyst \"([^\"]*)\" and ratingactiondate \"([^\"]*)\"$")
 public void enter_required_fields_actionid_and_CaseDesc_and_sourcename_and_leadanalyst_and_ratingactiondate(String actionid, String CaseDesc, String sourcename, String leadanalyst, String ratingactiondate) throws Throwable {
-	createcase.createmanualcasewithdate(actionid, CaseDesc, sourcename, leadanalyst, ratingactiondate);
+	createcase.createmanualcasewithdate(actionid, CaseDesc, sourcename, leadanalyst, ratingactiondate,prop.getProperty("analystloc"));
 
 }
 

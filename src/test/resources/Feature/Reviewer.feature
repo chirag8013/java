@@ -45,8 +45,8 @@ Examples:
 @manual
 Scenario Outline: As a Reviewer I will be able to see the the Manually created Cases Assigned to me by Manager in My Work
 Given Log into QATS Application as a Manager
-When a manager clicks Create QA Review
-And clicks on Create Manual Case with actionid "<actionid>" and CaseDesc "<CaseDesc>" and sourcename "<sourcename>" and leadanalyst "<leadanalyst>" and ratingactiondate "<ratingactiondate>"
+When a manager goes to Create QA Review
+And Create Manual Case with actionid "<actionid>" and CaseDesc "<CaseDesc>" and sourcename "<sourcename>" and leadanalyst "<leadanalyst>" and ratingactiondate "<ratingactiondate>"
 Then I should be able to search for the case with ActionID "<actionid>" and assign it to QATS User 
 And Reviewer confirms the case in My Work with ActionID "<actionid>"
 
@@ -58,9 +58,9 @@ Examples:
 @Ingested
 Scenario: As a Reviewer I will be able to see the the Ingested Cases Assigned to me by Manager in My Work
 Given Log into QATS Application as a Manager
-When a manager clicks Create QA Review
+When a manager goes to Create QA Review
 And selects Review Case
-And clicks on Create Case
+And Create Case
 Then I should be able to search for the case with ActionID <actionid> and assign it to QATS User 
 And Reviewer confirms the case in My Work with ActionID <actionid>
 

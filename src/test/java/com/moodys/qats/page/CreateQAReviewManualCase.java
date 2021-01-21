@@ -38,7 +38,7 @@ public class CreateQAReviewManualCase {
 		driver.findElement(By.xpath("//button[text()='Create Manual Case']")).click();
 	}
 	
-	public void createmanualcasewithdate(String actid, String CaseDesc, String Source, String Leadanalystname, String todaydate)
+	public void createmanualcasewithdate(String actid, String CaseDesc, String Source, String Leadanalystname, String todaydate, String analystloc)
 			throws InterruptedException {
 		
 		
@@ -69,6 +69,10 @@ public class CreateQAReviewManualCase {
 				.findElement(By.xpath("//select[@name='$PpyDisplayHarness$pManualRatingAction$l1$pSourceName']")));
 
 		sel.selectByVisibleText(Source);
+		
+Select sel2= new Select(driver.findElement(By.xpath("//select[@name='$PpyDisplayHarness$pManualRatingAction$l1$pAnalystLocCode']")));
+		
+		sel2.selectByVisibleText(analystloc);
 
 		System.out.println(Integer.parseInt(todaydate));
 		driver.findElement(By.xpath("//label[contains(text(),'Rating Release Date')]/following-sibling::div//img"))
@@ -204,7 +208,7 @@ public class CreateQAReviewManualCase {
 
 	
 
-	public void createmanualcase(String actid, String CaseDesc, String Source, String Leadanalystname)
+	public void createmanualcase(String actid, String CaseDesc, String Source, String Leadanalystname, String analystloc)
 			throws InterruptedException {
 		if (driver.getTitle().equals("QA Manager")) {
 
@@ -234,8 +238,16 @@ public class CreateQAReviewManualCase {
 
 		Select sel = new Select(driver
 				.findElement(By.xpath("//select[@name='$PpyDisplayHarness$pManualRatingAction$l1$pSourceName']")));
-
+		
 		sel.selectByVisibleText(Source);
+		
+		Select sel2= new Select(driver.findElement(By.xpath("//select[@name='$PpyDisplayHarness$pManualRatingAction$l1$pAnalystLocCode']")));
+		
+		sel2.selectByVisibleText(analystloc);
+
+		
+		
+	
 
 		driver.findElement(By.xpath("//label[contains(text(),'Rating Release Date')]/following-sibling::div//img"))
 				.click();

@@ -10,15 +10,15 @@ Then Manager enter MeerQATS HomePage
 
 @Second
 Scenario: A manager creates ingested review cases and validate in dashboard.
-When a manager clicks Create QA Review
+When a manager goes to Create QA Review
 And selects Review Case
-And clicks on Create Case
+And Create Case
 Then Manager can search for Case Id in Dashboard to validate successful case creation
 
 @Third
 Scenario Outline: A manager creates new Review Cases from manually entered data.
-When a manager clicks Create QA Review
-And clicks on Create Manual Case with actionid "<actionid>" and CaseDesc "<CaseDesc>" and sourcename "<sourcename>" and leadanalyst "<leadanalyst>" and ratingactiondate "<ratingactiondate>"
+When a manager goes to Create QA Review
+And Create Manual Case with actionid "<actionid>" and CaseDesc "<CaseDesc>" and sourcename "<sourcename>" and leadanalyst "<leadanalyst>" and ratingactiondate "<ratingactiondate>"
 Then Search for Case Id in Dashboard to validate successful case creation with actionid "<actionid>"
 
 Examples:
@@ -29,13 +29,13 @@ Examples:
 @Fourth
 Scenario: Verify Workbaskets and case status
 When Manager Goes to Dashboard
-Then Manager click on Quality Review Work Queue and validate case status for any case
+Then Manager goes to Quality Review Work Queue and validate case status for any case
 
 
 @ignore
 Scenario Outline: Day 4 Review
-When a manager clicks Create QA Review
-And manager clicks on Create Manual Case with the Rating Release Date four days before from current date with case id "<CaseId>"
+When a manager goes to Create QA Review
+And manager Create Manual Case with the Rating Release Date four days before from current date with case id "<CaseId>"
 Then manager with CaseId "<CaseId>" searches the case available for Day4 Review 
 
 Examples:
