@@ -2,7 +2,7 @@ package com.moodys.qats.utilities;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.moodys.qats.utilities.XLSX_READER1;
+import com.moodys.qats.utilities.*;
 
 public class Reader{
 
@@ -176,10 +176,7 @@ public class Reader{
 		}
 	}
 	
-	public static void main(String args[]){
-		Reader rea = new Reader();
-		rea.readexcel();
-	}
+	
 	
 	
 	

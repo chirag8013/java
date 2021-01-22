@@ -9,7 +9,7 @@ import java.util.Optional;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class TestBase {
+public class TestBase{
 
 	public Properties prop;
 

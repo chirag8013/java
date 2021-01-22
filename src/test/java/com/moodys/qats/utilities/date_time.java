@@ -2,7 +2,7 @@ package com.moodys.qats.utilities;
 
 import java.util.Calendar;
 
-public class date_time {
+public class date_time{
 
 	public int getlastdayofmonth(int year,int month, int date) {
 		
