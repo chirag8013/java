@@ -11,19 +11,19 @@ public class Reader2{
 	
 
 
-	XLSX_READER2 reader2 = new XLSX_READER2("D:\\Users/VermaC/Documents/ui/Analyst_Loc_Region_Country.xlsx");
+	XLSX_READER2 readd2 = new XLSX_READER2("D:\\Users/VermaC/Documents/ui/Analyst_Loc_Region_Country.xlsx");
 	String SHEETNAME = "LKP_QATS_ANALYST_LOC";
 	
 	public List<String> getcountryid() {
 
 		countryid = new ArrayList<String>();
 
-		rowcount = reader2.getRowCount(SHEETNAME);
+		rowcount = readd2.getRowCount(SHEETNAME);
 		//System.out.println("Total number of rows in the holiday calender is " + rowcount);
 
 		for (int i = 2; i <= rowcount; i++) {
 
-			String country = reader2.getCellData(SHEETNAME, 6, i);
+			String country = readd2.getCellData(SHEETNAME, 6, i);
 
 			countryid.add(country);
 
@@ -40,12 +40,12 @@ public class Reader2{
 
 		regionid = new ArrayList<String>();
 
-		rowcount = reader2.getRowCount(SHEETNAME);
+		rowcount = readd2.getRowCount(SHEETNAME);
 		//System.out.println("Total number of rows in the holiday calender is " + rowcount);
 
 		for (int i = 2; i <= rowcount; i++) {
 
-			String region = reader2.getCellData(SHEETNAME, 7, i);
+			String region = readd2.getCellData(SHEETNAME, 7, i);
 
 			regionid.add(region);
 
@@ -62,12 +62,12 @@ public class Reader2{
 
 		analystloc = new ArrayList<String>();
 
-		rowcount = reader2.getRowCount(SHEETNAME);
+		rowcount = readd2.getRowCount(SHEETNAME);
 		//System.out.println("Total number of rows in the holiday calender is " + rowcount);
 
 		for (int i = 2; i <= rowcount; i++) {
 
-			String analyst = reader2.getCellData(SHEETNAME, 0, i);
+			String analyst = readd2.getCellData(SHEETNAME, 0, i);
 
 			analystloc.add(analyst);
 
@@ -82,7 +82,7 @@ public class Reader2{
 	}
 	
 	public  int getrowcount() {
-		rowcount = reader2.getRowCount(SHEETNAME);
+		rowcount = readd2.getRowCount(SHEETNAME);
 //System.out.println(rowcount);
 		return rowcount;
 	}

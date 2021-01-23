@@ -1,19 +1,19 @@
 package com.moodys.qats.utilities;
+import java.io.FileInputStream;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 import java.util.Properties;
-
 import com.moodys.qats.utilities.*;
+
+
 
 public class ReviewDueDateCalculator {
 	
 	String countryid,regionid;
+	
 
-	  public static void main(String args[]) throws Exception{
-	    	ReviewDueDateCalculator cal = new ReviewDueDateCalculator();
-	    	cal.revduecalc("12/28/2009");
-	    }
+	
     
 	public String revduecalc(String ratingreldate) throws Exception{
 		String ratingreleasedate= ratingreldate;
@@ -59,12 +59,18 @@ public class ReviewDueDateCalculator {
 			
 			
 			
-			TestBase base = new TestBase();
-			Properties prop = base.initialization();
+			//TestBase base = new TestBase();
+			//Properties prop = base.initialization();
+			
+			Properties prop = new Properties();
+		FileInputStream ip = new FileInputStream("D:\\Users/VermaC/Documents/ui/src/test/resources/qa/Config.Properties");
+		prop.load(ip);
+		
+			
 			
 			Reader2 read2= new Reader2();
 			List<String> analystloc= read2.getanalystlocation();
-			for(int i=2;i<read2.getrowcount()-1;i++){
+			for(int i=0;i<read2.getrowcount();i++){
 				if(analystloc.get(i).equals(prop.getProperty("analystloc"))){
 					 countryid=read2.getcountryid().get(i);
 					 regionid=read2.getregionid().get(i);
@@ -136,7 +142,7 @@ public class ReviewDueDateCalculator {
 				 nextmonth="January";
 			}
 			
-			for(int i=2;i<read.getrowcount()-1;i++){
+			for(int i=0;i<read.getrowcount()-10;i++){
 				if(dates.get(i)>dat&&dates.get(i)<=reviewduedate&&reviewduedate<=30&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&!monstr.equalsIgnoreCase("February")&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)){
 					reviewduedate=reviewduedate+1;
 				}
@@ -324,6 +330,38 @@ if(dates.get(i)==7&&reviewduedate==38&&years.get(i).contains(nextyear)&&months.g
 
 			}
 			
+			if(dow==6&&(reviewduedate-dat)>7){
+				reviewduedate=reviewduedate+2;
+			}
+			
+			if(dow==5&&(reviewduedate-dat)>8){
+				reviewduedate=reviewduedate+2;
+			}
+			
+			if(dow==4&&(reviewduedate-dat)>9){
+				reviewduedate=reviewduedate+2;
+			}
+			
+			if(dow==3&&(reviewduedate-dat)>10){
+				reviewduedate=reviewduedate+2;
+			}
+			
+			if(dow==2&&(reviewduedate-dat)>11){
+				reviewduedate=reviewduedate+2;
+			}
+			
+			if(dow==1&&(reviewduedate-dat)>12){
+				reviewduedate=reviewduedate+2;
+			}
+			
+			if(dow==7&&(reviewduedate-dat)>13){
+				reviewduedate=reviewduedate+2;
+			}
+			
+			
+			
+			
+			
 		
 			if(reviewduedate==31&&lastdateofmonth==30&&!(mon==2)&&!(mon==12)){
 				reviewduedate=1;
@@ -452,6 +490,16 @@ if(dates.get(i)==7&&reviewduedate==38&&years.get(i).contains(nextyear)&&months.g
 			
 			if(reviewduedate==35&&lastdateofmonth==28){
 				reviewduedate=7;
+				reviewduemonth=reviewduemonth+1;
+			}
+			
+			if(reviewduedate==36&&lastdateofmonth==29){
+				reviewduedate=7;
+				reviewduemonth=reviewduemonth+1;
+			}
+			
+			if(reviewduedate==36&&lastdateofmonth==28){
+				reviewduedate=8;
 				reviewduemonth=reviewduemonth+1;
 			}
 			
