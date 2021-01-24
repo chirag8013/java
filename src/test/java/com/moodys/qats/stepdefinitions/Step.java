@@ -845,10 +845,12 @@ public void Create_Manual_Case_with_actionid_and_CaseDesc_and_sourcename_and_lea
 	createcase.clickoncreatecase();
 }
 
-@When("^Create Manual Case with actionid \"([^\"]*)\" and CaseDesc \"([^\"]*)\" and sourcename \"([^\"]*)\" and leadanalyst \"([^\"]*)\" and completeratingactiondate \"([^\"]*)\"$")
-public void create_Manual_Case_with_actionid_and_CaseDesc_and_sourcename_and_leadanalyst_and_completeratingactiondate(String actionid, String CaseDesc, String sourcename, String leadanalyst, String ratingactiondate) throws Throwable {
+
+
+@When("^Create Manual Case with actionid \"([^\"]*)\" and CaseDesc \"([^\"]*)\" and sourcename \"([^\"]*)\" and leadanalyst \"([^\"]*)\" and completeratingactiondate \"([^\"]*)\" and analystlocation \"([^\"]*)\"$")
+public void create_Manual_Case_with_actionid_and_CaseDesc_and_sourcename_and_leadanalyst_and_completeratingactiondate_and_analystlocation(String actionid, String CaseDesc, String sourcename, String leadanalyst, String ratingactiondate, String analystloca) throws Throwable {
 	createcase.clickoncreatemanualcase();
-	createcase.createmanualcasewithcompletedate(actionid, CaseDesc, sourcename, leadanalyst, ratingactiondate,prop.getProperty("analystloc"));
+	createcase.createmanualcasewithcompletedate(actionid, CaseDesc, sourcename, leadanalyst, ratingactiondate,analystloca);
 	createcase.clickoncreatecase();
 }
 
@@ -857,6 +859,15 @@ public void search_for_Case_Id_in_Dashboard_to_validate_successful_case_creation
 	homepage.clickonDashboard();
 	mywork.displaynewlycreatedreviewcase(ACTIONID);
 }
+
+
+
+@Then("^Search for Case Id in Dashboard to validate successful case creation with actionid \"([^\"]*)\" and confirms the correct review due date for ratingactiondate \"([^\"]*)\" and analystlocation \"([^\"]*)\"$")
+public void search_for_Case_Id_in_Dashboard_to_validate_successful_case_creation_with_actionid_and_confirms_the_correct_review_due_date_for_ratingactiondate_and_analystlocation(String ACTIONID, String ratingactiondate, String analystloc) throws Throwable {
+	homepage.clickonDashboard();
+	mywork.displaynewlycreatedreviewcasewithreviewduedateconfirmation(ACTIONID, ratingactiondate,analystloc);
+}
+
 
 @When("^Manager Goes to Dashboard$")
 public void manager_Goes_to_Dashboard() throws Throwable {

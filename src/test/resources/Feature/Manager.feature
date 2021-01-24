@@ -34,12 +34,12 @@ Then Manager goes to Quality Review Work Queue and validate case status for any 
 @Fifth
 Scenario Outline: A manager creates new Review Cases from manually entered data and validates the review date of created case
 When a manager goes to Create QA Review
-And Create Manual Case with actionid "<actionid>" and CaseDesc "<CaseDesc>" and sourcename "<sourcename>" and leadanalyst "<leadanalyst>" and completeratingactiondate "<ratingactiondate>"
-Then Search for Case Id in Dashboard to validate successful case creation with actionid "<actionid>"
+And Create Manual Case with actionid "<actionid>" and CaseDesc "<CaseDesc>" and sourcename "<sourcename>" and leadanalyst "<leadanalyst>" and completeratingactiondate "<ratingactiondate>" and analystlocation "<analystloc>"
+Then Search for Case Id in Dashboard to validate successful case creation with actionid "<actionid>" and confirms the correct review due date for ratingactiondate "<ratingactiondate>" and analystlocation "<analystloc>"
 
 Examples:
-|actionid|CaseDesc|sourcename|leadanalyst|ratingactiondate|
-|998999|Sample Case|Pyramid|David Sweeney|2/18/2020|
+|actionid|CaseDesc|sourcename|leadanalyst|ratingactiondate|analystloc|
+|usgu7|Sample Case|Pyramid|David Sweeney|1/15/2021|Buenos Aires - Ing. Butty 240|
 
 
 @ignore

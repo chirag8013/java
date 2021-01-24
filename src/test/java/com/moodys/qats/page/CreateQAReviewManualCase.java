@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import com.moodys.qats.utilities.ReviewDueDateCalculator;
+
 public class CreateQAReviewManualCase {
 	WebDriver driver;
 
@@ -207,7 +209,7 @@ Select sel2= new Select(driver.findElement(By.xpath("//select[@name='$PpyDisplay
 		}
 	
 	public void createmanualcasewithcompletedate(String actid, String CaseDesc, String Source, String Leadanalystname, String completedate, String analystloc)
-			throws InterruptedException {
+			throws Exception {
 		
 		String month = null;
 		
@@ -216,9 +218,54 @@ Select sel2= new Select(driver.findElement(By.xpath("//select[@name='$PpyDisplay
 		String year= completedate.split("/")[2]; 
 		
 		
+		if(mon==1){
+			month= "Jan";
+		}
+		
 		if(mon==2){
 			month= "Feb";
 		}
+		
+		if(mon==3){
+			month= "Mar";
+		}
+		
+		if(mon==4){
+			month= "Apr";
+		}
+		
+		if(mon==5){
+			month= "May";
+		}
+		
+		if(mon==6){
+			month= "Jun";
+		}
+		
+		if(mon==7){
+			month= "Jul";
+		}
+		
+		if(mon==8){
+			month= "Aug";
+		}
+		
+		if(mon==9){
+			month= "Sep";
+		}
+		
+		if(mon==10){
+			month= "Oct";
+		}
+		
+		if(mon==11){
+			month= "Nov";
+		}
+		
+		if(mon==12){
+			month= "Dec";
+		}
+		
 			
 
 			driver.switchTo().defaultContent();
@@ -268,8 +315,11 @@ driver.findElement(By.xpath("//span[@id='yearSpinner']/input[@type='text' and @c
 		
 		driver.findElement(By.xpath("//a[@data-day='"+date+"']")).click();
 		
+		//ReviewDueDateCalculator datecal= new ReviewDueDateCalculator();
+		//datecal.revduecalc(completedate);
 		
-		Thread.sleep(10000);
+		
+		Thread.sleep(5000);
 		LocalDate currentdate= LocalDate.now();
 		Month mont= currentdate.getMonth();
 		String Mont= mont.toString();

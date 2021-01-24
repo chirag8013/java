@@ -15,7 +15,7 @@ public class ReviewDueDateCalculator{
 
 	
     
-	public String revduecalc(String ratingreldate) throws Exception{
+	public String revduecalc(String ratingreldate,String analystloca) throws Exception{
 		String ratingreleasedate= ratingreldate;
 		
 		String yeastr=ratingreleasedate.split("/")[2];
@@ -71,7 +71,7 @@ public class ReviewDueDateCalculator{
 			Reader2 read2= new Reader2();
 			List<String> analystloc= read2.getanalystlocation();
 			for(int i=0;i<read2.getrowcount();i++){
-				if(analystloc.get(i).equals(prop.getProperty("analystloc"))){
+				if(analystloc.get(i).equals(analystloca)){
 					 countryid=read2.getcountryid().get(i);
 					 regionid=read2.getregionid().get(i);
 					break;
