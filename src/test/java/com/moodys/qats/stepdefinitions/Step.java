@@ -845,6 +845,13 @@ public void Create_Manual_Case_with_actionid_and_CaseDesc_and_sourcename_and_lea
 	createcase.clickoncreatecase();
 }
 
+@When("^Create Manual Case with actionid \"([^\"]*)\" and CaseDesc \"([^\"]*)\" and sourcename \"([^\"]*)\" and leadanalyst \"([^\"]*)\" and completeratingactiondate \"([^\"]*)\"$")
+public void create_Manual_Case_with_actionid_and_CaseDesc_and_sourcename_and_leadanalyst_and_completeratingactiondate(String actionid, String CaseDesc, String sourcename, String leadanalyst, String ratingactiondate) throws Throwable {
+	createcase.clickoncreatemanualcase();
+	createcase.createmanualcasewithcompletedate(actionid, CaseDesc, sourcename, leadanalyst, ratingactiondate,prop.getProperty("analystloc"));
+	createcase.clickoncreatecase();
+}
+
 @Then("^Search for Case Id in Dashboard to validate successful case creation with actionid \"([^\"]*)\"$")
 public void search_for_Case_Id_in_Dashboard_to_validate_successful_case_creation_with_actionid(String ACTIONID) throws Throwable {
 	homepage.clickonDashboard();

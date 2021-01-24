@@ -8,7 +8,7 @@ import com.moodys.qats.utilities.*;
 
 
 
-public class ReviewDueDateCalculator {
+public class ReviewDueDateCalculator{
 	
 	String countryid,regionid;
 	

@@ -2,7 +2,7 @@ package com.moodys.qats.utilities;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.moodys.qats.utilities.XLSX_READER2;
+import com.moodys.qats.utilities.*;
 
 public class Reader2{
 	

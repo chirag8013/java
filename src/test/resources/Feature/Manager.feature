@@ -31,6 +31,16 @@ Scenario: Verify Workbaskets and case status
 When Manager Goes to Dashboard
 Then Manager goes to Quality Review Work Queue and validate case status for any case
 
+@Fifth
+Scenario Outline: A manager creates new Review Cases from manually entered data and validates the review date of created case
+When a manager goes to Create QA Review
+And Create Manual Case with actionid "<actionid>" and CaseDesc "<CaseDesc>" and sourcename "<sourcename>" and leadanalyst "<leadanalyst>" and completeratingactiondate "<ratingactiondate>"
+Then Search for Case Id in Dashboard to validate successful case creation with actionid "<actionid>"
+
+Examples:
+|actionid|CaseDesc|sourcename|leadanalyst|ratingactiondate|
+|998999|Sample Case|Pyramid|David Sweeney|2/18/2020|
+
 
 @ignore
 Scenario Outline: Day 4 Review

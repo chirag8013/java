@@ -205,6 +205,84 @@ Select sel2= new Select(driver.findElement(By.xpath("//select[@name='$PpyDisplay
 
 		
 		}
+	
+	public void createmanualcasewithcompletedate(String actid, String CaseDesc, String Source, String Leadanalystname, String completedate, String analystloc)
+			throws InterruptedException {
+		
+		String month = null;
+		
+		int mon= Integer.parseInt(completedate.split("/")[0]);
+		String date= completedate.split("/")[1];
+		String year= completedate.split("/")[2]; 
+		
+		
+		if(mon==2){
+			month= "Feb";
+		}
+			
+
+			driver.switchTo().defaultContent();
+			for (int y = 0; y < 20; y++) {
+				try {
+					driver.switchTo().frame("PegaGadget" + y + "Ifr");
+					driver.findElement(By.xpath("//input[@name='$PpyDisplayHarness$pManualRatingAction$l1$pRatingActionID']"))
+					.sendKeys(actid);
+
+					break;
+				} catch (Exception e) {
+					driver.switchTo().defaultContent();
+				}
+			}
+			Thread.sleep(2000);
+
+
+	
+
+		driver.findElement(By.xpath("//input[@name='$PpyDisplayHarness$pManualRatingAction$l1$pRatingActionDesc']"))
+				.sendKeys(CaseDesc);
+
+		Thread.sleep(1000);
+
+		Select sel = new Select(driver
+				.findElement(By.xpath("//select[@name='$PpyDisplayHarness$pManualRatingAction$l1$pSourceName']")));
+
+		sel.selectByVisibleText(Source);
+		
+Select sel2= new Select(driver.findElement(By.xpath("//select[@name='$PpyDisplayHarness$pManualRatingAction$l1$pAnalystLocCode']")));
+		
+		sel2.selectByVisibleText(analystloc);
+
+		
+		driver.findElement(By.xpath("//label[contains(text(),'Rating Release Date')]/following-sibling::div//img"))
+				.click();
+		
+		Thread.sleep(3500);
+		
+		driver.findElement(By.xpath("//span[@id='monthSpinner']/input[@type='text' and @class='spinner-input']")).click();
+		
+		driver.findElement(By.xpath("//span[@id='monthSpinner']/input[@type='text' and @class='spinner-input']")).sendKeys(month);
+		
+driver.findElement(By.xpath("//span[@id='yearSpinner']/input[@type='text' and @class='spinner-input']")).click();
+		
+		driver.findElement(By.xpath("//span[@id='yearSpinner']/input[@type='text' and @class='spinner-input']")).sendKeys(year);
+		
+		driver.findElement(By.xpath("//a[@data-day='"+date+"']")).click();
+		
+		
+		Thread.sleep(10000);
+		LocalDate currentdate= LocalDate.now();
+		Month mont= currentdate.getMonth();
+		String Mont= mont.toString();
+		System.out.println("Current month is "+Mont);
+		
+		
+		
+		driver.findElement(By.xpath("//label[text()='Lead Analyst Name']/following-sibling::div/input[@type='text']"))
+		.sendKeys(Leadanalystname);
+		//driver.findElement(By.xpath("//a[@class='today-link']")).click();
+
+		
+		}
 
 	
 
