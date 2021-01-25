@@ -25,8 +25,20 @@ public class CreateQAReviewManualCase {
 
 
 		Thread.sleep(3500);
+		
+		for(int i=0;i<20;i++){
 
-		driver.findElement(By.xpath("//button[text()='Create Case']")).click();
+		try {
+			driver.findElement(By.xpath("//button[text()='Create Case']")).click();
+			Thread.sleep(3500);
+			driver.findElement(By.xpath("//div[text()='QA Review cases have been created successfully']")).click();
+			break;
+		} catch (Exception e) {
+			Thread.sleep(3500);
+			continue;
+		}
+		
+}
 
 		Thread.sleep(5000);
 
