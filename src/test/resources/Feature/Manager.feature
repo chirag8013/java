@@ -39,7 +39,7 @@ Then Search for Case Id in Dashboard to validate successful case creation with a
 
 Examples:
 |actionid|CaseDesc|sourcename|leadanalyst|ratingactiondate|analystloc|
-|usgu7|Sample Case|Pyramid|David Sweeney|1/15/2021|Buenos Aires - Ing. Butty 240|
+|hhihs7|Sample Case|Pyramid|David Sweeney|1/15/2021|Boston - One International Place|
 
 
 @ignore
