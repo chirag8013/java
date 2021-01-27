@@ -365,8 +365,8 @@ public void i_should_to_be_able_to_ingest_data_from_ORP_for_a_given_date() throw
 	System.out.println("Size of the ingested data is: "+size);
 }
 
-@When("^I Create Manual Case with the Rating Release Date four days prior to current date with ActionID \"([^\"]*)\"$")
-public void i_Create_Manual_Case_with_the_Rating_Release_Date_four_days_prior_to_current_date_with_ActionID(String ActionID) throws Throwable {
+@When("^I Create Manual Case with the Rating Release Date four days prior to current date with ActionID \"([^\"]*)\" and analystlocation \"([^\"]*)\"$")
+public void i_Create_Manual_Case_with_the_Rating_Release_Date_four_days_prior_to_current_date_with_ActionID_and_analystlocation(String ActionID, String analystloca) throws Throwable {
 	homepage.clickonQAReview();
 	driver.navigate().refresh();
 	Thread.sleep(4000);
@@ -434,7 +434,7 @@ public void i_Create_Manual_Case_with_the_Rating_Release_Date_four_days_prior_to
 	Reader2 read2= new Reader2();
 	List<String> analystloc= read2.getanalystlocation();
 	for(int i=2;i<read2.getrowcount()-1;i++){
-		if(analystloc.get(i).equals(prop.getProperty("analystloc"))){
+		if(analystloc.get(i).equals(analystloca)){
 			countryid=read2.getcountryid().get(i);
 			regionid=read2.getregionid().get(i);
 			break;
@@ -725,7 +725,7 @@ fourdaysbefore=fourdaysbefore-1;
 	
  System.out.println("Four days before date with holiday in between-----------> "+fourdaysbefore);
 	createcase.createmanualcasewithdate(ActionID, prop.getProperty("CaseDesc"),
-			prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"), fourdaysbeforedate,prop.getProperty("analystloc"));
+			prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"), fourdaysbeforedate,analystloca);
 	createcase.clickoncreatecase();
 }
 
