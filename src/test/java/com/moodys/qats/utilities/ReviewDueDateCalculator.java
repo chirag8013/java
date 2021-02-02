@@ -29,6 +29,7 @@ public class ReviewDueDateCalculator{
 
 		date_time datetime= new date_time();
 		int dow=datetime.getdayofweek(yea, mon, dat);
+		System.out.println("Day of week is "+dow);
 		int lastdateofmonth= datetime.getlastdayofmonth(yea, mon, dat);
 
 
@@ -143,11 +144,11 @@ public class ReviewDueDateCalculator{
 			}
 			
 			for(int i=0;i<read.getrowcount()-10;i++){
-				if(dates.get(i)>dat&&dates.get(i)<=reviewduedate&&reviewduedate<=30&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&!monstr.equalsIgnoreCase("February")&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)){
+				if(dates.get(i)>=dat&&dates.get(i)<=reviewduedate&&reviewduedate<=30&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&!monstr.equalsIgnoreCase("February")&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)){
 					reviewduedate=reviewduedate+1;
 				}
 				
-if(dates.get(i)>dat&&dates.get(i)<=reviewduedate&&reviewduedate<=28&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&monstr.equalsIgnoreCase("February")&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&mon==2){
+if(dates.get(i)>=dat&&dates.get(i)<=reviewduedate&&reviewduedate<=28&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&monstr.equalsIgnoreCase("February")&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&mon==2){
 	reviewduedate=reviewduedate+1;
 				}
 
@@ -209,6 +210,22 @@ if(dates.get(i)==7&&reviewduedate==37&&years.get(i).contains(yeastr)&&months.get
 }
 
 if(dates.get(i)==7&&reviewduedate==38&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==8&&reviewduedate==38&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==8&&reviewduedate==39&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==9&&reviewduedate==39&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==9&&reviewduedate==40&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
@@ -425,6 +442,36 @@ if(dates.get(i)==7&&reviewduedate==38&&years.get(i).contains(nextyear)&&months.g
 			
 			if(reviewduedate==37&&lastdateofmonth==30&&!(mon==2)&&!(mon==12)){
 				reviewduedate=7;
+				reviewduemonth=reviewduemonth+1;
+			}
+			
+			if(reviewduedate==38&&lastdateofmonth==31&&!(mon==2)&&!(mon==12)){
+				reviewduedate=7;
+				reviewduemonth=reviewduemonth+1;
+			}
+			
+			if(reviewduedate==38&&lastdateofmonth==30&&!(mon==2)&&!(mon==12)){
+				reviewduedate=8;
+				reviewduemonth=reviewduemonth+1;
+			}
+			
+			if(reviewduedate==39&&lastdateofmonth==31&&!(mon==2)&&!(mon==12)){
+				reviewduedate=8;
+				reviewduemonth=reviewduemonth+1;
+			}
+			
+			if(reviewduedate==39&&lastdateofmonth==30&&!(mon==2)&&!(mon==12)){
+				reviewduedate=9;
+				reviewduemonth=reviewduemonth+1;
+			}
+			
+			if(reviewduedate==40&&lastdateofmonth==31&&!(mon==2)&&!(mon==12)){
+				reviewduedate=9;
+				reviewduemonth=reviewduemonth+1;
+			}
+			
+			if(reviewduedate==40&&lastdateofmonth==30&&!(mon==2)&&!(mon==12)){
+				reviewduedate=10;
 				reviewduemonth=reviewduemonth+1;
 			}
 			

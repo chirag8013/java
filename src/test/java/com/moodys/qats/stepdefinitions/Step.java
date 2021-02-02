@@ -713,7 +713,20 @@ fourdaysbefore=fourdaysbefore-1;
 		if(dates.get(i)>=fourdaysbefore&&dates.get(i)<Integer.parseInt(completedate.split("/")[1])&&regionids.get(i).equalsIgnoreCase(regionid)&&countryids.get(i).equalsIgnoreCase(countryid)&&months.get(i).contains(completedate.split("/")[0])&&years.get(i).contains(completedate.split("/")[2])&&!daysofweek.get(i).equals("Sunday")&&!daysofweek.get(i).equals("Saturday")&&fourdaysbefore>0){
 			fourdaysbefore=fourdaysbefore-1;
 		}
+		
+		
+		
+		
+			
 	}
+
+if(dayofweek==6&&(Integer.parseInt(completedate.split("/")[1])-fourdaysbefore)>4){
+	fourdaysbefore=fourdaysbefore-2;
+}
+
+if(dayofweek==2&&(Integer.parseInt(completedate.split("/")[1])-fourdaysbefore)>7){
+	fourdaysbefore=fourdaysbefore-2;
+}
 	
 	
 
@@ -799,9 +812,10 @@ public void manager_enter_MeerQATS_HomePage() throws Throwable {
 public void a_manager_goes_to_Create_QA_Review() throws Throwable {
 	homepage.clickonQAReview();
 	driver.navigate().refresh();
-	Thread.sleep(4000);
+	Thread.sleep(9000);
 
 	for (int y = 0; y < 20; y++) {
+		
 		try {
 			driver.switchTo().frame("PegaGadget" + y + "Ifr");
 			driver.findElement(By.xpath("//button[text()='Create Manual Case']")).getText();

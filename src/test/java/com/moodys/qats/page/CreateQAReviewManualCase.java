@@ -26,7 +26,7 @@ public class CreateQAReviewManualCase {
 
 		Thread.sleep(3500);
 		
-		for(int i=0;i<20;i++){
+		for(int i=0;i<3;i++){
 
 		try {
 			driver.findElement(By.xpath("//button[text()='Create Case']")).click();
@@ -55,7 +55,7 @@ public class CreateQAReviewManualCase {
 	public void createmanualcasewithdate(String actid, String CaseDesc, String Source, String Leadanalystname, String todaydate, String analystloc)
 			throws InterruptedException {
 		
-		
+		Thread.sleep(7000);
 
 			driver.switchTo().defaultContent();
 			for (int y = 0; y < 20; y++) {
@@ -69,7 +69,7 @@ public class CreateQAReviewManualCase {
 					driver.switchTo().defaultContent();
 				}
 			}
-			Thread.sleep(2000);
+			Thread.sleep(4500);
 
 
 	
@@ -89,6 +89,7 @@ Select sel2= new Select(driver.findElement(By.xpath("//select[@name='$PpyDisplay
 		sel2.selectByVisibleText(analystloc);
 
 		System.out.println(Integer.parseInt(todaydate));
+		Thread.sleep(3500);
 		driver.findElement(By.xpath("//label[contains(text(),'Rating Release Date')]/following-sibling::div//img"))
 				.click();
 		
@@ -279,7 +280,7 @@ Select sel2= new Select(driver.findElement(By.xpath("//select[@name='$PpyDisplay
 		}
 		
 			
-
+Thread.sleep(5000);
 			driver.switchTo().defaultContent();
 			for (int y = 0; y < 20; y++) {
 				try {
@@ -311,7 +312,7 @@ Select sel2= new Select(driver.findElement(By.xpath("//select[@name='$PpyDisplay
 		
 		sel2.selectByVisibleText(analystloc);
 
-		
+		Thread.sleep(3500);
 		driver.findElement(By.xpath("//label[contains(text(),'Rating Release Date')]/following-sibling::div//img"))
 				.click();
 		
