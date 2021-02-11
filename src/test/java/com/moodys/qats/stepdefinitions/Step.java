@@ -204,6 +204,14 @@ public void new_QATSValue_is_created(String qatsvalue) throws Throwable {
 	maintainqats.addnewqatsvalueandsubmit(qatsvalue);
 }
 
+@Then("^new QATSValueforRegion \"([^\"]*)\" is created$")
+public void new_QATSValueforRegion_is_created(String qatsvalue) throws Throwable {
+	//maintainqats.addnewqatsvalueandsubmit(qatsvalue);
+	maintainqats.addnewqatsvalueregionandsubmit(qatsvalue);
+}
+
+
+
 @When("^Admin clicks on Admin Utils and then Maintain QATS Value$")
 public void admin_clicks_on_Admin_Utils_and_then_Maintain_QATS_Value() throws Throwable {
     homepage.clickonadminutils();

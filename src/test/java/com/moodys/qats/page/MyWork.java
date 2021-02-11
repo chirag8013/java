@@ -131,6 +131,14 @@ public class MyWork {
         //Thread.sleep(4000);
 
         if (driver.getTitle().equals("QA Admin")) {
+        	Thread.sleep(3500);
+        	driver.navigate().refresh();
+        	homepage = new QATS_HomePage(driver);
+            homepage.clickonDashboard();
+            Thread.sleep(3500);
+        	driver.findElements(By.xpath("//div[contains(text(),'Action/Shell')]/following::a[@id='pui_filter']")).get(0)
+            .click();
+        	Thread.sleep(3500);
             driver.findElement(By.xpath("//input[@name='$PpyFilterCriteria_pgRepPgSubSectionpyGroupBasketWorkB_pxResults_pyGroupBasketWork_1$ppyColumnFilterCriteria$gwrk_RatingActionID3$ppySearchText']")).clear();
             driver.findElement(By.xpath("//input[@name='$PpyFilterCriteria_pgRepPgSubSectionpyGroupBasketWorkB_pxResults_pyGroupBasketWork_1$ppyColumnFilterCriteria$gwrk_RatingActionID3$ppySearchText']")).sendKeys(actionid);
         	//driver.findElement(By.xpath("//input[@name='$PpyFilterCriteria_AssignPage_pxResults_BulkReviewAssignments_1$ppyColumnFilterCriteria$gRatingActionID5$ppySearchText']")).clear();

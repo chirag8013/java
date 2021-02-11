@@ -92,7 +92,7 @@ Examples:
 Scenario Outline:As An Admin I need an utility to add new Region
 When I choose menu option Maintain QATS Value from Admin Utilities
 And Add DomainName "<DomainName>" Click on Add Button
-Then new QATSValue "<QATSValue>" is created
+Then new QATSValueforRegion "<QATSValue>" is created
 
 Examples:
 |DomainName|QATSValue|

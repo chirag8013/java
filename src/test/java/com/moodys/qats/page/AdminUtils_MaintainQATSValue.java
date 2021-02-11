@@ -96,6 +96,27 @@ public class AdminUtils_MaintainQATSValue {
 		
 	}
 	
+public void addnewqatsvalueregionandsubmit(String qatsvalue) throws InterruptedException{
+		
+		for(int j=80;j<500;j++){
+			try {
+				String s=Integer.toString(j);
+				driver.findElement(By.xpath("//label[text()='QATS Value']/following-sibling::div/span/input")).sendKeys(qatsvalue+" "+s);
+				  
+				  
+				  Thread.sleep(3500);
+				  driver.findElement(By.xpath("//button[@class='buttonTdButton' and contains(text(),'Submit')]")).click();
+				 // driver.findElement(By.xpath("//button[@class='buttonTdButton' and contains(text(),'Submit')]")).click();
+				  Thread.sleep(3500);
+				  driver.findElement(By.xpath("//button[text()='Submit']")).click();
+				break;
+			} catch (Exception e) {
+				driver.findElement(By.xpath("//label[text()='QATS Value']/following-sibling::div/span/input")).clear();
+				
+				continue;
+			}
+			}}
+	
 	
 
 }
