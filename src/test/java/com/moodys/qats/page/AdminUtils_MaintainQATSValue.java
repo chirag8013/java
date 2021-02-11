@@ -73,16 +73,23 @@ public class AdminUtils_MaintainQATSValue {
 	
 	public void addnewqatsvalueandsubmit(String qatsvalue) throws InterruptedException{
 		
-		for(int j=1;j<500;j++){
+		for(int j=80;j<500;j++){
 			try {
 				String s=Integer.toString(j);
 				driver.findElement(By.xpath("//label[text()='QATS Value']/following-sibling::div/span/input")).sendKeys(qatsvalue+" "+s);
+				  
+				  driver.findElement(By.xpath("//span[text()='Country']/parent::label/following-sibling::div/span/input")).sendKeys("US");
+				  driver.findElement(By.xpath("//label[text()='Region']/following-sibling::div/span/input")).sendKeys("MA");
+				  Thread.sleep(3500);
 				  driver.findElement(By.xpath("//button[@class='buttonTdButton' and contains(text(),'Submit')]")).click();
-				  Thread.sleep(3000);
+				  driver.findElement(By.xpath("//button[@class='buttonTdButton' and contains(text(),'Submit')]")).click();
+				  Thread.sleep(3500);
 				  driver.findElement(By.xpath("//button[text()='Submit']")).click();
 				break;
 			} catch (Exception e) {
 				driver.findElement(By.xpath("//label[text()='QATS Value']/following-sibling::div/span/input")).clear();
+				 driver.findElement(By.xpath("//span[text()='Country']/parent::label/following-sibling::div/span/input")).clear();
+				 driver.findElement(By.xpath("//label[text()='Region']/following-sibling::div/span/input")).clear();
 				continue;
 			}
 			}

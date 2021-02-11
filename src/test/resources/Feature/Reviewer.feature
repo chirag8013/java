@@ -39,7 +39,11 @@ And Reviewer confirms the case in Day four Review with ActionID "<ActionID>"
 
 Examples:
 |ActionID|analystloc|
-|jihjiu9|Tokyo - Atago Green Hills Mori Tower 20fl|
+|Case check 01|Buenos Aires - Ing. Butty 240|
+
+
+
+
 
 
 @manual

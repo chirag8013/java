@@ -280,10 +280,20 @@ public class QATS_HomePage {
 		driver.findElement(By.xpath("//span[text()='Dashboard']/parent::span/parent::a")).click();
 		Thread.sleep(3000);
 
-	driver.switchTo().frame(1);
+		for (int y = 0; y < 20; y++) {
+			try {
+				driver.switchTo().frame("PegaGadget" + y + "Ifr");
+				driver.findElements(By.xpath("//div[contains(text(),'Action/Shell')]/following::a[@id='pui_filter']")).get(0).getText();
+	           
+				break;
+			} catch (Exception e) {
+				driver.switchTo().defaultContent();
+				continue;
+			}
+		}
 	
 
-		Thread.sleep(1000);
+		Thread.sleep(3500);
 	}
 	
 	public void gobacktodashboardforbulkassignments() throws InterruptedException{
@@ -386,7 +396,7 @@ public void gobacktoMyWork(String actionid, String user) throws Exception{
 		
 		driver.switchTo().defaultContent();
 
-		driver.findElement(By.xpath("//span[text()='My Work']/parent::span/parent::a")).click();
+		//driver.findElement(By.xpath("//span[text()='My Work']/parent::span/parent::a")).click();
 		Thread.sleep(3500);
 
 		for (int y = 0; y < 20; y++) {

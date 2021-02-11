@@ -104,31 +104,31 @@ public class MyWork {
     }
 
     public void displaynewlycreatedreviewcase(String actionid) throws InterruptedException, IOException {
-        if (driver.getTitle().equals("QA Reviewer")) {
-        	 driver.findElement(By.xpath("//span[text()='My Work']/parent::span/parent::a")).click();
-        	 Thread.sleep(2000);
-        	driver.switchTo().frame("PegaGadget2Ifr");
+        //if (driver.getTitle().equals("QA Reviewer")) {
+        	// driver.findElement(By.xpath("//span[text()='My Work']/parent::span/parent::a")).click();
+        	 //Thread.sleep(2000);
+        	//driver.switchTo().frame("PegaGadget2Ifr");
            
-        } else {
-            homepage = new QATS_HomePage(driver);
-            homepage.clickonDashboard();
-        }
+        //} else {
+            //homepage = new QATS_HomePage(driver);
+            //homepage.clickonDashboard();
+        //}
         
-        for (int y = 0; y < 20; y++) {
-            try {
-                driver.switchTo().frame("PegaGadget" + y + "Ifr");
-                driver.findElements(By.xpath("//div[contains(text(),'Action/Shell')]/following::a[@id='pui_filter']")).get(0)
-                .click();
+        //for (int y = 0; y < 20; y++) {
+          //  try {
+            //    driver.switchTo().frame("PegaGadget" + y + "Ifr");
+              //  driver.findElements(By.xpath("//div[contains(text(),'Action/Shell')]/following::a[@id='pui_filter']")).get(0)
+                //.click();
 
-                break;
-            } catch (Exception e) {
-                driver.switchTo().defaultContent();
-                continue;
-            }
-        }
+               // break;
+            //} catch (Exception e) {
+              //  driver.switchTo().defaultContent();
+                //continue;
+            //}
+        //}
 
        
-        Thread.sleep(4000);
+        //Thread.sleep(4000);
 
         if (driver.getTitle().equals("QA Admin")) {
             driver.findElement(By.xpath("//input[@name='$PpyFilterCriteria_pgRepPgSubSectionpyGroupBasketWorkB_pxResults_pyGroupBasketWork_1$ppyColumnFilterCriteria$gwrk_RatingActionID3$ppySearchText']")).clear();
@@ -137,20 +137,38 @@ public class MyWork {
         	//driver.findElement(By.xpath("//input[@name='$PpyFilterCriteria_AssignPage_pxResults_BulkReviewAssignments_1$ppyColumnFilterCriteria$gRatingActionID5$ppySearchText']")).sendKeys(actionid);
         }
         if (driver.getTitle().equals("QA Manager")) {
+        	Thread.sleep(3500);
+        	driver.navigate().refresh();
+        	homepage = new QATS_HomePage(driver);
+            homepage.clickonDashboard();
+            Thread.sleep(3500);
+        	driver.findElements(By.xpath("//div[contains(text(),'Action/Shell')]/following::a[@id='pui_filter']")).get(0)
+            .click();
+        	Thread.sleep(3500);
             driver.findElement(By
                     .xpath("//input[@name='$PpyFilterCriteria_pgRepPgSubSectionpyGroupBasketWorkB_pxResults_pyGroupBasketWork_1$ppyColumnFilterCriteria$gwrk_RatingActionID3$ppySearchText']"))
                     .clear();
             driver.findElement(By
-                    .xpath("//input[@name='$PpyFilterCriteria_pgRepPgSubSectionpyGroupBasketWorkB_pxResults_pyGroupBasketWork_1$ppyColumnFilterCriteria$gwrk_RatingActionID3$ppySearchText']"))
-                    .sendKeys(actionid);
+                    .xpath("//input[@name='$PpyFilterCriteria_pgRepPgSubSectionpyGroupBasketWorkB_pxResults_pyGroupBasketWork_1$ppyColumnFilterCriteria$gwrk_RatingActionID3$ppySearchText']")).sendKeys(actionid);
+                    
         }
         if (driver.getTitle().equals("QA Reviewer")) {
+        	Thread.sleep(3500);
+        	driver.navigate().refresh();
+        	By mywork = By.xpath("//span[text()='My Work']");
+        	driver.findElement(mywork).click();
+        	Thread.sleep(3500);
+        	driver.findElements(By.xpath("//div[contains(text(),'Action/Shell')]/following::a[@id='pui_filter']")).get(0)
+            .click();
             driver.findElement(By
-                    .xpath("//input[@name='$PpyFilterCriteria_pgRepPgSubSectionWorklistBB_pxResults_Worklist_2$ppyColumnFilterCriteria$gwrk_RatingActionID4$ppySearchText']"))
+                    .xpath("//input[@name='$PpyFilterCriteria_pgRepPgSubSectionWorklistBBB_pxResults_Worklist_3$ppyColumnFilterCriteria$gwrk_RatingActionID4$ppySearchText']"))
                     .clear();
             driver.findElement(By
-                    .xpath("//input[@name='$PpyFilterCriteria_pgRepPgSubSectionWorklistBB_pxResults_Worklist_2$ppyColumnFilterCriteria$gwrk_RatingActionID4$ppySearchText']"))
+                    .xpath("//input[@name='$PpyFilterCriteria_pgRepPgSubSectionWorklistBBB_pxResults_Worklist_3$ppyColumnFilterCriteria$gwrk_RatingActionID4$ppySearchText']"))
                     .sendKeys(actionid);
+           // driver.findElement(By
+                    //.xpath("//input[@name='$PpyFilterCriteria_pgRepPgSubSectionWorklistBB_pxResults_Worklist_3$ppyColumnFilterCriteria$gwrk_RatingActionID4$ppySearchText']"))
+                    //.sendKeys(actionid);
         }
 
         driver.findElement(By.xpath("//button[text()='Apply']")).click();

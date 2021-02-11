@@ -43,7 +43,7 @@ public class Data_Ingestion {
 		   
 		}
 		
-		for (int i = 1; i < 500; i++) {
+		for (int i = 1; i < 10; i++) {
 
 			try {
 				if (driver.findElement(By.xpath("//span[text()='Data ingestion has been completed']")).isDisplayed()) {

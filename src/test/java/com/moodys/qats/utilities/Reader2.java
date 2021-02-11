@@ -11,7 +11,7 @@ public class Reader2{
 	
 
 
-	XLSX_READER2 readd2 = new XLSX_READER2("D:\\Users/VermaC/Documents/ui/Analyst_Loc_Region_Country.xlsx");
+	XLSX_READER2 readd2 = new XLSX_READER2("D:\\Users/VermaC/Documents/ui/Analyst_Location_UAT.xlsx");
 	String SHEETNAME = "LKP_QATS_ANALYST_LOC";
 	
 	public List<String> getcountryid() {
