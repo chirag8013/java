@@ -19,7 +19,7 @@ import cucumber.api.java.en.*;
 public class ORPStepDefinition {
 	Response openshiftresponse,dockerresponse;
 	Response response;
-	int dockerfieldlistsize,openshiftfieldlistsize;
+	int dockerfieldlistsize,openshiftfieldlistsize,Dockerfield1size, Openshiftfield1size;
 	int Responsearraysize,dockerResponsearraysize,openshiftResponsearraysize;
 	 Properties prop;
 	utilities util;
@@ -79,6 +79,7 @@ public class ORPStepDefinition {
 		//System.out.println(openshiftresponse.prettyPrint());
 			List<String> Openshiftfield1= openshiftresponse.jsonPath().getList(field);
 			openshiftfieldlist = new HashSet<String>(Openshiftfield1);
+			Openshiftfield1size=Openshiftfield1.size();
 			 openshiftfieldlistsize= openshiftfieldlist.size();
 			for(String Openshiftfield:openshiftfieldlist
 					){
@@ -94,6 +95,7 @@ public class ORPStepDefinition {
 		 //System.out.println(dockerresponse.prettyPrint());
 		List<String> Dockerfield1= dockerresponse.jsonPath().getList(field);
 		 dockerfieldlist = new HashSet<String>(Dockerfield1);
+		 Dockerfield1size= Dockerfield1.size();
 		dockerfieldlistsize= dockerfieldlist.size();
 		for(String Dockerfield:dockerfieldlist){
 			System.out.println(field+" from Docker---- "+Dockerfield);
@@ -113,6 +115,7 @@ public class ORPStepDefinition {
 	     try {
 			Assert.assertEquals(dockerResponsearraysize, openshiftResponsearraysize);
 			Assert.assertEquals(openshiftfieldlistsize, dockerfieldlistsize);
+			Assert.assertEquals(Dockerfield1size, Openshiftfield1size);
 			Assert.assertTrue(openshiftfieldlist.containsAll(dockerfieldlist));
 			System.out.println("Openshift and Docker response matched and response array size is "+ openshiftResponsearraysize );
 		} catch (Exception e) {

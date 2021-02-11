@@ -19,7 +19,7 @@ Feature: Get Rating Actions For Pyramid
 	 
 	Examples:
 	|field|
-	|sourceSystem|
+    |sourceSystem|
 	|orgId|
 	|ratingActionDesc|
 	|ratingActionID|

@@ -15,7 +15,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 		features={"classpath:features"},
         glue = {"com.moodys.meerqats.stepdefinitions"},
         monochrome = true, 
-    tags={"@Second"},
+    //tags={"@Second"},
 //dryRun=true,
 		strict = true,
         format = {
