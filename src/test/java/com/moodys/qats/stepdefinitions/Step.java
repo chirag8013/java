@@ -228,6 +228,11 @@ public void admin_change_the_status_of_QATSValue_Active_or_Inactive(String qatsv
 	maintainqats.selectqatsvalueandmakeactiveorinactiveandsubmit(qatsvalue);
 }
 
+@Then("^Admin change the status of Region QATSValue \"([^\"]*)\" Active or Inactive$")
+public void admin_change_the_status_of_Region_QATSValue_Active_or_Inactive(String qatsvalue) throws Throwable {
+	maintainqats.selectqatsvalueandmakeactiveorinactiveregionandsubmit(qatsvalue);
+}
+
 @Given("^I am able to access the Edit Review Date button from Admin Utils Page$")
 public void i_am_able_to_access_the_Edit_Review_Date_button_from_Admin_Utils_Page() throws Throwable {
 	homepage.clickonadminutils();

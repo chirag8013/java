@@ -113,7 +113,7 @@ Examples:
 Scenario Outline: Making QATS Value Active or Inactive by Admin in Maintain QATS Value for Region 
 When Admin clicks on Admin Utils and then Maintain QATS Value
 And Admin selects a DomainName "<DomainName>"
-Then Admin change the status of QATSValue "<QATSValue>" Active or Inactive
+Then Admin change the status of Region QATSValue "<QATSValue>" Active or Inactive
 
 Examples:
 |DomainName|QATSValue|
