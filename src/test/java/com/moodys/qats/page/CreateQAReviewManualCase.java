@@ -14,6 +14,7 @@ import com.moodys.qats.utilities.ReviewDueDateCalculator;
 
 public class CreateQAReviewManualCase {
 	WebDriver driver;
+	
 
 	public CreateQAReviewManualCase(WebDriver driver) {
 
@@ -34,7 +35,9 @@ public class CreateQAReviewManualCase {
 			driver.findElement(By.xpath("//div[text()='QA Review cases have been created successfully']")).click();
 			break;
 		} catch (Exception e) {
+			
 			Thread.sleep(3500);
+			
 			continue;
 		}
 		

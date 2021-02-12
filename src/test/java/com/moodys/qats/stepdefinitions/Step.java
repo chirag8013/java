@@ -968,6 +968,7 @@ public void manager_Create_Manual_Case_with_the_Rating_Release_Date_four_days_be
 	createcase.createmanualcasewithdate(ACTIONID, prop.getProperty("CaseDesc"),
 			prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"), fourdaysbeforedate,prop.getProperty("analystloc"));
 	createcase.clickoncreatecase();
+			
 }
 
 @Then("^manager with CaseId \"([^\"]*)\" searches the case available for Day(\\d+) Review$")

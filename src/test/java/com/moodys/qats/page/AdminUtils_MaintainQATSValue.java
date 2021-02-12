@@ -48,6 +48,18 @@ public class AdminUtils_MaintainQATSValue {
 			sel.selectByVisibleText("Yes");
 		}
 		
+		
+		
+		 driver.findElement(By.xpath("//span[text()='Country']/parent::label/following-sibling::div/span/input")).clear();
+		  driver.findElement(By.xpath("//label[text()='Region']/following-sibling::div/span/input")).clear();
+		
+		 driver.findElement(By.xpath("//span[text()='Country']/parent::label/following-sibling::div/span/input")).sendKeys("US");
+		  driver.findElement(By.xpath("//label[text()='Region']/following-sibling::div/span/input")).sendKeys("MA");
+		  
+		  Thread.sleep(3500);
+		  
+		
+		driver.findElement(By.xpath("//button[@class='buttonTdButton' and contains(text(),'Submit')]")).click();
 		driver.findElement(By.xpath("//button[@class='buttonTdButton' and contains(text(),'Submit')]")).click();
 		
 		Thread.sleep(3500);
