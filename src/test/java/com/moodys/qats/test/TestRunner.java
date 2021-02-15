@@ -13,11 +13,11 @@ import cucumber.api.testng.TestNGCucumberRunner;
 
 
 @CucumberOptions(
-		features = {"src/test/resources/Feature"},
-        glue = {"com.moodys.qats.stepdefinitions"},
+		features = {"src/test/resources/Feature/DataIngestion.feature"},
+        glue = {"com.moodys.qats.steps"},
         monochrome = true, 
         tags={"~@ignore"},
-       //dryRun=true,
+       dryRun=true,
 		strict = true,
         format = {
                 "pretty",
