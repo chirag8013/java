@@ -27,6 +27,7 @@ import com.moodys.qats.utilities.Reader;
 import com.moodys.qats.utilities.Reader2;
 import com.moodys.qats.utilities.TestBase;
 import com.moodys.qats.utilities.Util;
+import com.moodys.qats.utilities.Util1;
 import com.moodys.qats.utilities.date_time;
 
 import cucumber.api.DataTable;
@@ -56,6 +57,7 @@ public class Step {
 	private QATS_HomePage homepage;
 	private MyWork mywork;
 	private Util util;
+	private Util1 util1;
 	private Dashboard dashboard;
 	private QualityReferenceSheet qrsheet;
 	private TestBase base;
@@ -72,6 +74,7 @@ public void log_into_QATS_Application_as_an_Admin() throws Throwable {
 	driver = base.launchthebrowser();
 
 	util = new Util(driver);
+	util1= new Util1(driver);
 
 	Date date = new Date();
 	DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
@@ -159,21 +162,9 @@ public void i_should_not_be_able_to_view_QATSValue_on_new_cases() throws Throwab
 public void i_Should_be_able_to_start_using_the_newly_mapped_QATSValue_on_new_case_creation(String sourcevalue) throws Throwable {
 	homepage.clickonQAReview();
 	Thread.sleep(3000);
+	util1.switchcreatemanualcase();
 
-	for (int y = 0; y < 20; y++) {
-		try {
-
-			driver.switchTo().frame("PegaGadget" + y + "Ifr");
-			//actionid = createcase.sortforregionandclickoncreatecase(sourcevalue);
-			driver.findElement(By.xpath("//button[text()='Create Manual Case']")).getText();
-
-			break;
-		} catch (Exception e) {
-			driver.switchTo().defaultContent();
-
-			continue;
-		}
-	}
+	
 
 	Thread.sleep(3000);
 
@@ -251,7 +242,7 @@ public void review_Date_is_updated_to_for_all_the_sorted_cases(String arg1) thro
 
 @When("^I should to be able to ingest data from Pyramid for a given date$")
 public void i_should_to_be_able_to_ingest_data_from_Pyramid_for_a_given_date() throws Throwable {
-	int size=0;
+	
 	homepage.clickonadminutils();
 	homepage.clickondataingestion();
 	String today=todaydate.split("/")[1];
@@ -263,31 +254,8 @@ public void i_should_to_be_able_to_ingest_data_from_Pyramid_for_a_given_date() t
 	driver.switchTo().defaultContent();
 	homepage.clickonQAReview();
 	Thread.sleep(3500);
-	for (int y = 0; y < 20; y++) {
-		try {
-			driver.switchTo().frame("PegaGadget" + y + "Ifr");
-			driver.findElement(By.xpath("//button[text()='Create Manual Case']")).getText();
-
-			break;
-		} catch (Exception e) {
-			driver.switchTo().defaultContent();
-			continue;
-		}
-	}
-	List<WebElement> dateelement= driver.findElements(By.xpath("//td[@data-attribute-name='Rating Release Date']/span"));
-	
-	for(WebElement ele:dateelement){
-		if(ele.getText().equals(yesterdaydate)){
-			 size=size+1;
-		}
-		if(size==20){
-	    driver.findElement(By.xpath("//a[@aria-label='Next Page']")).click();
-	    Thread.sleep(3500);
-		dateelement= driver.findElements(By.xpath("//td[@data-attribute-name='Rating Release Date']"));
-		}
-		
-	}
-	System.out.println("Size of the ingested data is: "+size);
+	util1.switchcreatemanualcase();
+	util1.sizeofingesteddata(yesterdaydate);
 }
 
 @When("^view the ingested data on Dashboard to support  creation of new QA reviews$")
@@ -309,32 +277,8 @@ public void i_should_to_be_able_to_ingest_data_from_Accurate_for_a_given_date() 
 	driver.switchTo().defaultContent();
 	homepage.clickonQAReview();
 	Thread.sleep(3500);
-	for (int y = 0; y < 20; y++) {
-		try {
-			driver.switchTo().frame("PegaGadget" + y + "Ifr");
-			driver.findElement(By.xpath("//button[text()='Create Manual Case']")).getText();
-
-			break;
-		} catch (Exception e) {
-			driver.switchTo().defaultContent();
-			continue;
-		}
-	}
-	List<WebElement> dateelement= driver.findElements(By.xpath("//td[@data-attribute-name='Rating Release Date']/span"));
-	System.out.println("Yesterday date was "+yesterdaydate);
-	
-	for(WebElement ele:dateelement){
-		if(ele.getText().equals(yesterdaydate)){
-			 size=size+1;
-		}
-		if(size==20){
-	    driver.findElement(By.xpath("//a[@aria-label='Next Page']")).click();
-	    Thread.sleep(3500);
-		dateelement= driver.findElements(By.xpath("//td[@data-attribute-name='Rating Release Date']"));
-		}
-		
-	}
-	System.out.println("Size of the ingested data is: "+size);
+	util1.switchcreatemanualcase();
+	util1.sizeofingesteddata(yesterdaydate);
 }
 
 @When("^I should to be able to ingest data from ORP for a given date$")
@@ -351,31 +295,8 @@ public void i_should_to_be_able_to_ingest_data_from_ORP_for_a_given_date() throw
 	driver.switchTo().defaultContent();
 	homepage.clickonQAReview();
 	Thread.sleep(3500);
-	for (int y = 0; y < 20; y++) {
-		try {
-			driver.switchTo().frame("PegaGadget" + y + "Ifr");
-			driver.findElement(By.xpath("//button[text()='Create Manual Case']")).getText();
-
-			break;
-		} catch (Exception e) {
-			driver.switchTo().defaultContent();
-			continue;
-		}
-	}
-	List<WebElement> dateelement= driver.findElements(By.xpath("//td[@data-attribute-name='Rating Release Date']/span"));
-	
-	for(WebElement ele:dateelement){
-		if(ele.getText().equals(yesterdaydate)){
-			 size=size+1;
-		}
-		if(size==20){
-	    driver.findElement(By.xpath("//a[@aria-label='Next Page']")).click();
-	    Thread.sleep(3500);
-		dateelement= driver.findElements(By.xpath("//td[@data-attribute-name='Rating Release Date']"));
-		}
-		
-	}
-	System.out.println("Size of the ingested data is: "+size);
+	util1.switchcreatemanualcase();
+	util1.sizeofingesteddata(yesterdaydate);
 }
 
 @When("^I Create Manual Case with the Rating Release Date four days prior to current date with ActionID \"([^\"]*)\" and analystlocation \"([^\"]*)\"$")
@@ -384,17 +305,7 @@ public void i_Create_Manual_Case_with_the_Rating_Release_Date_four_days_prior_to
 	driver.navigate().refresh();
 	Thread.sleep(4000);
 
-	for (int y = 0; y < 20; y++) {
-		try {
-			driver.switchTo().frame("PegaGadget" + y + "Ifr");
-			driver.findElement(By.xpath("//button[text()='Create Manual Case']")).getText();
-
-			break;
-		} catch (Exception e) {
-			driver.switchTo().defaultContent();
-			continue;
-		}
-	}
+	util1.switchcreatemanualcase();
 	Thread.sleep(3000);
 	
 	createcase.clickoncreatemanualcase();
@@ -768,10 +679,8 @@ public void i_should_be_able_to_search_for_the_case_with_ActionID_and_assign_it_
 	Thread.sleep(2000);
 	mywork.diaplaynewlycreatedcasebulkassignments(ACTIONID);
 	Thread.sleep(4000);
-	driver.findElement(By.xpath("//td[@data-attribute-name='Select']/div/input[@data-ctl='Checkbox']")).click();
-	driver.findElement(By.xpath("//label[text()='Assigned To']/following-sibling::div/input")).sendKeys("Test@rqms");
-	driver.findElement(By.xpath("//button[text()='Assign']")).click();
-	Thread.sleep(4000);
+	util1.assigncasetouser();
+	
 	
 }
 
@@ -783,6 +692,7 @@ public void log_into_QATS_Application_as_a_Manager() throws Throwable {
 	driver = base.launchthebrowser();
 
 	util = new Util(driver);
+	util1= new Util1(driver);
 
 	Date date = new Date();
 	DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
@@ -827,18 +737,7 @@ public void a_manager_goes_to_Create_QA_Review() throws Throwable {
 	driver.navigate().refresh();
 	Thread.sleep(9000);
 
-	for (int y = 0; y < 20; y++) {
-		
-		try {
-			driver.switchTo().frame("PegaGadget" + y + "Ifr");
-			driver.findElement(By.xpath("//button[text()='Create Manual Case']")).getText();
-
-			break;
-		} catch (Exception e) {
-			driver.switchTo().defaultContent();
-			continue;
-		}
-	}
+	util1.switchcreatemanualcase();
 	Thread.sleep(3000);
 }
 
@@ -1058,6 +957,7 @@ public void log_into_QATS_Application_as_a_Reviewer() throws Throwable {
 	driver = base.launchthebrowser();
 
 	util = new Util(driver);
+	util1= new Util1(driver);
 
 	Date date = new Date();
 	DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
@@ -1235,10 +1135,7 @@ public void i_should_be_able_to_search_for_the_case_with_ActionID_and_assign_it_
 	Thread.sleep(2000);
 	mywork.diaplaynewlycreatedcasebulkassignments(ACTIONID);
 	Thread.sleep(4000);
-	driver.findElement(By.xpath("//td[@data-attribute-name='Select']/div/input[@data-ctl='Checkbox']")).click();
-	driver.findElement(By.xpath("//label[text()='Assigned To']/following-sibling::div/input")).sendKeys("Test@rqms");
-	driver.findElement(By.xpath("//button[text()='Assign']")).click();
-	Thread.sleep(4000);
+	util1.assigncasetouser();
 	homepage.gobacktoDay4Review(ACTIONID,"Test@rqms");
 }
 
@@ -1249,10 +1146,7 @@ public void i_should_be_able_to_search_for_the_case_with_ActionID_actionid_and_a
 	Thread.sleep(2000);
 	mywork.diaplaynewlycreatedcasebulkassignments(actionid);
 	Thread.sleep(4000);
-	driver.findElement(By.xpath("//td[@data-attribute-name='Select']/div/input[@data-ctl='Checkbox']")).click();
-	driver.findElement(By.xpath("//label[text()='Assigned To']/following-sibling::div/input")).sendKeys("Test@rqms");
-	driver.findElement(By.xpath("//button[text()='Assign']")).click();
-	Thread.sleep(4000);
+	util1.assigncasetouser();
 	
 }
 
