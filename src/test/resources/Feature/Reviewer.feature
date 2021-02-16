@@ -32,7 +32,7 @@ And Submit it for Review by clicking on <Submit> button
 
 @DAY4@Reviewer
 Scenario Outline: As a QATS admin I should be able to assign Day 4 cases to QATS Users 
-Given Log into QATS Application as an Admin
+Given First Log into QATS Application as an Admin
 When I as QATS User Create Manual Case with the Rating Release Date four days prior to current date with ActionID "<ActionID>" and analystlocation "<analystloc>"
 Then I as QATS User should be able to search for the case with ActionID "<ActionID>" and assign it to QATS User and confirms the same in Day four Review
 And Reviewer confirms the case in Day four Review with ActionID "<ActionID>"

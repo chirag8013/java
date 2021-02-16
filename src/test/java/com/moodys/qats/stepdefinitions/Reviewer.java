@@ -1,4 +1,4 @@
-package com.moodys.qats.steps;
+package com.moodys.qats.stepdefinitions;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
