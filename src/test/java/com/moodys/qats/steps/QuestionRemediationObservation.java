@@ -25,11 +25,13 @@ import com.moodys.qats.utilities.Util;
 import com.moodys.qats.utilities.Util1;
 
 import cucumber.api.java.After;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
-public class DataIngestion{
+public class QuestionRemediationObservation {
 	
 	private AdminUtils_MaintainQATSValue maintainqats;
 	private String actionid;
@@ -56,8 +58,8 @@ public class DataIngestion{
 	String todaydate,completedate;
 	int datetoday;
 	
-	@When("^Log into QATS Application as an Admin to perform DataIngestion$")
-	public void log_into_QATS_Application_as_an_Admin_to_perform_DataIngestion() throws Throwable {
+	@When("^Log into QATS Application as an Admin to perform QuestionRemediation$")
+	public void log_into_QATS_Application_as_an_Admin_to_perform_QuestionRemediation() throws Throwable {
 		base = new TestBase();
 		prop = base.initialization();
 
@@ -101,73 +103,64 @@ public class DataIngestion{
 		dataingestion= new Data_Ingestion(driver);
 	}
 	
-	@When("^I should to be able to ingest data from Pyramid for a given date$")
-	public void i_should_to_be_able_to_ingest_data_from_Pyramid_for_a_given_date() throws Throwable {
-		
+	@Given("^As QATS Admin I will be needing to perform Periodic Questionnaire Maintainance$")
+	public void as_QATS_Admin_I_will_be_needing_to_perform_Periodic_Questionnaire_Maintainance() throws Throwable {
 		homepage.clickonadminutils();
-		homepage.clickondataingestion();
-		String today=todaydate.split("/")[1];
-		datetoday=Integer.parseInt(today);
-		int yesterday= datetoday-1;
-		String Yesterday= Integer.toString(yesterday);
-		String yesterdaydate= todaydate.split("/")[0]+"/"+Yesterday+"/"+todaydate.split("/")[2]; 
-		dataingestion.ondemandataingestion("Pyramid", Yesterday);
+		homepage.clickonaddquestions();
+		addupdateques.addaquestion("Chair Approval", "D36", "Sample through automation", "SAMPLE OBSERVATION AUTOMATION");
 		driver.switchTo().defaultContent();
-		homepage.clickonQAReview();
-		Thread.sleep(3500);
-		util1.switchcreatemanualcase();
-		util1.sizeofingesteddata(yesterdaydate);
+		homepage.clickonadminutils();
+		homepage.clickonupdatequestions();
+		addupdateques.updateaquestion("Chair Approval","D36", "Sample through automation update", "SAMPLE OBSERVATION AUTOMATION UPDATE","Yes");
+		
+
 	}
 
-	@When("^view the ingested data on Dashboard to support  creation of new QA reviews$")
-	public void view_the_ingested_data_on_Dashboard_to_support_creation_of_new_QA_reviews() throws Throwable {
+	@Then("^I Need to be able to add or remove questions$")
+	public void i_Need_to_be_able_to_add_or_remove_questions() throws Throwable {
+
+	}
+
+	@Then("^or change the Observations$")
+	public void or_change_the_Observations() throws Throwable {
 	 
 	}
 
-	@When("^I should to be able to ingest data from Accurate for a given date$")
-	public void i_should_to_be_able_to_ingest_data_from_Accurate_for_a_given_date() throws Throwable {
-		int size=0;
-		homepage.clickonadminutils();
-		homepage.clickondataingestion();
-		String today=todaydate.split("/")[1];
-		datetoday=Integer.parseInt(today);
-		int yesterday= datetoday-1;
-		String Yesterday= Integer.toString(yesterday);
-		String yesterdaydate= todaydate.split("/")[0]+"/"+Yesterday+"/"+todaydate.split("/")[2]; 
-		dataingestion.ondemandataingestion("Accurate", Yesterday);
-		driver.switchTo().defaultContent();
-		homepage.clickonQAReview();
-		Thread.sleep(3500);
-		util1.switchcreatemanualcase();
-		util1.sizeofingesteddata(yesterdaydate);
+	@Then("^or change the wording of the questions$")
+	public void or_change_the_wording_of_the_questions() throws Throwable {
+	    
 	}
 
-	@When("^I should to be able to ingest data from ORP for a given date$")
-	public void i_should_to_be_able_to_ingest_data_from_ORP_for_a_given_date() throws Throwable {
-		int size=0;
+	@Given("^As part of the Remediation Maintainance$")
+	public void as_part_of_the_Remediation_Maintainance() throws Throwable {
 		homepage.clickonadminutils();
-		homepage.clickondataingestion();
-		String today=todaydate.split("/")[1];
-		datetoday=Integer.parseInt(today);
-		int yesterday= datetoday-1;
-		String Yesterday= Integer.toString(yesterday);
-		String yesterdaydate= todaydate.split("/")[0]+"/"+Yesterday+"/"+todaydate.split("/")[2]; 
-		dataingestion.ondemandataingestion("ORP", Yesterday);
-		driver.switchTo().defaultContent();
-		homepage.clickonQAReview();
-		Thread.sleep(3500);
-		util1.switchcreatemanualcase();
-		util1.sizeofingesteddata(yesterdaydate);
+		homepage.clickonaddremediation();
+	    addupdateremediation.addremediation("Chair Approval", "Sample through automation update", "Kindly Upload");
+	    driver.switchTo().defaultContent();
+	    homepage.clickonadminutils();
+	    homepage.clickonupdateremediation();
+	    addupdateremediation.updateremediation("Chair Approval", "Sample through automation update","Kindly upload necessary documents");
+	    driver.switchTo().defaultContent();
+	    homepage.clickonadminutils();
+		homepage.clickonupdatequestions();
+		addupdateques.updateaquestion("Chair Approval","D36", "Sample through automation update", "SAMPLE OBSERVATION AUTOMATION UPDATE","No");
+	}
+
+	@Then("^I need to be able to add or remove Remediations$")
+	public void i_need_to_be_able_to_add_or_remove_Remediations() throws Throwable {
+	 
+	}
+
+	@Then("^change the wording of the Remediations$")
+	public void change_the_wording_of_the_Remediations() throws Throwable {
+	    
+	    
 	}
 	
-	@After("@DataIngestion")
+	@After("@QuesRemed")
 	public void teardown() throws InterruptedException {
 
 		util.teardown();
 	}
-
-	
-	
-	
 
 }

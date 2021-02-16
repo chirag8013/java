@@ -1,4 +1,4 @@
-package com.moodys.qats.stepdefinitions;
+package com.moodys.qats.steps;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -29,6 +29,7 @@ import com.moodys.qats.utilities.TestBase;
 import com.moodys.qats.utilities.Util;
 import com.moodys.qats.utilities.Util1;
 
+import cucumber.api.java.After;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import lombok.extern.log4j.Log4j2;
@@ -265,6 +266,12 @@ public class Manager {
 		createcase.clickoncreatemanualcase();
 		createcase.createmanualcasewithcompletedate(actionid, CaseDesc, sourcename, leadanalyst, ratingactiondate,analystloca);
 		createcase.clickoncreatecase();
+	}
+	
+	@After("@Manager")
+	public void teardown() throws InterruptedException {
+
+		util.teardown();
 	}
 	
 	

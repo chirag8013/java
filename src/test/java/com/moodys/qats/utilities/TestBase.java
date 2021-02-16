@@ -41,7 +41,7 @@ public class TestBase{
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless");
 		options.addArguments("window-size=1920,1080");
-		driver = new ChromeDriver(options);
+		driver = new ChromeDriver();
         driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		return driver;

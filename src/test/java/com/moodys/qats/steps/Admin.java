@@ -24,6 +24,8 @@ import com.moodys.qats.utilities.TestBase;
 import com.moodys.qats.utilities.Util;
 import com.moodys.qats.utilities.Util1;
 
+import cucumber.api.java.After;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import lombok.extern.log4j.Log4j2;
@@ -56,6 +58,51 @@ public class Admin {
 	String todaydate,completedate;
 	int datetoday;
 	
+	
+	@When("^Log into QATS Application as an Admin$")
+	public void log_into_QATS_Application_as_an_Admin() throws Throwable {
+		base = new TestBase();
+		prop = base.initialization();
+
+		driver = base.launchthebrowser();
+
+		util = new Util(driver);
+		util1= new Util1(driver);
+
+		Date date = new Date();
+		DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
+		DateFormat dateformat1 = new SimpleDateFormat("MMMM/dd/yyyy");
+		todaydate = dateformat.format(date);
+		 completedate= dateformat1.format(date);
+		log.info("Today is " + todaydate);
+		log.info("Today is " + completedate);
+		driver.get(prop.getProperty("url"));
+		log.info(prop.getProperty("welcome"));
+
+
+	loginpage = new QATS_LoginPage(driver);
+		log.info("----------------------------------");
+		String title = loginpage.LoginPageTitle();
+		log.info(title);
+		Assert.assertEquals(title, "Welcome to PegaRULES");
+		log.info("Login Page Title Verified as expected- " + title);
+		log.info("----------------------------------");
+
+
+	homepage = loginpage.Login(driver, prop.getProperty("AdminUserName"), prop.getProperty("AdminPassword"));
+	homepage.switchtoAdministrator();
+
+		Thread.sleep(4000);
+		createcase = new CreateQAReviewManualCase(driver);
+		mywork = new MyWork(driver);
+		dashboard = new Dashboard(driver);
+		qrsheet = new QualityReferenceSheet(driver);
+		sourcevsqats = new AdminUtils_SourceVsQATSMapping(driver);
+		maintainqats= new AdminUtils_MaintainQATSValue(driver);
+		addupdateques= new Add_Update_Questions(driver);
+		addupdateremediation= new Add_Update_Remediation(driver);
+		dataingestion= new Data_Ingestion(driver);
+	}
 	
 	
 	@When("^I choose the Mapping QATS to Source from Admin Utils Menu$")
@@ -167,6 +214,30 @@ public void i_Should_be_able_to_start_using_the_newly_mapped_QATSValue_on_new_ca
 public void admin_change_the_status_of_Region_QATSValue_Active_or_Inactive(String qatsvalue) throws Throwable {
 	maintainqats.selectqatsvalueandmakeactiveorinactiveregionandsubmit(qatsvalue);
 }
+
+@Given("^I am able to access the Edit Review Date button from Admin Utils Page$")
+public void i_am_able_to_access_the_Edit_Review_Date_button_from_Admin_Utils_Page() throws Throwable {
+	homepage.clickonadminutils();
+	homepage.clickoneditreviewdate();
+}
+
+@Given("^Provide the AnalystLocation \"([^\"]*)\" and RatingDate \"([^\"]*)\" and NewReviewDate \"([^\"]*)\" and save changes$")
+public void provide_the_AnalystLocation_and_RatingDate_and_NewReviewDate_and_save_changes(String AnalystLocCode, String RatingDate, String NewReviewDate) throws Throwable {
+	homepage.Editreviewdatefields(AnalystLocCode, RatingDate, NewReviewDate);
+}
+
+@Then("^Review Date is updated to \"([^\"]*)\" for all the sorted cases$")
+public void review_Date_is_updated_to_for_all_the_sorted_cases(String arg1) throws Throwable {
+	log.info("Review date updated successfully");
+}
+
+
+@After("@Admin")
+public void teardown() throws InterruptedException {
+
+	util.teardown();
+}
+
 
 
 }

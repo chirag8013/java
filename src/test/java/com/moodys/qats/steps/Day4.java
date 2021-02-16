@@ -24,11 +24,13 @@ import com.moodys.qats.utilities.TestBase;
 import com.moodys.qats.utilities.Util;
 import com.moodys.qats.utilities.Util1;
 
+import cucumber.api.java.After;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
-public class common {
+public class Day4 {
 	
 	private AdminUtils_MaintainQATSValue maintainqats;
 	private String actionid;
@@ -55,8 +57,8 @@ public class common {
 	String todaydate,completedate;
 	int datetoday;
 	
-	@When("^Log into QATS Application as an Admin$")
-	public void log_into_QATS_Application_as_an_Admin() throws Throwable {
+	@When("^Log into QATS Application as an Admin to perform Day4$")
+	public void log_into_QATS_Application_as_an_Admin_to_perform_Day4() throws Throwable {
 		base = new TestBase();
 		prop = base.initialization();
 
@@ -99,5 +101,46 @@ public class common {
 		addupdateremediation= new Add_Update_Remediation(driver);
 		dataingestion= new Data_Ingestion(driver);
 	}
+	
+	@When("^I Create Manual Case with the Rating Release Date four days prior to current date with ActionID \"([^\"]*)\" and analystlocation \"([^\"]*)\"$")
+	public void i_Create_Manual_Case_with_the_Rating_Release_Date_four_days_prior_to_current_date_with_ActionID_and_analystlocation(String ActionID, String analystloca) throws Throwable {
+		homepage.clickonQAReview();
+		driver.navigate().refresh();
+		Thread.sleep(4000);
+
+		util1.switchcreatemanualcase();
+		Thread.sleep(3000);
+		
+		createcase.clickoncreatemanualcase();
+		String fourdaysbeforedate=util1.fourdaysbefratingrelcalc(todaydate, analystloca, completedate);
+		
+		createcase.createmanualcasewithdate(ActionID, prop.getProperty("CaseDesc"),
+				prop.getProperty("Sourcename"), prop.getProperty("LeadAnalyst"), fourdaysbeforedate,analystloca);
+		createcase.clickoncreatecase();
+	}
+
+
+	@Then("^I should be able to search for the case with ActionID \"([^\"]*)\" on Day(\\d+) Review screen$")
+	public void i_should_be_able_to_search_for_the_case_with_ActionID_on_Day_Review_screen(String Actionid, int arg2) throws Throwable {
+		homepage.gobacktoDay4Review(Actionid,"QualityReview");
+	}
+	
+	@Then("^I should be able to search for the case with ActionID \"([^\"]*)\" and assign it to QATS User and confirms the same in Day four Review$")
+	public void i_should_be_able_to_search_for_the_case_with_ActionID_and_assign_it_to_QATS_User_and_confirms_the_same_in_Day_four_Review(String ACTIONID) throws Throwable {
+		homepage.gobacktodashboardforbulkassignments();
+		dashboard.clickonbulkassignments();
+		Thread.sleep(2000);
+		mywork.diaplaynewlycreatedcasebulkassignments(ACTIONID);
+		Thread.sleep(4000);
+		util1.assigncasetouser();
+		homepage.gobacktoDay4Review(ACTIONID,"Test@rqms");
+	}
+	
+	@After("@Day4Scenario")
+	public void teardown() throws InterruptedException {
+
+		util.teardown();
+	}
+	
 
 }
