@@ -147,11 +147,11 @@ public class ReviewDueDateCalculator{
 			}
 			
 			for(int i=0;i<read.getrowcount()-10;i++){
-				if(dates.get(i)>=dat&&dates.get(i)<=reviewduedate&&reviewduedate<=30&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&!monstr.equalsIgnoreCase("February")&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)){
+				if(dates.get(i)>dat&&dates.get(i)<=reviewduedate&&reviewduedate<=30&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)){
 					reviewduedate=reviewduedate+1;
 				}
 				
-if(dates.get(i)>=dat&&dates.get(i)<=reviewduedate&&reviewduedate<=28&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&monstr.equalsIgnoreCase("February")&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&mon==2){
+if(dates.get(i)>dat&&dates.get(i)<=reviewduedate&&reviewduedate<=28&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)){
 	reviewduedate=reviewduedate+1;
 				}
 
@@ -235,6 +235,8 @@ if(dates.get(i)==9&&reviewduedate>=40&&years.get(i).contains(yeastr)&&months.get
 if(dates.get(i)==29&&reviewduedate>=29&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
 	reviewduedate=reviewduedate+1;
 }
+
+
 
 
 if(dates.get(i)==1&&reviewduedate>=29&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==28){
@@ -369,6 +371,16 @@ if(dates.get(i)==7&&reviewduedate>=38&&years.get(i).contains(nextyear)&&months.g
 			if(dow==2&&(reviewduedate-dat)>11){
 				reviewduedate=reviewduedate+2;
 			}
+			
+			if(dow==1&&(reviewduedate-dat)>5){
+				reviewduedate=reviewduedate+2;
+			}
+			
+			if(dow==7&&(reviewduedate-dat)>6){
+				reviewduedate=reviewduedate+2;
+			}
+			
+			
 			
 			if(dow==1&&(reviewduedate-dat)>12){
 				reviewduedate=reviewduedate+2;
@@ -630,6 +642,45 @@ if(dates.get(i)==7&&reviewduedate>=38&&years.get(i).contains(nextyear)&&months.g
 				reviewduemonth=1;
 				yea=yea+1;
 			}
+			
+			if(reviewduedate==38&&lastdateofmonth==31&&(mon==12)){
+				reviewduedate=7;
+				reviewduemonth=1;
+				yea=yea+1;
+			}
+			
+			if(reviewduedate==38&&lastdateofmonth==30&&(mon==12)){
+				reviewduedate=8;
+				reviewduemonth=1;
+				yea=yea+1;
+			}
+			
+			if(reviewduedate==39&&lastdateofmonth==31&&(mon==12)){
+				reviewduedate=8;
+				reviewduemonth=1;
+				yea=yea+1;
+			}
+			
+			if(reviewduedate==39&&lastdateofmonth==30&&(mon==12)){
+				reviewduedate=9;
+				reviewduemonth=1;
+				yea=yea+1;
+			}
+			
+			if(reviewduedate==40&&lastdateofmonth==31&&(mon==12)){
+				reviewduedate=9;
+				reviewduemonth=1;
+				yea=yea+1;
+			}
+			
+			if(reviewduedate==40&&lastdateofmonth==30&&(mon==12)){
+				reviewduedate=10;
+				reviewduemonth=1;
+				yea=yea+1;
+			}
+			
+			
+			
 			
 	
 			

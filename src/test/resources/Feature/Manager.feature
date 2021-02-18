@@ -40,7 +40,8 @@ Then Search for Case Id in Dashboard to validate successful case creation with a
 
 Examples:
 |actionid|CaseDesc|sourcename|leadanalyst|ratingactiondate|analystloc|
-|Moodys Holiday 02|Moodys Holiday user story verification 02|Accurate|David Sweeney|02/14/2021|Buenos Aires - Ing. Butty 240|
+|Moodys N Holiday 32|Moodys N Holiday user story verification 32|Accurate|David Sweeney|02/18/2021|Moscow - Four Winds Plaza|
+|
 
 
 @ignore@Manager
