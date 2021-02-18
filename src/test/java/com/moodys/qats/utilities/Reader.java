@@ -6,7 +6,7 @@ import com.moodys.qats.utilities.*;
 
 public class Reader{
 
-	static List<String> years, months, dayofweek,region,countryid;
+	static List<String> years, months, dayofweek,region,countryid,holidayflags;
 	static List<Integer> dates;
 	  int rowcount;
 
@@ -129,6 +129,8 @@ public class Reader{
 
 	}
 	
+	
+	
 	public List<String> getcountryid() {
 
 		countryid = new ArrayList<String>();
@@ -150,6 +152,29 @@ public class Reader{
 		// TODO Auto-generated method stub
 
 	}
+	
+	public List<String> getmoodysholiday() {
+
+		holidayflags = new ArrayList<String>();
+
+		rowcount = reader.getRowCount(SHEETNAME);
+		//System.out.println("Total number of rows in the holiday calender is " + rowcount);
+
+		for (int i = 2; i <= rowcount; i++) {
+
+			String holiday = reader.getCellData(SHEETNAME, 17, i);
+
+			holidayflags.add(holiday);
+
+		}
+		// System.out.println(dayofweek);
+
+		return holidayflags;
+
+		// TODO Auto-generated method stub
+
+	}
+
 
 	public int getrowcount() {
 		rowcount = reader.getRowCount(SHEETNAME);

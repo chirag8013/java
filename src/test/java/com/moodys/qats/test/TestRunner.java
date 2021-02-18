@@ -13,10 +13,10 @@ import cucumber.api.testng.TestNGCucumberRunner;
 
 
 @CucumberOptions(
-		features = {"src/test/resources/Feature"},
+		features = {"src/test/resources/Feature/Manager.feature"},
         glue = {"com.moodys.qats.steps"},
         monochrome = true, 
-       tags={"~@ignore"},
+       tags={"@First"},
       // dryRun=true,
 		strict = true,
         format = {

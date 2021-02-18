@@ -38,7 +38,7 @@ public class ReviewDueDateCalculator{
 			int reviewduemonth=mon;
 			
 			if(dow==1){
-				reviewduedate=reviewduedate+3;
+				reviewduedate=reviewduedate;
 			}
 			
 			if(dow==2||dow==3||dow==4||dow==5||dow==6){
@@ -46,7 +46,7 @@ public class ReviewDueDateCalculator{
 			}
 			
 			if(dow==7){
-				reviewduedate=reviewduedate+4;
+				reviewduedate=reviewduedate+1;
 			}
 			
 			Reader read = new Reader();
@@ -57,6 +57,9 @@ public class ReviewDueDateCalculator{
 			List<String> daysofweek= read.getholidaydayofweek();
 			List<String> regionids= read.getregionid();
 			List<String> countryids= read.getcountryid();
+			List<String> moodysholiday= read.getmoodysholiday();
+			
+			
 			
 			
 			
@@ -144,196 +147,196 @@ public class ReviewDueDateCalculator{
 			}
 			
 			for(int i=0;i<read.getrowcount()-10;i++){
-				if(dates.get(i)>=dat&&dates.get(i)<=reviewduedate&&reviewduedate<=30&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&!monstr.equalsIgnoreCase("February")&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)){
+				if(dates.get(i)>=dat&&dates.get(i)<=reviewduedate&&reviewduedate<=30&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&!monstr.equalsIgnoreCase("February")&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)){
 					reviewduedate=reviewduedate+1;
 				}
 				
-if(dates.get(i)>=dat&&dates.get(i)<=reviewduedate&&reviewduedate<=28&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&monstr.equalsIgnoreCase("February")&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&mon==2){
+if(dates.get(i)>=dat&&dates.get(i)<=reviewduedate&&reviewduedate<=28&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&monstr.equalsIgnoreCase("February")&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&mon==2){
 	reviewduedate=reviewduedate+1;
 				}
 
-if(dates.get(i)==31&&reviewduedate==31&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==31&&reviewduedate>=31&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
 
-if(dates.get(i)==1&&reviewduedate==31&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
+if(dates.get(i)==1&&reviewduedate>=31&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==1&&reviewduedate==32&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==1&&reviewduedate>=32&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==2&&reviewduedate==32&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
+if(dates.get(i)==2&&reviewduedate>=32&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==2&&reviewduedate==33&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==2&&reviewduedate>=33&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==3&&reviewduedate==33&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
+if(dates.get(i)==3&&reviewduedate>=33&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==3&&reviewduedate==34&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==3&&reviewduedate>=34&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==4&&reviewduedate==34&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
+if(dates.get(i)==4&&reviewduedate>=34&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==4&&reviewduedate==35&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==4&&reviewduedate>=35&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==5&&reviewduedate==35&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
+if(dates.get(i)==5&&reviewduedate>=35&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==5&&reviewduedate==36&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==5&&reviewduedate>=36&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==6&&reviewduedate==36&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
+if(dates.get(i)==6&&reviewduedate>=36&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==6&&reviewduedate==37&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==6&&reviewduedate>=37&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==7&&reviewduedate==37&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
+if(dates.get(i)==7&&reviewduedate>=37&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==7&&reviewduedate==38&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==7&&reviewduedate>=38&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==8&&reviewduedate==38&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
+if(dates.get(i)==8&&reviewduedate>=38&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==8&&reviewduedate==39&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==8&&reviewduedate>=39&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==9&&reviewduedate==39&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
+if(dates.get(i)==9&&reviewduedate>=39&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==30){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==9&&reviewduedate==40&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==9&&reviewduedate>=40&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&!(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
-if(dates.get(i)==29&&reviewduedate==29&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
-	reviewduedate=reviewduedate+1;
-}
-
-
-if(dates.get(i)==1&&reviewduedate==29&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==28){
-	reviewduedate=reviewduedate+1;
-}
-
-if(dates.get(i)==1&&reviewduedate==30&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
-	reviewduedate=reviewduedate+1;
-}
-
-if(dates.get(i)==2&&reviewduedate==30&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==28){
-	reviewduedate=reviewduedate+1;
-}
-
-if(dates.get(i)==2&&reviewduedate==31&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
-	reviewduedate=reviewduedate+1;
-}
-
-if(dates.get(i)==3&&reviewduedate==31&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==28){
-	reviewduedate=reviewduedate+1;
-}
-
-if(dates.get(i)==3&&reviewduedate==32&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
-	reviewduedate=reviewduedate+1;
-}
-
-if(dates.get(i)==4&&reviewduedate==32&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==28){
-	reviewduedate=reviewduedate+1;
-}
-
-if(dates.get(i)==4&&reviewduedate==33&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
-	reviewduedate=reviewduedate+1;
-}
-
-if(dates.get(i)==5&&reviewduedate==33&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==28){
-	reviewduedate=reviewduedate+1;
-}
-
-if(dates.get(i)==5&&reviewduedate==34&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
-	reviewduedate=reviewduedate+1;
-}
-
-if(dates.get(i)==6&&reviewduedate==34&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==28){
-	reviewduedate=reviewduedate+1;
-}
-
-if(dates.get(i)==6&&reviewduedate==35&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
-	reviewduedate=reviewduedate+1;
-}
-
-if(dates.get(i)==7&&reviewduedate==35&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==28){
-	reviewduedate=reviewduedate+1;
-}
-
-if(dates.get(i)==7&&reviewduedate==36&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
-	reviewduedate=reviewduedate+1;
-}
-
-if(dates.get(i)==31&&reviewduedate==31&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==29&&reviewduedate>=29&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
 	reviewduedate=reviewduedate+1;
 }
 
 
+if(dates.get(i)==1&&reviewduedate>=29&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==28){
+	reviewduedate=reviewduedate+1;
+}
 
+if(dates.get(i)==1&&reviewduedate>=30&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
+	reviewduedate=reviewduedate+1;
+}
 
-if(dates.get(i)==1&&reviewduedate==32&&years.get(i).contains(nextyear)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==2&&reviewduedate>=30&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==28){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==2&&reviewduedate>=31&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==3&&reviewduedate>=31&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==28){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==3&&reviewduedate>=32&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==4&&reviewduedate>=32&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==28){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==4&&reviewduedate>=33&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==5&&reviewduedate>=33&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==28){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==5&&reviewduedate>=34&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==6&&reviewduedate>=34&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==28){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==6&&reviewduedate>=35&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==7&&reviewduedate>=35&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==28){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==7&&reviewduedate>=36&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&(mon==2)&&!(mon==12)&&lastdateofmonth==29){
+	reviewduedate=reviewduedate+1;
+}
+
+if(dates.get(i)==31&&reviewduedate>=31&&years.get(i).contains(yeastr)&&months.get(i).equalsIgnoreCase(monstr)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
 
 
-if(dates.get(i)==2&&reviewduedate==33&&years.get(i).contains(nextyear)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
+
+if(dates.get(i)==1&&reviewduedate>=32&&years.get(i).contains(nextyear)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
 
 
-if(dates.get(i)==3&&reviewduedate==34&&years.get(i).contains(nextyear)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==2&&reviewduedate>=33&&years.get(i).contains(nextyear)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
 
 
-if(dates.get(i)==4&&reviewduedate==35&&years.get(i).contains(nextyear)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==3&&reviewduedate>=34&&years.get(i).contains(nextyear)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
 
 
-if(dates.get(i)==5&&reviewduedate==36&&years.get(i).contains(nextyear)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==4&&reviewduedate>=35&&years.get(i).contains(nextyear)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
 
 
-if(dates.get(i)==6&&reviewduedate==37&&years.get(i).contains(nextyear)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==5&&reviewduedate>=36&&years.get(i).contains(nextyear)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
 
 
-if(dates.get(i)==7&&reviewduedate==38&&years.get(i).contains(nextyear)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
+if(dates.get(i)==6&&reviewduedate>=37&&years.get(i).contains(nextyear)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
+	reviewduedate=reviewduedate+1;
+}
+
+
+
+if(dates.get(i)==7&&reviewduedate>=38&&years.get(i).contains(nextyear)&&months.get(i).equalsIgnoreCase(nextmonth)&&countryids.get(i).equalsIgnoreCase(countryid)&&regionids.get(i).equalsIgnoreCase(regionid)&&moodysholiday.get(i).equalsIgnoreCase("Y")&&!daysofweek.get(i).equalsIgnoreCase("Sunday")&&!daysofweek.get(i).equalsIgnoreCase("Saturday")&&!(mon==2)&&(mon==12)&&lastdateofmonth==31){
 	reviewduedate=reviewduedate+1;
 }
 
