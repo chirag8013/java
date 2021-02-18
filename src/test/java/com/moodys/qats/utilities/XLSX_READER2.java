@@ -50,15 +50,7 @@ public class XLSX_READER2 {
 
 		}
 
-		/**
-		 * Code has been updated as per new POI version - 4.x.x
-		 * 
-		 * @author NaveenKhunteta
-		 * @param sheetName
-		 * @param colNum
-		 * @param rowNum
-		 * @return
-		 */
+		
 		// returns the data from a cell
 		public String getCellData(String sheetName, String colName, int rowNum) {
 			try {

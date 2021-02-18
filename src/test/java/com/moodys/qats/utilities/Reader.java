@@ -10,7 +10,7 @@ public class Reader{
 	static List<Integer> dates;
 	  int rowcount;
 
-	XLSX_READER1 reader = new XLSX_READER1("D:\\Users/VermaC/Documents/ui/ELKP_HOLIDAY_UAT.xlsx");
+	XLSX_READER1 reader = new XLSX_READER1("src/test/resources/ELKP_HOLIDAY_UAT.xlsx");
 	String SHEETNAME = "ELKP_HOLIDAY";
 
 	public List<Integer> getholidaydates() {

@@ -85,7 +85,12 @@
             <version>3.8.0</version>
         </dependency>
         
-             
+            <dependency>
+            <groupId>ru.yandex.qatools.allure</groupId>
+            <artifactId>allure-core</artifactId>
+            <version>${allure.version}</version>
+            <type>pom</type>
+        </dependency>
         
 
    

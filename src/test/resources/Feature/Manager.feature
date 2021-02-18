@@ -40,25 +40,7 @@ Then Search for Case Id in Dashboard to validate successful case creation with a
 
 Examples:
 |actionid|CaseDesc|sourcename|leadanalyst|ratingactiondate|analystloc|
-|Moodys Holiday 01|Moodys Holiday user story verification 01|Accurate|David Sweeney|02/12/2021|Buenos Aires - Ing. Butty 240|
 |Moodys Holiday 02|Moodys Holiday user story verification 02|Accurate|David Sweeney|02/14/2021|Buenos Aires - Ing. Butty 240|
-|Moodys Holiday 03|Moodys Holiday user story verification 03|Accurate|David Sweeney|02/12/2021|San Francisco - One Front Street|
-|Moodys Holiday 04|Moodys Holiday user story verification 04|Pyramid|David Sweeney|02/10/2021|Tokyo - Atago Green Hills Mori Tower 20fl|
-|Moodys Holiday 05|Moodys Holiday user story verification 05|Pyramid|David Sweeney|01/01/2021|Tokyo - Atago Green Hills Mori Tower 20fl|
-|Moodys Holiday 06|Moodys Holiday user story verification 06|Pyramid|David Sweeney|12/30/2020|Tokyo - Atago Green Hills Mori Tower 20fl|
-|Moodys Holiday 07|Moodys Holiday user story verification 07|Pyramid|David Sweeney|02/22/2021|Tokyo - Atago Green Hills Mori Tower 20fl|
-|Moodys Holiday 08|Moodys Holiday user story verification 08|Pyramid|David Sweeney|01/09/2021|Tokyo - Atago Green Hills Mori Tower 20fl|
-|Moodys Holiday 09|Moodys Holiday user story verification 09|Pyramid|David Sweeney|01/05/2021|Stockholm- Norrlandsgatan 20|
-|Moodys Holiday 10|Moodys Holiday user story verification 10|ORP|David Sweeney|12/30/2020|Stockholm- Norrlandsgatan 20|
-
-
-
-
-
-
-
-
-
 
 
 @ignore@Manager
