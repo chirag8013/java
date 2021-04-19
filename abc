@@ -1,0 +1,28 @@
+String baseUrl = "https://return-order-app.herokuapp.com/";
+		driver.get(baseUrl);
+
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("1257945872");
+
+		driver.findElement(By.xpath("//button[text()]")).click();
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scroll(0,4000)");
+		
+		Thread.sleep(3500);
+
+		driver.findElement(By.xpath("//button[text()='Return This Product']")).click();
+		Thread.sleep(3500);
+
+		WebElement result_div = driver.findElement(By.xpath("//div[@class='result']"));
+
+		String result_str = result_div.getText();
+
+		try {
+			FileWriter myWriter = new FileWriter("result.txt");
+			myWriter.write(result_str);
+			myWriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		driver.close();

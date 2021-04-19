@@ -42,10 +42,6 @@ Examples:
 |Case check 01|Buenos Aires - Ing. Butty 240|
 
 
-
-
-
-
 @manual@Reviewer
 Scenario Outline: As a Reviewer I will be able to see the the Manually created Cases Assigned to me by Manager in My Work
 Given First Log into QATS Application as a Manager

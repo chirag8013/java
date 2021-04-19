@@ -19,6 +19,7 @@ public class TestBase{
 	public  Properties initialization() throws Exception {
 		String ENV_VAR1 = Optional.ofNullable(System.getProperty("ENV_VAR1")).orElseThrow(
 				() -> new Exception("ENV_VAR1 is not set in the environment"));
+	
 
 		String path = "src/test/resources/"+ENV_VAR1+"/Config.Properties";
 //		String path = "src/test/resources/Config.Properties";
