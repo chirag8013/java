@@ -12,10 +12,10 @@ import cucumber.api.testng.TestNGCucumberRunner;
 
 
 @CucumberOptions(
-		features={"classpath:features"},
+		features={"classpath:features/ACCURATE_NEW.feature"},
         glue = {"com.moodys.meerqats.stepdefinitions"},
         monochrome = true, 
-    //tags={"@Second"},
+    tags={"@First"},
 //dryRun=true,
 		strict = true,
         format = {

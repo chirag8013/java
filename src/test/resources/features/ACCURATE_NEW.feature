@@ -1,6 +1,6 @@
 Feature: Get Rating Actions For Accurate
-  @First
-  Scenario: User calls web service to get rating actions for Accurate 
+    @First
+    Scenario: User calls web service to get rating actions for Accurate 
 	Given web service returns rating actions for RatingRelInfoAccurate between dates 20201018 and 20201021
 	When a user requests for rating release data for Accurate by Dates 
 	Then the status code for Accurate is 200

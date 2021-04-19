@@ -1,6 +1,8 @@
 package com.moodys.meerqats.stepdefinitions;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.hasItem;
+
+import java.io.File;
 import java.io.InputStream;
 import java.util.HashSet;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
 import org.testng.Assert;
 
 import com.moodys.meerqats.utilities.utilities;
@@ -34,6 +37,10 @@ public class AccurateStepDefinition {
 		prop.load(is);
 		String ENDPOINT_URL= prop.getProperty("ratingrelinfobaseurl");
 	   response= given().auth().preemptive().basic(prop.getProperty("RestUsername"), prop.getProperty("RestPassword")).when().get(ENDPOINT_URL+"Accurate/"+startdate+"/"+enddate);
+	   System.out.println(response);
+	   File f = new File("response.json");
+	   FileUtils.copyInputStreamToFile(response.getBody().asInputStream(), f);
+	   
 	}
 
 	@When("^a user requests for rating release data for Accurate by Dates$")

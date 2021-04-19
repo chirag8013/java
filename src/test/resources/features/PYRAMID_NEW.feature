@@ -1,4 +1,6 @@
 Feature: Get Rating Actions For Pyramid
+
+@First
   Scenario: User calls web service to get rating actions for Pyramid 
 	Given web service returns rating actions for RatingRelInfoPyramid between dates 20200923 and 20200925
 	When a user requests for rating release data for Pyramid by Dates
